@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malali.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./js/tailwindcss.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="font-poppins text-base">
+  <header>
+    <nav class="top-nav fixed z-[1] top-0 inset-x-0 text-white">
+      <div class="flex items-center justify-between max-w-screen-lg mx-auto p-4">
+        <a href="./">
+          <h3 class="text-2xl font-bold">malali.</h3>
+        </a>
+
+        <div>
+          <button class="p-1.5 px-4">Login</button>
+          <button class="p-1.5 px-4 bg-blue-500 text-white rounded-full">Register</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <div class="mx-auto sm:h-80">
+      <img src="https://kimasurf.com/images/header-balisurf.jpg" alt="" class="w-full h-full object-cover rounded-b-2xl">
+
+      <div class="relative max-w-screen-lg mx-auto">
+        
+      </div>
+    </div>
+  </section>
+
+  <section id="detailed">
+    <div class="max-w-screen-lg mx-auto mt-8 p-4">
+      <div class="flex flex-col sm:flex-row gap-2">
+        <div class="sm:w-3/4">
+          <img src="http://quickdevs.com/demo/travi/images/commons/feature-thumb-0.jpg" class="w-full h-full object-cover">
+        </div>
+        <div class="hidden sm:flex sm:flex-col gap-2 w-1/4">
+          <img src="http://quickdevs.com/demo/travi/images/commons/feature-thumb-1.jpg" class="w-1/2 h-full object-cover sm:w-full">
+          <img src="http://quickdevs.com/demo/travi/images/commons/feature-thumb-2.jpg" class="w-1/2 h-full object-cover sm:w-full">
+        </div>
+      </div>
+
+      <div class="py-6 space-y-2">
+        <h5 class="text-xl font-bold">ATV Adventure in Bavaro</h5>
+        <p>Boundless Boat Charters' family-friendly fishing excursions are limited to four passengers, meaning there's plenty of space for everyone to comfortably reel in their catch. The company runs morning and afternoon trips that last 5 1/2 hours (perfect for first-timers or young anglers), nine-hour trips offshore or to Mexico's Coronado Islands, and a full-day (12-hour) deep-sea fishing outing.</p>
+        <p>Coletta Sportfishing offers daily private charters on both its boats. Coletta is family-friendly and caters to all experience levels; the captain and crew will teach young and first-time anglers the basics of sportfishing. Outings range from half-day trips (5 1/2 hours) to full-day (12-hour) charters.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="book-trip">
+    <div class="max-w-screen-lg mx-auto mb-4 p-4">
+      <h5 class="text-xl font-bold">Book Your Trip Now</h5>
+      <div class="flex flex-col sm:flex-row gap-2">
+        <div class="sm:w-3/4">
+          <form action="" class="mt-4 space-y-2">
+            <input type="text" name="" id="" class="peer w-full p-3 px-4 bg-slate-100 rounded-full" placeholder="Name" required>
+            <div class="flex gap-2">
+              <input type="text" name="" id="" class="w-full p-3 px-4 bg-slate-100 rounded-full" placeholder="Phone Number">
+              <input type="text" name="" id="" class="w-full p-3 px-4 bg-slate-100 rounded-full" placeholder="Email Address">
+            </div>
+            <textarea name="" id="" cols="30" rows="5" class="w-full p-3 px-4 bg-slate-100 rounded-lg" placeholder="Your Message"></textarea>
+            <div class="text-end">
+              <button class="p-3 px-4 bg-blue-500 rounded-full text-white">Book Now</button>
+            </div>
+          </form>
+        </div>
+        <div class="w-1/4">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    window.addEventListener('scroll', function () {
+      const currentScrollPos = window.pageYOffset;
+      if (currentScrollPos > 60) {
+        document.querySelector('.top-nav').classList.add('bg-white/75','text-blue-500','backdrop-blur');
+      } else {
+        document.querySelector('.top-nav').classList.remove('bg-white/75','text-blue-500','backdrop-blur');
+      }
+    });
+  </script>
+</body>
+</html>

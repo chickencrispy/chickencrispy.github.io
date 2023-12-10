@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travee</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./js/tailwindcss.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="font-poppins text-base">
+  <header>
+    <nav class="top-nav fixed z-[1] top-0 inset-x-0 text-white">
+      <div class="flex items-center justify-between max-w-screen-lg mx-auto p-4">
+        <a href="./">
+          <h3 class="text-2xl font-bold">malali.</h3>
+        </a>
+
+        <div>
+          <button class="p-1.5 px-4">Login</button>
+          <button class="p-1.5 px-4 bg-blue-500 text-white rounded-full">Register</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <div class="mx-auto h-[480px]">
+      <img src="https://kimasurf.com/images/header-balisurf.jpg" alt="" class="w-full h-full object-cover rounded-b-2xl">
+
+      <div class="relative max-w-screen-lg mx-auto">
+        <div class="absolute bottom-0 inset-x-0 pb-4 flex overflow-x-auto items-center gap-6">
+          <div class="flex sm:flex-col w-full p-4 bg-white/75 rounded-lg">
+            <img src="http://quickdevs.com/demo/travi/images/icons/scuba-diving.png" class="w-10">
+            <div class="flex flex-col">
+              <h5 class="text-xl font-bold">Scuba Diving</h5>
+              <p class="text-sm text-slate-500">Adrenaline-pumping excursions for the experienced.</p>
+            </div>
+          </div>
+
+          <div class="flex sm:flex-col w-full p-4 bg-white/75 rounded-lg">
+            <img src="http://quickdevs.com/demo/travi/images/icons/atv.png" class="w-10">
+            <h5 class="text-xl font-bold">ATV</h5>
+            <p class="text-sm text-slate-500">Start your engines and get ready for an adventure.</p>
+          </div>
+
+          <div class="flex sm:flex-col w-full p-4 bg-white/75 rounded-lg">
+            <img src="http://quickdevs.com/demo/travi/images/icons/paragliding.png" class="w-10">
+            <h5 class="text-xl font-bold">Paragliding</h5>
+            <p class="text-sm text-slate-500">Wild landscapes and rough rivers and you will rafting.</p>
+          </div>
+
+          <div class="flex sm:flex-col w-full p-4 bg-white/75 rounded-lg">
+            <img src="http://quickdevs.com/demo/travi/images/icons/bicycle.png" class="w-10">
+            <h5 class="text-xl font-bold">Cycling</h5>
+            <p class="text-sm text-slate-500">Thrilling off-road experience public roads maximum security.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="featured">
+    <div class="max-w-screen-lg mx-auto my-8">
+      <div class="text-center">
+        <h3 class="text-xl font-bold">Featured Destination</h3>
+        <p class="text-slate-500">Search our website for the best destinations in the world, where you can enjoy the best vacations.</p>
+      </div>
+
+      <div class="grid grid-cols-3 gap-4 py-4">
+        <a href="details.html" class="group relative">
+          <img src="http://quickdevs.com/demo/travi/images/commons/destination-1.jpg" alt="">
+          <div class="absolute bottom-0 inset-x-0 p-2.5 px-4 bg-sky-800/75 text-white transition-all h-12 group-hover:h-28 overflow-hidden transition-all">
+            <div class="flex items-center justify-between mb-2">
+              <h5 class="text-xl font-bold">New York</h5>
+              <span class="text-yellow-300 font-bold">8.9</span>
+            </div>
+            <p class="line-clamp-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
+          </div>
+        </a>
+
+        <a href="details.html" class="group relative">
+          <img src="http://quickdevs.com/demo/travi/images/commons/destination-2.jpg" alt="">
+          <div class="absolute bottom-0 inset-x-0 p-2.5 px-4 bg-sky-800/75 text-white transition-all h-12 group-hover:h-28 overflow-hidden transition-all">
+            <div class="flex items-center justify-between mb-2">
+              <h5 class="text-xl font-bold">Rome</h5>
+              <span class="text-yellow-300 font-bold">9.5</span>
+            </div>
+            <p class="line-clamp-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
+          </div>
+        </a>
+
+        <a href="details.html" class="group relative">
+          <img src="http://quickdevs.com/demo/travi/images/commons/destination-4.jpg" alt="">
+          <div class="absolute bottom-0 inset-x-0 p-2.5 px-4 bg-sky-800/75 text-white transition-all h-12 group-hover:h-28 overflow-hidden transition-all">
+            <div class="flex items-center justify-between mb-2">
+              <h5 class="text-xl font-bold">Hawaii</h5>
+              <span class="text-yellow-300 font-bold">9.2</span>
+            </div>
+            <p class="line-clamp-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    window.addEventListener('scroll', function () {
+      const currentScrollPos = window.pageYOffset;
+      if (currentScrollPos > 60) {
+        document.querySelector('.top-nav').classList.add('bg-white/75','text-blue-500','backdrop-blur');
+      } else {
+        document.querySelector('.top-nav').classList.remove('bg-white/75','text-blue-500','backdrop-blur');
+      }
+    });
+  </script>
+</body>
+</html>
