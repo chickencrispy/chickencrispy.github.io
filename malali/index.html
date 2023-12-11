@@ -11,13 +11,13 @@
 </head>
 <body class="font-poppins text-base">
   <header>
-    <nav class="top-nav transition-all">
+    <nav class="top-nav transition-all px-4 sm:px-0">
       <div class="flex items-center justify-between max-w-screen-lg mx-auto py-4">
         <a href="./">
           <h3 class="text-2xl font-bold">malali.</h3>
         </a>
 
-        <ul class="flex items-center gap-4 text-slate-800">
+        <ul class="hidden sm:flex items-center gap-4 text-slate-800">
           <li><a href="./">Home</a></li>
           <li><a href="./">Hotel</a></li>
           <li><a href="./">Culinary</a></li>
@@ -37,29 +37,39 @@
   </header>
 
   <section id="hero">
-    <div class="max-w-screen-lg mx-auto h-96">
+    <div class="max-w-screen-lg mx-auto h-64 sm:h-96 px-4 sm:px-0">
       <img src="./img/header-balisurf.jpg" alt="" class="w-full h-full object-cover rounded-3xl">
     </div>
 
-    <div class="relative max-w-screen-md mx-auto -top-10">
-      <div class="flex p-5 bg-white rounded-2xl shadow-xl gap-3">
+    <div class="relative max-w-screen-md mx-auto -top-10 px-4 sm:px-0">
+      <div class="flex flex-col sm:flex-row p-5 bg-white rounded-2xl shadow-xl gap-3">
+        <div class="sm:w-1/4 sm:order-2">
+          <div class="relative">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3 text-slate-400 pointer-events-none">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <input type="text" name="" id=""
+              class="w-full p-4 pl-8 border rounded-xl bg-slate-200 text-slate-800 ring-0 outline-0">
+          </div>
+        </div>
+
         <div class="flex flex-1 divide-x">
-          <div class="flex-1 relative px-2">
-            <select name="" id="" class="w-full h-full focus:ring-0 focus:outline-0">
+          <div class="flex-1 relative pr-2">
+            <select name="" id="" class="w-full h-full py-4 focus:ring-0 focus:outline-0">
               <option value="" hidden>Destination</option>
               <option value="">Tanah Lot</option>
               <option value="">Sacred Monkey Forest Sanctuary</option>
               <option value="">Bali Safari &amp; Marine Park</option>
             </select>
           </div>
-          <div class="flex-1 relative px-2">
-            <div class="absolute inset-y-0 start-0 flex items-center ps-5 text-slate-400 pointer-events-none">
+          <div class="flex-1 relative">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-4 text-slate-400 pointer-events-none">
               <i class="fa-regular fa-calendar"></i>
             </div>
-            <input datepicker datepicker-autohide type="text" name="" id="" class="w-full h-full pl-8 focus:ring-0 focus:outline-0 focus:ring-offset-0">
+            <input datepicker datepicker-autohide type="text" name="" id="" class="w-full h-full pl-10 px-2 py-4 focus:ring-0 focus:outline-0 focus:ring-offset-0">
           </div>
-          <div class="flex-1 relative px-2">
-            <select name="" id="" class="w-full h-full focus:ring-0 focus:outline-0">
+          <div class="flex-1 relative">
+            <select name="" id="" class="w-full h-full px-2 py-4 focus:ring-0 focus:outline-0">
               <option value="" hidden>Guest</option>
               <option value="">1</option>
               <option value="">2</option>
@@ -69,31 +79,23 @@
             </select>
           </div>
         </div>
-        <div class="w-1/4">
-          <div class="relative">
-            <div class="absolute inset-y-0 start-0 flex items-center ps-3 text-slate-400 pointer-events-none">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-            <input type="text" name="" id="" class="w-full p-4 pl-8 border rounded-xl bg-slate-200 text-slate-800 ring-0 outline-0">
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
   <section id="featured">
-    <div class="max-w-screen-lg mx-auto my-8">
+    <div class="max-w-screen-lg mx-auto mb-4 px-4 sm:px-0">
       <div class="text-center">
         <h3 class="text-xl font-bold">Featured Destination</h3>
         <p class="text-slate-500">Search our website for the best destinations in the world, where you can enjoy the best vacations.</p>
       </div>
 
-      <div class="grid grid-cols-3 gap-4 py-4">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 py-4 overflow-auto">
         <a href="details.html" class="group relative rounded-xl overflow-hidden">
           <img src="./img/destination-1.jpg" alt="">
-          <div class="absolute bottom-0 inset-x-0 p-2.5 px-4 bg-sky-800/75 text-white transition-all h-12 group-hover:h-28 overflow-hidden transition-all">
-            <div class="flex items-center justify-between mb-2">
-              <h5 class="text-xl font-bold">New York</h5>
+          <div class="absolute bottom-0 inset-x-0 p-3 px-4 bg-sky-800/75 text-white transition-all h-12 backdrop-blur group-hover:h-full overflow-hidden transition-all">
+            <div class="flex items-center justify-between mb-3">
+              <h5 class="text-lg font-bold">New York</h5>
               <span class="text-yellow-300 font-bold">8.9</span>
             </div>
             <p class="line-clamp-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
@@ -102,9 +104,9 @@
 
         <a href="details.html" class="group relative rounded-xl overflow-hidden">
           <img src="./img/destination-2.jpg" alt="">
-          <div class="absolute bottom-0 inset-x-0 p-2.5 px-4 bg-sky-800/75 text-white transition-all h-12 group-hover:h-28 overflow-hidden transition-all">
-            <div class="flex items-center justify-between mb-2">
-              <h5 class="text-xl font-bold">Rome</h5>
+          <div class="absolute bottom-0 inset-x-0 p-3 px-4 bg-sky-800/75 text-white transition-all h-12 backdrop-blur group-hover:h-full overflow-hidden transition-all">
+            <div class="flex items-center justify-between mb-3">
+              <h5 class="text-lg font-bold">Rome</h5>
               <span class="text-yellow-300 font-bold">9.5</span>
             </div>
             <p class="line-clamp-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
@@ -112,10 +114,21 @@
         </a>
 
         <a href="details.html" class="group relative rounded-xl overflow-hidden">
+          <img src="./img/destination-3.jpg" alt="">
+          <div class="absolute bottom-0 inset-x-0 p-3 px-4 bg-sky-800/75 text-white transition-all h-12 backdrop-blur group-hover:h-full overflow-hidden transition-all">
+            <div class="flex items-center justify-between mb-3">
+              <h5 class="text-lg font-bold">Machu Pichu</h5>
+              <span class="text-yellow-300 font-bold">8.9</span>
+            </div>
+            <p class="line-clamp-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
+          </div>
+        </a>
+
+        <a href="details.html" class="group relative rounded-xl overflow-hidden">
           <img src="./img/destination-4.jpg" alt="">
-          <div class="absolute bottom-0 inset-x-0 p-2.5 px-4 bg-sky-800/75 text-white transition-all h-12 group-hover:h-28 overflow-hidden transition-all">
-            <div class="flex items-center justify-between mb-2">
-              <h5 class="text-xl font-bold">Hawaii</h5>
+          <div class="absolute bottom-0 inset-x-0 p-3 px-4 bg-sky-800/75 text-white transition-all h-12 backdrop-blur group-hover:h-full overflow-hidden transition-all">
+            <div class="flex items-center justify-between mb-3">
+              <h5 class="text-lg font-bold">Hawaii</h5>
               <span class="text-yellow-300 font-bold">9.2</span>
             </div>
             <p class="line-clamp-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
