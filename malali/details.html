@@ -3,22 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Malali.</title>
+  <title>malali.</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="./js/tailwindcss.js"></script>
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body class="font-poppins text-base">
   <header>
-    <nav class="top-nav fixed z-[1] top-0 inset-x-0 text-white">
-      <div class="flex items-center justify-between max-w-screen-lg mx-auto p-4">
+    <nav class="top-nav transition-all px-4 sm:px-0">
+      <div class="flex items-center justify-between max-w-screen-lg mx-auto py-4">
         <a href="./">
           <h3 class="text-2xl font-bold">malali.</h3>
         </a>
 
-        <div>
-          <button class="p-1.5 px-4">Login</button>
-          <button class="p-1.5 px-4 bg-blue-500 text-white rounded-full">Register</button>
+        <ul class="hidden sm:flex items-center gap-4 text-slate-800">
+          <li><a href="./">Home</a></li>
+          <li><a href="./">Hotel</a></li>
+          <li><a href="./">Culinary</a></li>
+          <li><a href="./">Recreation</a></li>
+          <li><a href="./">Popular Places</a></li>
+        </ul>
+
+        <div class="flex items-center gap-2">
+          <button class="relative start-0 px-1 flex items-center text-slate-800" data-dropdown-toggle="dropdownNotification" data-dropdown-placement="bottom-end" data-dropdown-offset-distance="26" data-dropdown-offset-skidding="67">
+            <i class="fa-regular fa-envelope text-lg text-slate-600"></i>
+            <span class="absolute -top-0.5 -right-0 flex w-2.5 h-2.5 bg-red-600 rounded-full border-2 border-white"></span>
+          </button>
+          <button class="p-1.5 px-4 bg-slate-300 text-slate-800 rounded-full">Join</button>
+
+          <!-- Dropdown menu -->
+          <div id="dropdownNotification" class="z-20 hidden w-full max-w-sm bg-white divide-y divide-gray-100 border rounded-lg" aria-labelledby="dropdownNotificationButton">
+            <div class="block px-4 py-2 font-medium text-center text-gray-700 rounded-t-lg bg-gray-50">
+              Notifications
+            </div>
+            <div class="divide-y divide-gray-100">
+              <a href="#" class="flex px-4 py-3 bg-white">
+                <div class="flex-shrink-0">
+                  <img class="rounded-full w-11 h-11" src="https://i.pravatar.cc/150" alt="image">
+                </div>
+                <div class="w-full ps-3">
+                  <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400">New message from
+                    <span class="font-semibold text-gray-900 dark:text-white">Jese Leos</span>: "Hey, what's up? All set for the
+                    presentation?"</div>
+                  <div class="text-sm text-slate-500">a few moments ago</div>
+                </div>
+              </a>
+            </div>
+            <a href="#" class="block py-2 text-sm font-medium text-center text-gray-900 rounded-b-lg bg-white">
+              <div class="inline-flex items-center ">
+                <i class="fa-solid fa-eye mr-2"></i>
+                View all
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </nav>
@@ -26,7 +64,7 @@
 
   <section id="hero">
     <div class="mx-auto sm:h-80">
-      <img src="https://kimasurf.com/images/header-balisurf.jpg" alt="" class="w-full h-full object-cover rounded-b-2xl">
+      <img src="./img/header-balisurf.jpg" alt="" class="w-full h-full object-cover rounded-b-2xl">
 
       <div class="relative max-w-screen-lg mx-auto">
         
@@ -38,11 +76,11 @@
     <div class="max-w-screen-lg mx-auto mt-8 p-4">
       <div class="flex flex-col sm:flex-row gap-2">
         <div class="sm:w-3/4">
-          <img src="http://quickdevs.com/demo/travi/images/commons/feature-thumb-0.jpg" class="w-full h-full object-cover">
+          <img src="./img/feature-thumb-0.jpg" class="w-full h-full object-cover">
         </div>
         <div class="hidden sm:flex sm:flex-col gap-2 w-1/4">
-          <img src="http://quickdevs.com/demo/travi/images/commons/feature-thumb-1.jpg" class="w-1/2 h-full object-cover sm:w-full">
-          <img src="http://quickdevs.com/demo/travi/images/commons/feature-thumb-2.jpg" class="w-1/2 h-full object-cover sm:w-full">
+          <img src="./img/feature-thumb-1.jpg" class="w-1/2 h-full object-cover sm:w-full">
+          <img src="./img/feature-thumb-2.jpg" class="w-1/2 h-full object-cover sm:w-full">
         </div>
       </div>
 
@@ -77,13 +115,15 @@
     </div>
   </section>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
   <script>
     window.addEventListener('scroll', function () {
       const currentScrollPos = window.pageYOffset;
-      if (currentScrollPos > 60) {
-        document.querySelector('.top-nav').classList.add('bg-white/75','text-blue-500','backdrop-blur');
+      if (currentScrollPos > 80) {
+        document.querySelector('.top-nav').classList.add('fixed', 'w-full', 'bg-white/75', 'backdrop-blur', 'shadow');
       } else {
-        document.querySelector('.top-nav').classList.remove('bg-white/75','text-blue-500','backdrop-blur');
+        document.querySelector('.top-nav').classList.remove('fixed', 'w-full', 'bg-white/75', 'backdrop-blur', 'shadow');
       }
     });
   </script>
