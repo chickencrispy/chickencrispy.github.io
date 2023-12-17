@@ -1,36 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>malali.</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <title>travee.</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="./js/tailwindcss.js"></script>
   <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body class="font-poppins text-base">
   <header>
-    <nav class="top-nav transition-all px-4 sm:px-0">
+    <nav class="top-nav transition-all z-50 px-3">
       <div class="flex items-center justify-between max-w-screen-lg mx-auto py-4">
         <a href="./">
-          <h3 class="text-2xl font-bold">malali.</h3>
+          <h3 class="text-2xl font-bold">tr<span class="text-sky-600">a</span>vee.</h3>
         </a>
 
-        <ul class="hidden sm:flex items-center gap-4 text-slate-800">
-          <li><a href="./">Home</a></li>
-          <li><a href="./">Hotel</a></li>
-          <li><a href="./">Culinary</a></li>
-          <li><a href="./">Recreation</a></li>
-          <li><a href="./">Popular Places</a></li>
-        </ul>
-
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-3">
           <button class="relative start-0 px-1 flex items-center text-slate-800" data-dropdown-toggle="dropdownNotification" data-dropdown-placement="bottom-end" data-dropdown-offset-distance="26" data-dropdown-offset-skidding="67">
             <i class="fa-regular fa-envelope text-lg text-slate-600"></i>
             <span class="absolute -top-0.5 -right-0 flex w-2.5 h-2.5 bg-red-600 rounded-full border-2 border-white"></span>
           </button>
-          <button class="p-1.5 px-4 bg-slate-300 text-slate-800 rounded-full">Join</button>
 
           <!-- Dropdown menu -->
           <div id="dropdownNotification" class="z-20 hidden w-full max-w-sm bg-white divide-y divide-gray-100 border rounded-lg" aria-labelledby="dropdownNotificationButton">
@@ -63,14 +56,22 @@
   </header>
 
   <section id="hero">
-    <div class="max-w-screen-lg mx-auto h-64 sm:h-96 px-4 sm:px-0">
-      <img src="./img/header-balisurf.jpg" alt="" class="w-full h-full object-cover rounded-3xl">
+    <div class="max-w-screen-lg mx-auto h-64 sm:h-96">
+      <img src="./img/header_details.jpg" alt="" class="w-full h-full object-cover rounded-none sm:rounded-3xl">
     </div>
   </section>
 
   <section id="detailed">
-    <div class="max-w-screen-lg mx-auto mt-8 px-4 sm:px-0">
-      <div class="flex flex-col sm:flex-row gap-2">
+    <div class="max-w-screen-lg mx-auto mt-6 p-4">
+      <div class="space-y-2">
+        <h5 class="text-xl font-bold text-center">About Desa Wisata Bahari Banyumilir</h5>
+        <p class="font-barlow text-slate-500 text-justify">Kalibukbuk Village offers beautiful views, especially in the afternoon when watching the sunset. This is also supported
+        by the existence of a beach that stretches from east to west for 2.7 KM. 80% of Kalibukbuk village residents are engaged
+        in the tourism sector and most of them utilize maritime potential as one of the activities. The main thing is watching
+        the attraction of changing or watching dolphins to become the leading icon in our village</p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-2 py-4">
         <div class="sm:w-3/4">
           <img src="./img/feature-thumb-0.jpg" class="w-full h-full object-cover">
         </div>
@@ -79,49 +80,113 @@
           <img src="./img/feature-thumb-2.jpg" class="w-1/2 h-full object-cover sm:w-full">
         </div>
       </div>
-
-      <div class="py-6 space-y-2">
-        <h5 class="text-xl font-bold">ATV Adventure in Bavaro</h5>
-        <p>Boundless Boat Charters' family-friendly fishing excursions are limited to four passengers, meaning there's plenty of space for everyone to comfortably reel in their catch. The company runs morning and afternoon trips that last 5 1/2 hours (perfect for first-timers or young anglers), nine-hour trips offshore or to Mexico's Coronado Islands, and a full-day (12-hour) deep-sea fishing outing.</p>
-        <p>Coletta Sportfishing offers daily private charters on both its boats. Coletta is family-friendly and caters to all experience levels; the captain and crew will teach young and first-time anglers the basics of sportfishing. Outings range from half-day trips (5 1/2 hours) to full-day (12-hour) charters.</p>
-      </div>
     </div>
   </section>
 
-  <section id="book-trip">
-    <div class="max-w-screen-lg mx-auto mb-4 px-4 sm:px-0">
-      <h5 class="text-xl font-bold">Book Your Trip Now</h5>
-      <div class="flex flex-col sm:flex-row gap-2">
-        <div class="sm:w-3/4">
-          <form action="" class="mt-4 space-y-2">
-            <input type="text" name="" id="" class="peer w-full p-3 px-4 bg-slate-100 rounded-full" placeholder="Name" required>
-            <div class="flex gap-2">
-              <input type="text" name="" id="" class="w-full p-3 px-4 bg-slate-100 rounded-full" placeholder="Phone Number">
-              <input type="text" name="" id="" class="w-full p-3 px-4 bg-slate-100 rounded-full" placeholder="Email Address">
+  <section id="package">
+    <div class="max-w-screen-lg mx-auto mb-4 p-4">
+      <h5 class="text-xl font-bold text-center">Diving & Snorkeling Packages</h5>
+
+      <div class="flex justify-center gap-4 flex-wrap py-4">
+        <!-- Package 1 -->
+        <div class="w-[calc(50%-0.5rem)] sm:w-[calc(25%-0.75rem)] flex-0 border rounded-lg overflow-hidden shadow-md">
+          <div class="p-2 py-4 text-center bg-sky-500 text-white">
+            <h4 class="text-xl font-bold">LOVINA REEF</h4>
+            <div class="font-barlow">1x Dive & 1 Night Dive</div>
+          </div>
+          <div class="p-2 py-4 text-center">
+            <h3 class="text-2xl font-bold">IDR 1,000,000</h3>
+            <div class="font-barlow leading-3">per person</div>
+          </div>
+          <ul class="px-4 font-barlow text-slate-500 divide-y">
+            <li class="p-2"><i class="fa-regular fa-circle-check mr-1"></i> All Dive Gear</li>
+            <li class="p-2"><i class="fa-regular fa-circle-check mr-1"></i> Lunch Box & Softdrink</li>
+            <li class="p-2"><i class="fa-regular fa-circle-check mr-1"></i> Guide & Boat</li>
+          </ul>
+          <div class="p-4">
+            <button class="p-3 w-full bg-sky-500 text-white font-semibold rounded-full">Book</button>
+            <div class="mt-2 text-sm text-center font-barlow text-slate-500">
+              Term & Condition Applied
             </div>
-            <textarea name="" id="" cols="30" rows="5" class="w-full p-3 px-4 bg-slate-100 rounded-lg" placeholder="Your Message"></textarea>
-            <div class="text-end">
-              <button class="p-3 px-4 bg-blue-500 rounded-full text-white">Book Now</button>
-            </div>
-          </form>
+          </div>
         </div>
-        <div class="w-1/4">
+        
+        <!-- Package 2 -->
+        <div class="w-[calc(50%-0.5rem)] sm:w-[calc(25%-0.75rem)] flex-0 border rounded-lg overflow-hidden shadow-md">
+          <div class="p-2 py-4 text-center bg-sky-500 text-white">
+            <h4 class="text-xl font-bold">LOVINA REEF</h4>
+            <div class="font-barlow">1x Dive</div>
+          </div>
+          <div class="p-2 py-4 text-center">
+            <h3 class="text-2xl font-bold">IDR 675,000</h3>
+            <div class="font-barlow leading-3">per person</div>
+          </div>
+          <ul class="px-4 font-barlow text-slate-500 divide-y">
+            <li class="p-2"><i class="fa-regular fa-circle-check mr-1"></i> All Dive Gear</li>
+            <li class="p-2"><i class="fa-regular fa-circle-check mr-1"></i> Lunch Box & Softdrink</li>
+            <li class="p-2"><i class="fa-regular fa-circle-check mr-1"></i> Guide & Boat</li>
+          </ul>
+          <div class="p-4">
+            <button class="p-3 w-full bg-sky-500 text-white font-semibold rounded-full">Book</button>
+            <div class="mt-2 text-sm text-center font-barlow text-slate-500">
+              Term & Condition Applied
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 3 -->
+        <div class="w-[calc(50%-0.5rem)] sm:w-[calc(25%-0.75rem)] flex-0 border rounded-lg overflow-hidden shadow-md">
+          <div class="p-2 py-4 text-center bg-sky-500 text-white">
+            <h4 class="text-xl font-bold">SNORKELING</h4>
+            <div class="font-barlow">Lovina Reef</div>
+          </div>
+          <div class="p-2 py-4 text-center">
+            <h3 class="text-2xl font-bold">IDR 300,000</h3>
+            <div class="font-barlow leading-3">per person</div>
+          </div>
+          <ul class="px-4 font-barlow text-slate-500 divide-y">
+            <li class="p-2"><i class="fa-regular fa-circle-check mr-1"></i> All Dive Gear</li>
+            <li class="p-2"><i class="fa-regular fa-circle-check mr-1"></i> Lunch Box & Softdrink</li>
+            <li class="p-2"><i class="fa-regular fa-circle-check mr-1"></i> Guide & Boat</li>
+          </ul>
+          <div class="p-4">
+            <button class="p-3 w-full bg-sky-500 text-white font-semibold rounded-full">Book</button>
+            <div class="mt-2 text-sm text-center font-barlow text-slate-500">
+              Term & Condition Applied
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 4 -->
+        <div class="w-[calc(50%-0.5rem)] sm:w-[calc(25%-0.75rem)] flex-0 border rounded-lg overflow-hidden shadow-md">
+          <div class="p-2 py-4 text-center bg-sky-500 text-white">
+            <h4 class="text-xl font-bold">LOVINA REEF</h4>
+            <div class="font-barlow">2x Dive & 1 Night Dive</div>
+          </div>
+          <div class="p-2 py-4 text-center">
+            <h3 class="text-2xl font-bold">IDR 1,250,000</h3>
+            <div class="font-barlow leading-3">per person</div>
+          </div>
+          <ul class="px-4 font-barlow text-slate-500 divide-y">
+            <li class="p-2"><i class="fa-regular fa-circle-check mr-1"></i> All Dive Gear</li>
+            <li class="p-2"><i class="fa-regular fa-circle-check mr-1"></i> Lunch Box & Softdrink</li>
+            <li class="p-2"><i class="fa-regular fa-circle-check mr-1"></i> Guide & Boat</li>
+          </ul>
+          <div class="p-4">
+            <button class="p-3 w-full bg-sky-500 text-white font-semibold rounded-full">Book</button>
+            <div class="mt-2 text-sm text-center font-barlow text-slate-500">
+              Term & Condition Applied
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
+  <script src="./js/script.js"></script>
   <script>
-    window.addEventListener('scroll', function () {
-      const currentScrollPos = window.pageYOffset;
-      if (currentScrollPos > 80) {
-        document.querySelector('.top-nav').classList.add('fixed', 'w-full', 'bg-white/75', 'backdrop-blur', 'shadow');
-      } else {
-        document.querySelector('.top-nav').classList.remove('fixed', 'w-full', 'bg-white/75', 'backdrop-blur', 'shadow');
-      }
-    });
+    window.onscroll = topMenuScroll
   </script>
 </body>
 </html>

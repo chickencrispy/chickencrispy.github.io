@@ -1,36 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>malali.</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>travee.</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="./js/tailwindcss.js"></script>
   <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body class="font-poppins text-base">
   <header>
-    <nav class="top-nav transition-all px-4 sm:px-0">
+    <nav class="top-nav transition-all z-50 px-3">
       <div class="flex items-center justify-between max-w-screen-lg mx-auto py-4">
         <a href="./">
-          <h3 class="text-2xl font-bold">malali.</h3>
+          <h3 class="text-2xl font-bold">tr<span class="text-sky-600">a</span>vee.</h3>
         </a>
 
-        <ul class="hidden sm:flex items-center gap-4 text-slate-800">
-          <li><a href="./">Home</a></li>
-          <li><a href="./">Hotel</a></li>
-          <li><a href="./">Culinary</a></li>
-          <li><a href="./">Recreation</a></li>
-          <li><a href="./">Popular Places</a></li>
-        </ul>
-
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-3">
           <button class="relative start-0 px-1 flex items-center text-slate-800" data-dropdown-toggle="dropdownNotification" data-dropdown-placement="bottom-end" data-dropdown-offset-distance="26" data-dropdown-offset-skidding="67">
             <i class="fa-regular fa-envelope text-lg text-slate-600"></i>
             <span class="absolute -top-0.5 -right-0 flex w-2.5 h-2.5 bg-red-600 rounded-full border-2 border-white"></span>
           </button>
-          <button class="p-1.5 px-4 bg-slate-300 text-slate-800 rounded-full">Join</button>
 
           <!-- Dropdown menu -->
           <div id="dropdownNotification" class="z-20 hidden w-full max-w-sm bg-white divide-y divide-gray-100 border rounded-lg" aria-labelledby="dropdownNotificationButton">
@@ -62,118 +56,119 @@
     </nav>
   </header>
 
-  <section id="hero">
-    <div class="max-w-screen-lg mx-auto h-64 sm:h-96 px-4 sm:px-0">
-      <img src="./img/header-balisurf.jpg" alt="" class="w-full h-full object-cover rounded-3xl">
+  <section id="hero" class="sm:-mb-8 px-3">
+    <div class="max-w-screen-lg mx-auto h-64 sm:h-96">
+      <img src="./img/header-balisurf.jpg" alt="" class="w-full h-full object-cover rounded-t-3xl sm:rounded-3xl">
     </div>
 
-    <div class="relative max-w-screen-md mx-auto -top-10 px-4 sm:px-0">
-      <div class="flex flex-col sm:flex-row p-5 bg-white rounded-2xl shadow-xl gap-3">
-        <div class="sm:w-1/4 sm:order-2">
-          <div class="relative">
-            <div class="absolute inset-y-0 start-0 flex items-center ps-3 text-slate-400 pointer-events-none">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-            <input type="text" name="" id=""
-              class="w-full p-4 pl-8 border rounded-xl bg-slate-200 text-slate-800 ring-0 outline-0">
+    <div class="relative max-w-screen-md mx-auto sm:-top-14">
+      <div class="bg-white rounded-b-2xl border sm:rounded-2xl shadow-xl gap-3">
+        <div class="flex flex-col sm:flex-row p-3">
+          <div class="sm:w-1/3 relative p-3 sm:border-r mr-3 text-center sm:text-left">
+            <h3 class="text-lg font-bold leading-4 mb-2">What Excites you Most?</h3>
+            <p class="font-barlow text-slate-500 leading-3">Lorem ipsum dolor sit amet consectetur.</p>
           </div>
-        </div>
-
-        <div class="flex flex-1 divide-x">
-          <div class="flex-1 relative pr-2">
-            <select name="" id="" class="w-full h-full py-4 focus:ring-0 focus:outline-0">
-              <option value="" hidden>Destination</option>
-              <option value="">Tanah Lot</option>
-              <option value="">Sacred Monkey Forest Sanctuary</option>
-              <option value="">Bali Safari &amp; Marine Park</option>
-            </select>
-          </div>
-          <div class="flex-1 relative">
-            <div class="absolute inset-y-0 start-0 flex items-center ps-4 text-slate-400 pointer-events-none">
-              <i class="fa-regular fa-calendar"></i>
-            </div>
-            <input datepicker datepicker-autohide type="text" name="" id="" class="w-full h-full pl-10 px-2 py-4 focus:ring-0 focus:outline-0 focus:ring-offset-0">
-          </div>
-          <div class="flex-1 relative">
-            <select name="" id="" class="w-full h-full px-2 py-4 focus:ring-0 focus:outline-0">
-              <option value="" hidden>Guest</option>
-              <option value="">1</option>
-              <option value="">2</option>
-              <option value="">3</option>
-              <option value="">4</option>
-              <option value="">5</option>
-            </select>
+          <div class="flex flex-1">
+            <a href="#" class="group flex flex-col sm:flex-row text-center sm:text-left flex-1 p-3 gap-4 rounded-lg hover:text-sky-600 hover:bg-sky-50">
+              <i class="fas fa-umbrella-beach text-2xl sm:text-xl"></i>
+              <div>
+                <h3 class="text-base font-bold leading-4 mb-1">Recreation</h3>
+                <p class="hidden sm:block font-barlow text-slate-500 leading-3 group-hover:text-sky-600">Lorem ipsum dolor sit amet.</p>
+              </div>
+            </a>
+            <a href="#" class="group flex flex-col sm:flex-row text-center sm:text-left flex-1 p-3 gap-4 rounded-lg hover:text-sky-600 hover:bg-sky-50">
+              <i class="fas fa-burger text-2xl sm:text-xl"></i>
+              <div>
+                <h3 class="text-base font-bold leading-4 mb-1">Culinary</h3>
+                <p class="hidden sm:block font-barlow text-slate-500 leading-3 group-hover:text-sky-600">Lorem ipsum dolor sit amet.</p>
+              </div>
+            </a>
+            <a href="#" class="group flex flex-col sm:flex-row text-center sm:text-left flex-1 p-3 gap-4 rounded-lg hover:text-sky-600 hover:bg-sky-50">
+              <i class="fas fa-hotel text-2xl sm:text-xl"></i>
+              <div>
+                <h3 class="text-base font-bold leading-4 mb-1">Hotels</h3>
+                <p class="hidden sm:block font-barlow text-slate-500 leading-3 group-hover:text-sky-600">Lorem ipsum dolor sit amet.</p>
+              </div>
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="featured">
-    <div class="max-w-screen-lg mx-auto mb-4 px-4 sm:px-0">
+  <!-- Recreation -->
+  <section id="top-recreation" class="px-3">
+    <div class="max-w-screen-lg mx-auto my-8 px-3">
       <div class="text-center">
-        <h3 class="text-xl font-bold">Featured Destination</h3>
-        <p class="text-slate-500">Search our website for the best destinations in the world, where you can enjoy the best vacations.</p>
+        <h3 class="text-xl">Explore Top <b>Recreations</b></h3>
+        <p class="font-barlow text-slate-500">Search our website for the best destinations in the world, where you can enjoy the best vacations.</p>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 py-4 overflow-auto">
-        <a href="details.html" class="group relative rounded-xl overflow-hidden">
-          <img src="./img/destination-1.jpg" alt="">
-          <div class="absolute bottom-0 inset-x-0 p-3 px-4 bg-sky-800/75 text-white transition-all h-12 backdrop-blur group-hover:h-full overflow-hidden transition-all">
-            <div class="flex items-center justify-between mb-3">
-              <h5 class="text-lg font-bold">New York</h5>
-              <span class="text-yellow-300 font-bold">8.9</span>
+      <div class="relative my-4">
+        <div class="scrollable flex gap-4 flex-nowrap overflow-x-auto -mx-2 pb-2">
+          <a href="details.html" class="w-[calc(33.33%-0.65rem)] sm:w-[calc(25%-0.75rem)] rounded-xl overflow-hidden border shadow flex-shrink-0">
+            <img src="./img/destination-1.jpg" alt="">
+            <div class="p-3">
+              <div class="flex items-center justify-between mb-2">
+                <h5 class="font-bold line-clamp-2">Desa Wisata Bahari Banyumilir</h5>
+              </div>
+              <p class="line-clamp-2 font-barlow text-slate-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
             </div>
-            <p class="line-clamp-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
-          </div>
-        </a>
-
-        <a href="details.html" class="group relative rounded-xl overflow-hidden">
-          <img src="./img/destination-2.jpg" alt="">
-          <div class="absolute bottom-0 inset-x-0 p-3 px-4 bg-sky-800/75 text-white transition-all h-12 backdrop-blur group-hover:h-full overflow-hidden transition-all">
-            <div class="flex items-center justify-between mb-3">
-              <h5 class="text-lg font-bold">Rome</h5>
-              <span class="text-yellow-300 font-bold">9.5</span>
+          </a>
+          <a href="details.html" class="w-[calc(33.33%-0.65rem)] sm:w-[calc(25%-0.75rem)] rounded-xl overflow-hidden border shadow flex-shrink-0">
+            <img src="./img/destination-2.jpg" alt="">
+            <div class="p-3">
+              <div class="flex items-center justify-between mb-2">
+                <h5 class="font-bold">Swim with Plankton</h5>
+              </div>
+              <p class="line-clamp-2 font-barlow text-slate-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
             </div>
-            <p class="line-clamp-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
-          </div>
-        </a>
-
-        <a href="details.html" class="group relative rounded-xl overflow-hidden">
-          <img src="./img/destination-3.jpg" alt="">
-          <div class="absolute bottom-0 inset-x-0 p-3 px-4 bg-sky-800/75 text-white transition-all h-12 backdrop-blur group-hover:h-full overflow-hidden transition-all">
-            <div class="flex items-center justify-between mb-3">
-              <h5 class="text-lg font-bold">Machu Pichu</h5>
-              <span class="text-yellow-300 font-bold">8.9</span>
+          </a>
+          <a href="details.html" class="w-[calc(33.33%-0.65rem)] sm:w-[calc(25%-0.75rem)] rounded-xl overflow-hidden border shadow flex-shrink-0">
+            <img src="./img/destination-3.jpg" alt="">
+            <div class="p-3">
+              <div class="flex items-center justify-between mb-2">
+                <h5 class="font-bold">Jalapati Dive Spot</h5>
+              </div>
+              <p class="line-clamp-2 font-barlow text-slate-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
             </div>
-            <p class="line-clamp-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
-          </div>
-        </a>
-
-        <a href="details.html" class="group relative rounded-xl overflow-hidden">
-          <img src="./img/destination-4.jpg" alt="">
-          <div class="absolute bottom-0 inset-x-0 p-3 px-4 bg-sky-800/75 text-white transition-all h-12 backdrop-blur group-hover:h-full overflow-hidden transition-all">
-            <div class="flex items-center justify-between mb-3">
-              <h5 class="text-lg font-bold">Hawaii</h5>
-              <span class="text-yellow-300 font-bold">9.2</span>
+          </a>
+          <a href="details.html" class="w-[calc(33.33%-0.65rem)] sm:w-[calc(25%-0.75rem)] rounded-xl overflow-hidden border shadow flex-shrink-0">
+            <img src="./img/destination-4.jpg" alt="">
+            <div class="p-3">
+              <div class="flex items-center justify-between mb-2">
+                <h5 class="font-bold">Lovina Reef</h5>
+              </div>
+              <p class="line-clamp-2 font-barlow text-slate-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
             </div>
-            <p class="line-clamp-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
-          </div>
-        </a>
+          </a>
+        
+          <a href="details.html" class="w-[calc(33.33%-0.65rem)] sm:w-[calc(25%-0.75rem)] rounded-xl overflow-hidden border shadow flex-shrink-0">
+            <img src="./img/destination-5.jpg" alt="">
+            <div class="p-3">
+              <div class="flex items-center justify-between mb-2">
+                <h5 class="font-bold">Diving & Snorkeling</h5>
+              </div>
+              <p class="line-clamp-2 font-barlow text-slate-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
+  <script src="./js/script.js"></script>
   <script>
-    window.addEventListener('scroll', function () {
-      const currentScrollPos = window.pageYOffset;
-      if (currentScrollPos > 80) {
-        document.querySelector('.top-nav').classList.add('fixed','w-full','bg-white/75','backdrop-blur','shadow');
-      } else {
-        document.querySelector('.top-nav').classList.remove('fixed','w-full','bg-white/75','backdrop-blur','shadow');
-      }
+    window.onscroll = topMenuScroll
+
+    const elem = document.querySelectorAll('.scrollable');
+    elem.forEach(ele => {
+      grabScroll(ele);
+
+      ele.addEventListener('scroll', function(){
+        console.log(ele.scrollLeft);
+      })
     });
   </script>
 </body>
