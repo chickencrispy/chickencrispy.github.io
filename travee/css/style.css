@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Poppins:wght@400;700&display=swap');
+
+:root {
+  --sb-track-color: #ffffff;
+  --sb-thumb-color: #d8d8d8;
+  --sb-size: 0px;
+}
+
+body {
+  font-family: 'Poppins', Sans-serif;
+  font-size: 0.8rem;
+}
+
+.overflow-x-auto::-webkit-scrollbar {
+  width: var(--sb-size);
+  height: var(--sb-size);
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 6px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background: var(--sb-track-color);
+  border-radius: 6px;
+}

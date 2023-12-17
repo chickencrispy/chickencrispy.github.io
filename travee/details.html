@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>travee.</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./js/tailwindcss.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="font-poppins text-base bg-sky-50/50">
+  <header>
+    <nav class="top-nav transition-all z-50 px-3">
+      <div class="flex items-center justify-between max-w-screen-lg mx-auto py-4">
+        <a href="./">
+          <h3 class="text-2xl font-bold">tr<span class="text-sky-600">a</span>vee.</h3>
+        </a>
+
+        <div class="flex items-center gap-3">
+          <button class="relative start-0 px-1 flex items-center text-slate-800" data-dropdown-toggle="dropdownNotification" data-dropdown-placement="bottom-end" data-dropdown-offset-distance="24">
+            <i class="fa-regular fa-bell text-xl text-slate-600"></i>
+            <span class="absolute -top-0.5 -right-0 flex w-1.5 h-1.5 bg-red-600 rounded-full"></span>
+          </button>
+
+          <!-- Dropdown menu -->
+          <div id="dropdownNotification" class="z-20 hidden w-full max-w-sm bg-white divide-y divide-gray-100 border rounded-lg" aria-labelledby="dropdownNotificationButton">
+            <div class="block px-4 py-2 font-medium text-center text-gray-700 rounded-t-lg bg-gray-50">
+              Notifications
+            </div>
+            <div class="divide-y divide-gray-100">
+              <a href="#" class="flex px-4 py-3 bg-white">
+                <div class="flex-shrink-0">
+                  <img class="rounded-full w-11 h-11" src="https://i.pravatar.cc/150" alt="image">
+                </div>
+                <div class="w-full ps-3">
+                  <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400">New message from
+                    <span class="font-semibold text-gray-900 dark:text-white">Jese Leos</span>: "Hey, what's up? All set for the presentation?"</div>
+                  <div class="text-sm text-slate-500">a few moments ago</div>
+                </div>
+              </a>
+            </div>
+            <a href="#" class="block py-2 text-sm font-medium text-center text-gray-900 rounded-b-lg bg-white">
+              <div class="inline-flex items-center ">
+                <i class="fa-solid fa-eye mr-2"></i>
+                View all
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <div class="max-w-screen-lg mx-auto h-64 sm:h-96">
+      <img src="./img/header_details.jpg" alt="" class="w-full h-full object-cover rounded-none sm:rounded-3xl">
+    </div>
+  </section>
+
+  <section id="detailed">
+    <div class="max-w-screen-lg mx-auto mt-6 p-4">
+      <div class="space-y-2">
+        <h5 class="text-xl font-bold text-center">About Desa Wisata Bahari Banyumilir</h5>
+        <div class="font-barlow text-slate-500 text-justify space-y-4">
+          <p>Kalibukbuk Village offers beautiful views, especially in the afternoon when watching the sunset. This is also supported
+            by the existence of a beach that stretches from east to west for 2.7 KM. 80% of Kalibukbuk village residents are engaged
+            in the tourism sector and most of them utilize maritime potential as one of the activities. The main thing is watching
+            the attraction of changing or watching dolphins to become the leading icon in our village</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum ipsa excepturi, facilis quos accusantium itaque sit non maiores natus optio harum sapiente in suscipit blanditiis 
+            aut nostrum reiciendis minus, numquam recusandae quibusdam eum, doloribus ducimus porro. Animi voluptatibus unde enim, 
+            consequatur reiciendis non aliquam vero velit quos et saepe harum illum earum, repellat quidem veritatis. 
+            Harum deserunt dolor, facere obcaecati ab fuga facilis maiores, sapiente a, perferendis non doloremque! 
+            Vitae repellendus nostrum maxime non quis illo tenetur fuga a vero.</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-2 py-4">
+        <div class="sm:w-3/4">
+          <img src="./img/feature-thumb-0.jpg" class="w-full h-full object-cover">
+        </div>
+        <div class="hidden sm:flex sm:flex-col gap-2 w-1/4">
+          <img src="./img/feature-thumb-1.jpg" class="w-1/2 h-full object-cover sm:w-full">
+          <img src="./img/feature-thumb-2.jpg" class="w-1/2 h-full object-cover sm:w-full">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="package">
+    <div class="max-w-screen-lg mx-auto mb-4 p-4">
+      <h5 class="text-xl font-bold text-center">Diving & Snorkeling Packages</h5>
+
+      <div class="flex justify-center gap-3 sm:gap-4 flex-wrap py-4">
+        <!-- Package 1 -->
+        <div class="w-[calc(50%-0.5rem)] sm:w-[calc(25%-0.75rem)] flex-0 bg-white border rounded-xl overflow-hidden shadow-md shadow-sky-100">
+          <div class="p-2 py-4 text-center bg-sky-500 text-white">
+            <h4 class="text-xl font-bold">LOVINA REEF</h4>
+            <div class="font-barlow">1x Dive & 1 Night Dive</div>
+          </div>
+          <div class="p-2 py-4 text-center">
+            <h3 class="text-2xl font-bold"><sup class="text-slate-500 text-lg">IDR</sup> 1,000,000</h3>
+            <div class="font-barlow leading-3 text-slate-500">per person</div>
+          </div>
+          <ul class="px-4 font-barlow text-slate-500 divide-y">
+            <li class="flex items-center p-2">
+              <i class="fa-regular fa-circle-check mr-1"></i>
+              <span class="line-clamp-1">All Dive Gear</span>
+            </li>
+            <li class="flex items-center p-2">
+              <i class="fa-regular fa-circle-check mr-1"></i> 
+              <span class="line-clamp-1">Lunch Box & Softdrink</span>
+            </li>
+            <li class="flex items-center p-2">
+              <i class="fa-regular fa-circle-check mr-1"></i> 
+              <span class="line-clamp-1">Guide & Boat</span>
+            </li>
+          </ul>
+          <div class="p-4">
+            <button class="p-3 w-full bg-sky-500 text-white font-semibold rounded-full">Book</button>
+            <div class="mt-2 text-sm text-center font-barlow text-slate-500">
+              Term & Condition Applied
+            </div>
+          </div>
+        </div>
+        
+        <!-- Package 2 -->
+        <div class="w-[calc(50%-0.5rem)] sm:w-[calc(25%-0.75rem)] flex-0 bg-white border rounded-xl overflow-hidden shadow-md shadow-sky-100">
+          <div class="p-2 py-4 text-center bg-sky-500 text-white">
+            <h4 class="text-xl font-bold">LOVINA REEF</h4>
+            <div class="font-barlow">1x Dive</div>
+          </div>
+          <div class="p-2 py-4 text-center">
+            <h3 class="text-2xl font-bold"><sup class="text-slate-500 text-lg">IDR</sup> 675,000</h3>
+            <div class="font-barlow leading-3 text-slate-500">per person</div>
+          </div>
+          <ul class="px-4 font-barlow text-slate-500 divide-y">
+            <li class="flex items-center p-2">
+              <i class="fa-regular fa-circle-check mr-1"></i>
+              <span class="line-clamp-1">All Dive Gear</span>
+            </li>
+            <li class="flex items-center p-2">
+              <i class="fa-regular fa-circle-check mr-1"></i>
+              <span class="line-clamp-1">Lunch Box & Softdrink</span>
+            </li>
+            <li class="flex items-center p-2">
+              <i class="fa-regular fa-circle-check mr-1"></i>
+              <span class="line-clamp-1">Guide & Boat</span>
+            </li>
+          </ul>
+          <div class="p-4">
+            <button class="p-3 w-full bg-sky-500 text-white font-semibold rounded-full">Book</button>
+            <div class="mt-2 text-sm text-center font-barlow text-slate-500">
+              Term & Condition Applied
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 3 -->
+        <div class="w-[calc(50%-0.5rem)] sm:w-[calc(25%-0.75rem)] flex-0 bg-white border rounded-xl overflow-hidden shadow-md shadow-sky-100">
+          <div class="p-2 py-4 text-center bg-sky-500 text-white">
+            <h4 class="text-xl font-bold">SNORKELING</h4>
+            <div class="font-barlow">Lovina Reef</div>
+          </div>
+          <div class="p-2 py-4 text-center">
+            <h3 class="text-2xl font-bold"><sup class="text-slate-500 text-lg">IDR</sup> 300,000</h3>
+            <div class="font-barlow leading-3 text-slate-500">per person</div>
+          </div>
+          <ul class="px-4 font-barlow text-slate-500 divide-y">
+            <li class="flex items-center p-2">
+              <i class="fa-regular fa-circle-check mr-1"></i>
+              <span class="line-clamp-1">All Dive Gear</span>
+            </li>
+            <li class="flex items-center p-2">
+              <i class="fa-regular fa-circle-check mr-1"></i>
+              <span class="line-clamp-1">Lunch Box & Softdrink</span>
+            </li>
+            <li class="flex items-center p-2">
+              <i class="fa-regular fa-circle-check mr-1"></i>
+              <span class="line-clamp-1">Guide & Boat</span>
+            </li>
+          </ul>
+          <div class="p-4">
+            <button class="p-3 w-full bg-sky-500 text-white font-semibold rounded-full">Book</button>
+            <div class="mt-2 text-sm text-center font-barlow text-slate-500">
+              Term & Condition Applied
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 4 -->
+        <div class="w-[calc(50%-0.5rem)] sm:w-[calc(25%-0.75rem)] flex-0 bg-white border rounded-xl overflow-hidden shadow-md shadow-sky-100">
+          <div class="p-2 py-4 text-center bg-sky-500 text-white">
+            <h4 class="text-xl font-bold">LOVINA REEF</h4>
+            <div class="font-barlow">2x Dive & 1 Night Dive</div>
+          </div>
+          <div class="p-2 py-4 text-center">
+            <h3 class="text-2xl font-bold"><sup class="text-slate-500 text-lg">IDR</sup> 1,250,000</h3>
+            <div class="font-barlow leading-3 text-slate-500">per person</div>
+          </div>
+          <ul class="px-4 font-barlow text-slate-500 divide-y">
+            <li class="flex items-center p-2">
+              <i class="fa-regular fa-circle-check mr-1"></i>
+              <span class="line-clamp-1">All Dive Gear</span>
+            </li>
+            <li class="flex items-center p-2">
+              <i class="fa-regular fa-circle-check mr-1"></i>
+              <span class="line-clamp-1">Lunch Box & Softdrink</span>
+            </li>
+            <li class="flex items-center p-2">
+              <i class="fa-regular fa-circle-check mr-1"></i>
+              <span class="line-clamp-1">Guide & Boat</span>
+            </li>
+          </ul>
+          <div class="p-4">
+            <button class="p-3 w-full bg-sky-500 text-white font-semibold rounded-full">Book</button>
+            <div class="mt-2 text-sm text-center font-barlow text-slate-500">
+              Term & Condition Applied
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+  <script src="./js/script.js"></script>
+  <script>
+    window.onscroll = topMenuScroll
+  </script>
+</body>
+</html>

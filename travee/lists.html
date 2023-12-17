@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>travee.</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./js/tailwindcss.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="font-poppins text-base bg-sky-50/50">
+  <header>
+    <nav class="top-nav transition-all z-50 px-3">
+      <div class="flex items-center justify-between max-w-screen-lg mx-auto py-4">
+        <a href="./">
+          <h3 class="text-2xl font-bold">tr<span class="text-sky-600">a</span>vee.</h3>
+        </a>
+
+        <div class="flex items-center gap-3">
+          <button class="relative start-0 px-1 flex items-center text-slate-800" data-dropdown-toggle="dropdownNotification" data-dropdown-placement="bottom-end" data-dropdown-offset-distance="24">
+            <i class="fa-regular fa-bell text-xl text-slate-600"></i>
+            <span class="absolute -top-0.5 -right-0 flex w-1.5 h-1.5 bg-red-600 rounded-full"></span>
+          </button>
+
+          <!-- Dropdown menu -->
+          <div id="dropdownNotification" class="z-20 hidden w-full max-w-sm bg-white divide-y divide-gray-100 border rounded-lg" aria-labelledby="dropdownNotificationButton">
+            <div class="block px-4 py-2 font-medium text-center text-gray-700 rounded-t-lg bg-gray-50">
+              Notifications
+            </div>
+            <div class="divide-y divide-gray-100">
+              <a href="#" class="flex px-4 py-3 bg-white">
+                <div class="flex-shrink-0">
+                  <img class="rounded-full w-11 h-11" src="https://i.pravatar.cc/150" alt="image">
+                </div>
+                <div class="w-full ps-3">
+                  <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400">New message from
+                    <span class="font-semibold text-gray-900 dark:text-white">Jese Leos</span>: "Hey, what's up? All set for the presentation?"</div>
+                  <div class="text-sm text-slate-500">a few moments ago</div>
+                </div>
+              </a>
+            </div>
+            <a href="#" class="block py-2 text-sm font-medium text-center text-gray-900 rounded-b-lg bg-white">
+              <div class="inline-flex items-center ">
+                <i class="fa-solid fa-eye mr-2"></i>
+                View all
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <div class="max-w-screen-lg mx-auto h-64 sm:h-96">
+      <img src="./img/header_details.jpg" alt="" class="w-full h-full object-cover rounded-none sm:rounded-3xl">
+    </div>
+  </section>
+
+  <section id="detailed">
+    <div class="max-w-screen-lg mx-auto mt-6 px-3">
+      <div class="text-center pb-6">
+        <h5 class="text-xl">Explore the most attractive <strong>Recreation Destination</strong></h5>
+        <p class="font-barlow text-slate-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe eius nobis doloremque fuga illum laudantium facere velit quae dolores neque.</p>
+      </div>
+
+      <div class="relative my-4">
+        <div class="grid gap-3 sm:grid-cols-4 pb-2">
+          <a href="details.html" class="bg-white rounded-xl overflow-hidden border shadow-md shadow-sky-100">
+            <img src="./img/destination-1.jpg" alt="">
+            <div class="p-3">
+              <div class="flex items-center justify-between mb-2">
+                <h5 class="font-bold line-clamp-2">Desa Wisata Bahari Banyumilir</h5>
+              </div>
+              <p class="line-clamp-2 font-barlow text-slate-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
+            </div>
+          </a>
+          <a href="details.html" class="bg-white rounded-xl overflow-hidden border shadow-md shadow-sky-100">
+            <img src="./img/destination-2.jpg" alt="">
+            <div class="p-3">
+              <div class="flex items-center justify-between mb-2">
+                <h5 class="font-bold">Swim with Plankton</h5>
+              </div>
+              <p class="line-clamp-2 font-barlow text-slate-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
+            </div>
+          </a>
+          <a href="details.html" class="bg-white rounded-xl overflow-hidden border shadow-md shadow-sky-100">
+            <img src="./img/destination-3.jpg" alt="">
+            <div class="p-3">
+              <div class="flex items-center justify-between mb-2">
+                <h5 class="font-bold">Jalapati Dive Spot</h5>
+              </div>
+              <p class="line-clamp-2 font-barlow text-slate-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
+            </div>
+          </a>
+          <a href="details.html" class="bg-white rounded-xl overflow-hidden border shadow-md shadow-sky-100">
+            <img src="./img/destination-4.jpg" alt="">
+            <div class="p-3">
+              <div class="flex items-center justify-between mb-2">
+                <h5 class="font-bold">Lovina Reef</h5>
+              </div>
+              <p class="line-clamp-2 font-barlow text-slate-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
+            </div>
+          </a>
+      
+          <a href="details.html" class="bg-white rounded-xl overflow-hidden border shadow-md shadow-sky-100">
+            <img src="./img/destination-5.jpg" alt="">
+            <div class="p-3">
+              <div class="flex items-center justify-between mb-2">
+                <h5 class="font-bold">Diving & Snorkeling</h5>
+              </div>
+              <p class="line-clamp-2 font-barlow text-slate-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+  <script src="./js/script.js"></script>
+  <script>
+    window.onscroll = topMenuScroll
+  </script>
+</body>
+</html>
