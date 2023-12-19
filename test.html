@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>Test</title>
+  </head>
+  <body>
+    <form id="frm-example" name="frm-example">
+       <div>
+          <label>Name</label><br>
+          <input value="John Doe" type="text">
+       </div>
+       <div>
+          <label>File</label><br>
+          <input id="example-file" type="file">
+       </div>
+       <div>
+          <button id="btn-example-file-reset" type="button">Reset file</button>
+       </div>
+    </form>
+    <script>
+      document.getElementById('btn-example-file-reset').addEventListener('click', function(e) {
+        var el = document.getElementById('example-file');
+        
+        // Membuat elemen form baru dan membungkus elemen target di dalamnya
+        var form = document.createElement('form');
+        el.parentNode.insertBefore(form, el);
+        form.appendChild(el);
+      
+        // Mereset nilai elemen form
+        form.reset();
+      
+        // Mencopot elemen dari form dan mengembalikan ke posisi awal
+        form.parentNode.insertBefore(el, form);
+        form.parentNode.removeChild(form);
+      });
+    </script>
+  </body>
+</html>
