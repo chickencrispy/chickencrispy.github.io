@@ -13,7 +13,7 @@
 
 <body class="font-poppins text-base bg-sky-50/50">
   <header>
-    <nav class="top-nav transition-all z-50 px-3">
+    <nav class="top-nav transition-all z-40 px-3">
       <div class="flex items-center justify-between max-w-screen-lg mx-auto py-4">
         <a href="./">
           <h3 class="text-2xl font-bold">tr<span class="text-sky-600">a</span>vee.</h3>
@@ -119,7 +119,7 @@
             </li>
           </ul>
           <div class="p-4">
-            <button class="p-3 w-full bg-sky-500 text-white font-semibold rounded-full">Book</button>
+            <button class="p-3 w-full bg-sky-500 text-white font-semibold rounded-full" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal">Book</button>
             <div class="mt-2 text-sm text-center font-barlow text-slate-500">
               Term & Condition Applied
             </div>
@@ -151,7 +151,7 @@
             </li>
           </ul>
           <div class="p-4">
-            <button class="p-3 w-full bg-sky-500 text-white font-semibold rounded-full">Book</button>
+            <button class="p-3 w-full bg-sky-500 text-white font-semibold rounded-full" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal">Book</button>
             <div class="mt-2 text-sm text-center font-barlow text-slate-500">
               Term & Condition Applied
             </div>
@@ -183,7 +183,7 @@
             </li>
           </ul>
           <div class="p-4">
-            <button class="p-3 w-full bg-sky-500 text-white font-semibold rounded-full">Book</button>
+            <button class="p-3 w-full bg-sky-500 text-white font-semibold rounded-full" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal">Book</button>
             <div class="mt-2 text-sm text-center font-barlow text-slate-500">
               Term & Condition Applied
             </div>
@@ -215,7 +215,7 @@
             </li>
           </ul>
           <div class="p-4">
-            <button class="p-3 w-full bg-sky-500 text-white font-semibold rounded-full">Book</button>
+            <button class="p-3 w-full bg-sky-500 text-white font-semibold rounded-full" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal">Book</button>
             <div class="mt-2 text-sm text-center font-barlow text-slate-500">
               Term & Condition Applied
             </div>
@@ -224,6 +224,34 @@
       </div>
     </div>
   </section>
+
+  <!-- Main modal -->
+  <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-md max-h-full">
+      <div class="relative bg-white rounded-lg shadow">
+        
+        <div class="flex items-center justify-between p-3 md:p-4 border-b rounded-t">
+          <h3 class="text-lg text-slate-900 font-semibold">Fast-Track Your Booking!</h3>
+          <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-6 h-6 ms-auto inline-flex justify-center items-center" data-modal-hide="authentication-modal">
+            <i class="fa-solid fa-xmark text-xl"></i>
+            <span class="sr-only">Close modal</span>
+          </button>
+        </div>
+
+        <div class="p-4 md:p-5">
+          <form class="space-y-4" action="">
+            <div>
+              <label for="email-phone" class="block mb-2 text-sm text-slate-600 text-center">For a seamless reservation, share your email or phone number with us. We promise to keep it safe and use it only for booking-related communication.</label>
+              <input type="text" name="ep" id="email-phone" class="w-full p-2.5 text-sm text-center bg-sky-50 border rounded-lg focus:ring-sky-500 focus:outline-sky-500" placeholder="email or phone number">
+            </div>
+            <button type="submit" class="w-full text-white font-semibold bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 text-center">Proceed</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
   <script src="./js/script.js"></script>
