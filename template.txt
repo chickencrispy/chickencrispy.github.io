@@ -1,0 +1,22 @@
+Expand/Collapse Checkbox
+========================================================
+<div class="max-w-screen-lg mx-auto my-4 border p-3">
+  <div class="peer">
+    <label class="group cursor-pointer">
+      <input type="checkbox" name="" id="" class="sr-only">
+      <span class="group-[&:has(input:checked)]:hidden">SHOW <i class="fa-solid fa-chevron-down"></i></span>
+      <span class="hidden group-[&:has(input:checked)]:inline">HIDE <i class="fa-solid fa-chevron-up"></i></span>
+    </label>
+  </div>
+  <div class="grid grid-rows-[0fr] peer-[&:has(input:checked)]:grid-rows-[1fr] transition-all duration-500">
+    <div class="overflow-hidden">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum sint, ab consectetur natus ipsum deleniti incidunt amet a 
+      voluptas molestias vitae, sapiente nesciunt quibusdam aliquid doloribus. Placeat commodi beatae, laudantium minus, 
+      sit perspiciatis quisquam possimus ut fugit soluta molestias nostrum, eum facilis hic quidem minima. 
+      Blanditiis praesentium assumenda quo unde distinctio dolores iure ratione quam animi, modi repellendus? 
+      Harum repellendus quasi doloremque modi sit fuga, dolores illo possimus asperiores dolorum molestiae at ex mollitia 
+      magnam beatae voluptates, magni veritatis ratione ipsa! Consequuntur, laudantium. Suscipit sapiente, vel autem nisi 
+      voluptatum eligendi voluptates voluptas omnis ipsa magnam velit minus reprehenderit quas debitis!
+    </div>
+  </div>
+</div>
