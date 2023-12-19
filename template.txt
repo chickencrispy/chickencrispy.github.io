@@ -20,3 +20,25 @@ Expand/Collapse Checkbox
     </div>
   </div>
 </div>
+
+Reset Input File
+=======================================================
+function resetFileInput() {
+  // Mendapatkan elemen dengan ID "example-file"
+  var el = document.getElementById('example-file');
+
+  // Membuat elemen form baru dan membungkus elemen target di dalamnya
+  var form = document.createElement('form');
+  el.parentNode.insertBefore(form, el);
+  form.appendChild(el);
+
+  // Mereset nilai elemen form
+  form.reset();
+
+  // Mencopot elemen dari form dan mengembalikan ke posisi awal
+  form.parentNode.insertBefore(el, form);
+  form.parentNode.removeChild(form);
+}
+
+// Memanggil fungsi resetFileInput
+resetFileInput();
