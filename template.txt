@@ -42,3 +42,25 @@ function resetFileInput() {
 
 // Memanggil fungsi resetFileInput
 resetFileInput();
+
+nginx rewrite rules
+============================================================
+server {
+    listen 80;
+    server_name planethms.com;
+
+    return 301 https://beta.planethms.com$request_uri;
+}
+
+server {
+    listen 80;
+    server_name beta.planethms.com;
+
+    location / {
+        rewrite ^/$ /login/login.php last;
+        rewrite ^/public/([^/]+)$ /public/index.php?id=$1 last;
+        rewrite ^/public/([^/]+)/?$ /public/index.php?pg=$1 last;
+    }
+
+    # Add other server configurations as needed
+}
