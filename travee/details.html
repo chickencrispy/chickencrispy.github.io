@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>travee.</title>
+  <title>Lovina Beach | travee.</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" rel="stylesheet"/>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="./js/tailwindcss.js"></script>
   <link rel="stylesheet" href="./css/style.css">
@@ -13,15 +14,15 @@
 
 <body class="font-poppins text-base bg-sky-50/50">
   <header>
-    <nav class="top-nav transition-all z-40 px-3">
+    <nav class="top-nav fixed inset-x-0 transition-all z-50 px-3 border-black/10">
       <div class="flex items-center justify-between max-w-screen-lg mx-auto py-4">
-        <a href="./">
-          <h3 class="text-2xl font-bold">tr<span class="text-sky-600">a</span>vee.</h3>
+        <a href="./" class="text-white">
+          <h3 class="text-2xl font-bold">travee.</h3>
         </a>
 
         <div class="flex items-center gap-3">
           <button class="relative start-0 px-1 flex items-center text-slate-800" data-dropdown-toggle="dropdownNotification" data-dropdown-placement="bottom-end" data-dropdown-offset-distance="24">
-            <i class="fa-regular fa-bell text-xl text-slate-600"></i>
+            <i class="fa-regular fa-bell text-xl text-white"></i>
             <span class="absolute -top-0.5 -right-0 flex w-1.5 h-1.5 bg-red-600 rounded-full"></span>
           </button>
 
@@ -55,171 +56,117 @@
   </header>
 
   <section id="hero">
-    <div class="max-w-screen-lg mx-auto h-64 sm:h-96">
-      <img src="./img/header_details.jpg" alt="" class="w-full h-full object-cover rounded-none sm:rounded-3xl">
+    <div class="h-64 sm:h-[30rem]">
+      <img src="./img/ri-lovina.webp" alt="" class="w-full h-full object-cover">
     </div>
   </section>
 
-  <section id="detailed">
-    <div class="max-w-screen-lg mx-auto mt-6 p-4">
-      <div class="space-y-2">
-        <h5 class="text-xl font-bold text-center">About Desa Wisata Bahari Banyumilir</h5>
-        <div class="font-barlow text-slate-500 text-justify space-y-4">
-          <p>Kalibukbuk Village offers beautiful views, especially in the afternoon when watching the sunset. This is also supported
-            by the existence of a beach that stretches from east to west for 2.7 KM. 80% of Kalibukbuk village residents are engaged
-            in the tourism sector and most of them utilize maritime potential as one of the activities. The main thing is watching
-            the attraction of changing or watching dolphins to become the leading icon in our village</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum ipsa excepturi, facilis quos accusantium itaque sit non maiores natus optio harum sapiente in suscipit blanditiis 
-            aut nostrum reiciendis minus, numquam recusandae quibusdam eum, doloribus ducimus porro. Animi voluptatibus unde enim, 
-            consequatur reiciendis non aliquam vero velit quos et saepe harum illum earum, repellat quidem veritatis. 
-            Harum deserunt dolor, facere obcaecati ab fuga facilis maiores, sapiente a, perferendis non doloremque! 
-            Vitae repellendus nostrum maxime non quis illo tenetur fuga a vero.</p>
+  <section id="information">
+    <div class="max-w-screen-lg mx-auto p-4">
+      <!-- Breadcrumb -->
+      <nav class="flex border-b pb-4 mb-4" aria-label="Breadcrumb">
+        <div class="inline-flex items-center space-x-3 text-slate-500">
+          <a href="./">Home</a>
+          <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
+          <a href="./lists.html">Attraction</a>
+          <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
+          <a href="./lists.html">Bali</a>
+          <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
+          <a href="./details.html" class="text-slate-700 font-semibold">Lovina Beach</a>
+        </div>
+      </nav>
+
+      <div class="space-y-2 border-b pb-6 mb-4">
+        <h2 class="font-bold mb-4">Lovina Beach: Playground of Bottle-Nosed Dolphins along North Bali's Coast</h2>
+        <div class="text-slate-500 text-justify space-y-4">
+          <p>If you are looking for a completely different holiday, different from South Bali's Kuta-Seminyak vibrant atmosphere, then you should head north to Bali’s Lovina Beach. Situated some 9 Km from Singaraja, capital city of the Buleleng Regency, Lovina Beach facing the Bali Sea is the perfect definition of tranquility, where one can enjoy the true meaning of a laid back and relaxed life.</p>
+          <p>Lovina stretches across a swathe of over 8 kms coastline comprising a string of coastal villages, which are: Kaliasem, Kalibukbuk, Anturan, and Tukad Mungga – collectively known as Lovina. The heart of Lovina is the village of Kalibukbuk situated in the Buleleng District, Buleleng Regency.</p>
+          <p>Unlike other white-sand beaches on Bali, Lovina beach is of grey and black volcanic sand. Just as the nearby Pemuteran Beach, Lovina also features incredible underwater life to plunge in for those who enjoy diving and snorkeling. But, the main attraction here are the bottle-nosed dolphins (Tursiops truncates)n who haved made this coast their playground.</p>
+          <p>Dolphins normally appear early in the morning just when the first rays of the sun rise on the horizon. These incredibly smart creatures will come and swim near boats and cavort around creating a truly fascinatingspectacle of nature. This anazing attraction can be viewed from traditional boats called “Jukung” that are offered by many operators or individuals on shore.</p>
         </div>
       </div>
 
-      <div class="flex flex-col sm:flex-row gap-2 py-4">
-        <div class="sm:w-3/4">
-          <img src="./img/feature-thumb-0.jpg" class="w-full h-full object-cover">
+      <div class="space-y-2 border-b pb-6">
+        <h4>Location details</h4>
+        <div class="text-slate-500 text-justify space-y-4">
+          <p>From Denpasar, capital city of Bali, you can get to Lovina through Bedugul over the mountainous central part of the island, which takes about 2 hours. Alternatively, you can follow the Gilimanuk route of West Bali which will take about 4 hours drive.</p>
         </div>
-        <div class="hidden sm:flex sm:flex-col gap-2 w-1/4">
-          <img src="./img/feature-thumb-1.jpg" class="w-1/2 h-full object-cover sm:w-full">
-          <img src="./img/feature-thumb-2.jpg" class="w-1/2 h-full object-cover sm:w-full">
-        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15797.6705650587!2d115.01961533398809!3d-8.160608719919372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd19b3dcc0765ab%3A0xab6c47770c720750!2sPantai%20Lovina%2C%20Anturan%2C%20Kec.%20Buleleng%2C%20Kabupaten%20Buleleng%2C%20Bali!5e0!3m2!1sid!2sid!4v1703406480656!5m2!1sid!2sid" class="w-full border-0 rounded-lg" height="250" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>
 
   <section id="package">
-    <div class="max-w-screen-lg mx-auto mb-4 p-4">
-      <h5 class="text-xl font-bold text-center">Diving & Snorkeling Packages</h5>
-
-      <div class="flex justify-center gap-3 sm:gap-4 flex-wrap py-4">
-        <!-- Package 1 -->
-        <div class="w-[calc(50%-0.5rem)] sm:w-[calc(25%-0.75rem)] flex-0 bg-white border rounded-xl overflow-hidden shadow-md shadow-sky-100">
-          <div class="p-2 py-4 text-center bg-sky-500 text-white">
-            <h4 class="text-xl font-bold">LOVINA REEF</h4>
-            <div class="font-barlow">1x Dive & 1 Night Dive</div>
-          </div>
-          <div class="p-2 py-4 text-center">
-            <h3 class="text-2xl font-bold"><sup class="text-slate-500 text-lg">IDR</sup> 1,000,000</h3>
-            <div class="font-barlow leading-3 text-slate-500">per person</div>
-          </div>
-          <ul class="px-4 font-barlow text-slate-500 divide-y">
-            <li class="flex items-center p-2">
-              <i class="fa-regular fa-circle-check mr-1"></i>
-              <span class="line-clamp-1">All Dive Gear</span>
-            </li>
-            <li class="flex items-center p-2">
-              <i class="fa-regular fa-circle-check mr-1"></i> 
-              <span class="line-clamp-1">Lunch Box & Softdrink</span>
-            </li>
-            <li class="flex items-center p-2">
-              <i class="fa-regular fa-circle-check mr-1"></i> 
-              <span class="line-clamp-1">Guide & Boat</span>
-            </li>
-          </ul>
-          <div class="p-4">
-            <button class="p-3 w-full bg-sky-500 text-white font-semibold rounded-full" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal">Book</button>
-            <div class="mt-2 text-sm text-center font-barlow text-slate-500">
-              Term & Condition Applied
-            </div>
-          </div>
-        </div>
+    <div class="max-w-screen-lg mx-auto p-4">
+      <div class="border-b pb-6">
+        <h4>Attraction Packages</h4>
         
-        <!-- Package 2 -->
-        <div class="w-[calc(50%-0.5rem)] sm:w-[calc(25%-0.75rem)] flex-0 bg-white border rounded-xl overflow-hidden shadow-md shadow-sky-100">
-          <div class="p-2 py-4 text-center bg-sky-500 text-white">
-            <h4 class="text-xl font-bold">LOVINA REEF</h4>
-            <div class="font-barlow">1x Dive</div>
-          </div>
-          <div class="p-2 py-4 text-center">
-            <h3 class="text-2xl font-bold"><sup class="text-slate-500 text-lg">IDR</sup> 675,000</h3>
-            <div class="font-barlow leading-3 text-slate-500">per person</div>
-          </div>
-          <ul class="px-4 font-barlow text-slate-500 divide-y">
-            <li class="flex items-center p-2">
-              <i class="fa-regular fa-circle-check mr-1"></i>
-              <span class="line-clamp-1">All Dive Gear</span>
-            </li>
-            <li class="flex items-center p-2">
-              <i class="fa-regular fa-circle-check mr-1"></i>
-              <span class="line-clamp-1">Lunch Box & Softdrink</span>
-            </li>
-            <li class="flex items-center p-2">
-              <i class="fa-regular fa-circle-check mr-1"></i>
-              <span class="line-clamp-1">Guide & Boat</span>
-            </li>
-          </ul>
-          <div class="p-4">
-            <button class="p-3 w-full bg-sky-500 text-white font-semibold rounded-full" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal">Book</button>
-            <div class="mt-2 text-sm text-center font-barlow text-slate-500">
-              Term & Condition Applied
+        <div class="package-lists flex gap-3 sm:gap-4 flex-wrap pt-4 justify-center">
+          <!-- Package 1 -->
+          <a href="package_details.html" class="group w-[calc(50%-0.5rem)] sm:w-[calc(33.33%-0.75rem)] bg-white border rounded-xl flex-0 transition overflow-hidden">
+            <figure class="overflow-hidden rounded-t-xl">
+              <img src="./img/dolphin-1.webp" class="w-full h-36 rounded-t-xl transition duration-300 group-hover:scale-125 object-cover">
+            </figure>
+            <div class="flex flex-col p-4 gap-1">
+              <div class="text-lg font-semibold line-clamp-2">Dolphin Tour and Sunrise Watching Package</div>
+              <div class="mt-2">
+                <div class="text-sm text-slate-500">Package start from</div>
+                <div class="text-xl text-red-400 font-semibold">IDR 1,000,000</div>
+              </div>
             </div>
-          </div>
+          </a>
+        
+          <!-- Package 2 -->
+          <a href="package_details.html" class="group w-[calc(50%-0.5rem)] sm:w-[calc(33.33%-0.75rem)] bg-white border rounded-xl flex-0 transition overflow-hidden">
+            <figure class="overflow-hidden rounded-t-xl">
+              <img src="./img/diving-1.webp" class="w-full h-36 rounded-t-xl transition duration-300 group-hover:scale-125 object-cover">
+            </figure>
+            <div class="flex flex-col p-4 gap-1">
+              <div class="text-lg font-semibold line-clamp-2">Full Day Diving & Snorkeling at Jalapati Spot</div>
+              <div class="mt-2">
+                <div class="text-sm text-slate-500">Package start from</div>
+                <div class="text-xl text-red-400 font-semibold">IDR 750,000</div>
+              </div>
+            </div>
+          </a>
+        
+          <!-- Package 3 -->
+          <a href="package_details.html" class="group w-[calc(50%-0.5rem)] sm:w-[calc(33.33%-0.75rem)] bg-white border rounded-xl flex-0 transition overflow-hidden">
+            <figure class="overflow-hidden rounded-t-xl">
+              <img src="./img/snorkeling-1.webp" class="w-full h-36 rounded-t-xl transition duration-300 group-hover:scale-125 object-cover">
+            </figure>
+            <div class="flex flex-col p-4 gap-1">
+              <div class="text-lg font-semibold line-clamp-2">Full Day Diving & Snorkeling at Lovina Reef</div>
+              <div class="mt-2">
+                <div class="text-sm text-slate-500">Package start from</div>
+                <div class="text-xl text-red-400 font-semibold">IDR 300,000</div>
+              </div>
+            </div>
+          </a>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Package 3 -->
-        <div class="w-[calc(50%-0.5rem)] sm:w-[calc(25%-0.75rem)] flex-0 bg-white border rounded-xl overflow-hidden shadow-md shadow-sky-100">
-          <div class="p-2 py-4 text-center bg-sky-500 text-white">
-            <h4 class="text-xl font-bold">SNORKELING</h4>
-            <div class="font-barlow">Lovina Reef</div>
-          </div>
-          <div class="p-2 py-4 text-center">
-            <h3 class="text-2xl font-bold"><sup class="text-slate-500 text-lg">IDR</sup> 300,000</h3>
-            <div class="font-barlow leading-3 text-slate-500">per person</div>
-          </div>
-          <ul class="px-4 font-barlow text-slate-500 divide-y">
-            <li class="flex items-center p-2">
-              <i class="fa-regular fa-circle-check mr-1"></i>
-              <span class="line-clamp-1">All Dive Gear</span>
-            </li>
-            <li class="flex items-center p-2">
-              <i class="fa-regular fa-circle-check mr-1"></i>
-              <span class="line-clamp-1">Lunch Box & Softdrink</span>
-            </li>
-            <li class="flex items-center p-2">
-              <i class="fa-regular fa-circle-check mr-1"></i>
-              <span class="line-clamp-1">Guide & Boat</span>
-            </li>
-          </ul>
-          <div class="p-4">
-            <button class="p-3 w-full bg-sky-500 text-white font-semibold rounded-full" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal">Book</button>
-            <div class="mt-2 text-sm text-center font-barlow text-slate-500">
-              Term & Condition Applied
-            </div>
-          </div>
+  <section id="gallery">
+    <div class="max-w-screen-lg mx-auto p-4">
+      <h4>Image Gallery</h4>
+      
+      <div class="flex gap-2 sm:gap-4 flex-wrap py-4" data-te-lightbox-init>
+        <div class="w-[calc(20%-0.5rem)] sm:w-[calc(20%-0.875rem)] h-24 sm:h-40">
+          <img src="./img/feature-thumb-0.webp" src="./img/feature-thumb-0.webp" class="w-full h-full object-cover cursor-pointer">
         </div>
-
-        <!-- Package 4 -->
-        <div class="w-[calc(50%-0.5rem)] sm:w-[calc(25%-0.75rem)] flex-0 bg-white border rounded-xl overflow-hidden shadow-md shadow-sky-100">
-          <div class="p-2 py-4 text-center bg-sky-500 text-white">
-            <h4 class="text-xl font-bold">LOVINA REEF</h4>
-            <div class="font-barlow">2x Dive & 1 Night Dive</div>
-          </div>
-          <div class="p-2 py-4 text-center">
-            <h3 class="text-2xl font-bold"><sup class="text-slate-500 text-lg">IDR</sup> 1,250,000</h3>
-            <div class="font-barlow leading-3 text-slate-500">per person</div>
-          </div>
-          <ul class="px-4 font-barlow text-slate-500 divide-y">
-            <li class="flex items-center p-2">
-              <i class="fa-regular fa-circle-check mr-1"></i>
-              <span class="line-clamp-1">All Dive Gear</span>
-            </li>
-            <li class="flex items-center p-2">
-              <i class="fa-regular fa-circle-check mr-1"></i>
-              <span class="line-clamp-1">Lunch Box & Softdrink</span>
-            </li>
-            <li class="flex items-center p-2">
-              <i class="fa-regular fa-circle-check mr-1"></i>
-              <span class="line-clamp-1">Guide & Boat</span>
-            </li>
-          </ul>
-          <div class="p-4">
-            <button class="p-3 w-full bg-sky-500 text-white font-semibold rounded-full" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal">Book</button>
-            <div class="mt-2 text-sm text-center font-barlow text-slate-500">
-              Term & Condition Applied
-            </div>
-          </div>
+        <div class="w-[calc(20%-0.5rem)] sm:w-[calc(20%-0.875rem)] h-24 sm:h-40">
+          <img src="./img/feature-thumb-1.webp" src="./img/feature-thumb-1.webp" class="w-full h-full object-cover cursor-pointer">
+        </div>
+        <div class="w-[calc(20%-0.5rem)] sm:w-[calc(20%-0.875rem)] h-24 sm:h-40">
+          <img src="./img/feature-thumb-2.webp" src="./img/feature-thumb-2.webp" class="w-full h-full object-cover cursor-pointer">
+        </div>
+        <div class="w-[calc(20%-0.5rem)] sm:w-[calc(20%-0.875rem)] h-24 sm:h-40">
+          <img src="./img/destination-4.webp" src="./img/feature-thumb-4.webp" class="w-full h-full object-cover cursor-pointer">
+        </div>
+        <div class="w-[calc(20%-0.5rem)] sm:w-[calc(20%-0.875rem)] h-24 sm:h-40">
+          <img src="./img/destination-5.webp" src="./img/feature-thumb-5.webp" class="w-full h-full object-cover cursor-pointer">
         </div>
       </div>
     </div>
@@ -241,8 +188,8 @@
         <div class="p-4 md:p-5">
           <form class="space-y-4" action="">
             <div>
-              <label for="email-phone" class="block mb-2 text-sm text-slate-600 text-center">For a seamless reservation, share your email or phone number with us. We promise to keep it safe and use it only for booking-related communication.</label>
-              <input type="text" name="ep" id="email-phone" class="w-full p-2.5 text-sm text-center bg-sky-50 border rounded-lg focus:ring-sky-500 focus:outline-sky-500" placeholder="email or phone number">
+              <label for="email-phone" class="block mb-4 text-slate-600 text-center">For a seamless reservation, share your email or phone number with us. We promise to keep it safe and use it only for booking-related communication.</label>
+              <input type="text" name="ep" id="email-phone" class="w-full p-2.5 text-center bg-sky-50 border rounded-lg focus:ring-sky-500 focus:outline-sky-500" placeholder="email or phone number">
             </div>
             <button type="submit" class="w-full text-white font-semibold bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 text-center">Proceed</button>
             </div>
@@ -254,6 +201,7 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
   <script src="./js/script.js"></script>
   <script>
     window.onscroll = topMenuScroll

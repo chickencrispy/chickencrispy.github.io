@@ -1,9 +1,11 @@
 function topMenuScroll() {
   const currentScrollPos = window.pageYOffset;
-  if (currentScrollPos > 70) {
-    document.querySelector('.top-nav').classList.add('fixed', 'w-full', 'bg-white/75', 'backdrop-blur', 'shadow');
+  if (currentScrollPos > 5) {
+    //document.querySelector('.top-nav').classList.add('fixed', 'w-full', 'bg-white/75', 'backdrop-blur', 'shadow');
+    document.querySelector('.top-nav').classList.add('bg-black/20','backdrop-blur');
   } else {
-    document.querySelector('.top-nav').classList.remove('fixed', 'w-full', 'bg-white/75', 'backdrop-blur', 'shadow');
+    //document.querySelector('.top-nav').classList.remove('fixed', 'w-full', 'bg-white/75', 'backdrop-blur', 'shadow');
+    document.querySelector('.top-nav').classList.remove('bg-black/20','backdrop-blur');
   }
 };
 

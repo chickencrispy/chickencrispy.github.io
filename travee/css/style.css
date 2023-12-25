@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Poppins:wght@400;700&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --sb-track-color: #ffffff;
   --sb-thumb-color: #d8d8d8;
@@ -9,6 +13,29 @@
 body {
   font-family: 'Poppins', Sans-serif;
   font-size: 0.8rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2rem !important;
+  line-height: 2.5rem !important;
+}
+
+h4 {
+  font-size: 1.5rem !important;
+  line-height: 2rem !important;
+}
+
+h5 {
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
+}
+
+h6 {
+  font-size: 0.875rem !important;
 }
 
 .overflow-x-auto::-webkit-scrollbar {

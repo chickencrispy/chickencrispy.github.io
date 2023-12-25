@@ -14,15 +14,15 @@
 
 <body class="font-poppins text-base bg-sky-50/50">
   <header>
-    <nav class="top-nav transition-all z-50 px-3">
+    <nav class="top-nav fixed inset-x-0 transition-all z-50 px-3 border-black/10">
       <div class="flex items-center justify-between max-w-screen-lg mx-auto py-4">
-        <a href="./">
-          <h3 class="text-2xl font-bold">tr<span class="text-sky-600">a</span>vee.</h3>
+        <a href="./" class="text-white">
+          <h3 class="text-2xl font-bold">travee.</h3>
         </a>
 
         <div class="flex items-center gap-3">
           <button class="relative start-0 px-1 flex items-center text-slate-800" data-dropdown-toggle="dropdownNotification" data-dropdown-placement="bottom-end" data-dropdown-offset-distance="24">
-            <i class="fa-regular fa-bell text-xl text-slate-600"></i>
+            <i class="fa-regular fa-bell text-xl text-white"></i>
             <span class="absolute -top-0.5 -right-0 flex w-1.5 h-1.5 bg-red-600 rounded-full"></span>
           </button>
 
@@ -55,9 +55,9 @@
     </nav>
   </header>
 
-  <section id="hero" class="sm:-mb-8 px-3">
-    <div class="max-w-screen-lg mx-auto h-64 sm:h-96">
-      <img src="./img/header-balisurf.jpg" alt="" class="w-full h-full object-cover rounded-t-3xl sm:rounded-3xl">
+  <section id="hero" class="sm:-mb-8">
+    <div class="h-64 sm:h-[30rem]">
+      <img src="./img/baliH.webp" alt="" class="w-full h-full object-cover">
     </div>
 
     <div class="relative max-w-screen-md mx-auto sm:-top-14">
@@ -67,25 +67,31 @@
             <h3 class="text-lg font-bold leading-4 mb-2">What Excites you Most?</h3>
             <p class="font-barlow text-slate-500 leading-4">Lorem ipsum dolor sit amet consectetur.</p>
           </div>
+          <div class="relative sm:hidden mb-3">
+            <div class="absolute inset-y-0 p-3 flex items-center text-slate-300">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <input type="search" name="" id="" class="pl-8 p-2 border rounded-lg w-full focus:ring-0 focus:outline-0" placeholder="Destination, attraction or activity">
+          </div>
           <div class="flex flex-1 divide-x sm:divide-x-0">
             <a href="./lists.html" class="group flex flex-col sm:flex-row text-center sm:text-left flex-1 p-3 gap-4 sm:rounded-lg hover:text-sky-600 hover:bg-sky-50">
               <i class="fas fa-umbrella-beach text-2xl sm:text-xl"></i>
               <div>
-                <h3 class="text-base font-bold leading-4 mb-1">Recreation</h3>
-                <p class="hidden sm:block font-barlow text-slate-500 leading-4 group-hover:text-sky-600">Lorem ipsum dolor sit amet.</p>
+                <h3 class="text-sm sm:text-base sm:font-bold leading-4 mb-1">Attraction</h3>
+                <p class="hidden sm:block font-barlow text-slate-500 leading- group-hover:text-sky-600">Lorem ipsum dolor sit amet.</p>
               </div>
             </a>
             <a href="./lists.html" class="group flex flex-col sm:flex-row text-center sm:text-left flex-1 p-3 gap-4 sm:rounded-lg hover:text-sky-600 hover:bg-sky-50">
               <i class="fas fa-burger text-2xl sm:text-xl"></i>
               <div>
-                <h3 class="text-base font-bold leading-4 mb-1">Culinary</h3>
+                <h3 class="text-sm sm:text-base sm:font-bold leading-4 mb-1">Culinary</h3>
                 <p class="hidden sm:block font-barlow text-slate-500 leading-4 group-hover:text-sky-600">Lorem ipsum dolor sit amet.</p>
               </div>
             </a>
             <a href="./lists.html" class="group flex flex-col sm:flex-row text-center sm:text-left flex-1 p-3 gap-4 sm:rounded-lg hover:text-sky-600 hover:bg-sky-50">
               <i class="fas fa-hotel text-2xl sm:text-xl"></i>
               <div>
-                <h3 class="text-base font-bold leading-4 mb-1">Hotels</h3>
+                <h3 class="text-sm sm:text-base sm:font-bold leading-4 mb-1">Hotels</h3>
                 <p class="hidden sm:block font-barlow text-slate-500 leading-4 group-hover:text-sky-600">Lorem ipsum dolor sit amet.</p>
               </div>
             </a>
@@ -99,61 +105,51 @@
   <section id="top-recreation" class="px-3">
     <div class="max-w-screen-lg mx-auto my-8 px-3">
       <div class="text-center">
-        <h3 class="text-xl">Explore Top <b>Recreations</b></h3>
+        <h3 class="text-2xl">Explore Top <b>Recreations</b></h3>
         <p class="font-barlow text-slate-500">Search our website for the best destinations in the world, where you can enjoy the best vacations.</p>
       </div>
 
       <div class="relative my-4">
-        <div class="scrollable flex gap-3 flex-nowrap overflow-x-auto -mx-2 pb-2">
-          <a href="details.html" class="flex-0 w-2/5 sm:w-[calc(25%-0.75rem)] p-2 bg-white rounded-xl overflow-hidden border shadow-md shadow-sky-100">
-            <img src="./img/destination-1.jpg" class="rounded-lg">
-            <div class="p-2 pt-4">
-              <div class="flex items-center justify-between mb-2">
-                <h5 class="font-bold line-clamp-2">Desa Wisata Bahari Banyumilir</h5>
-              </div>
-              <p class="line-clamp-2 font-barlow text-slate-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
+        <div class="scrollable flex gap-1 sm:gap-3 flex-wrap sm:flex-nowrap overflow-x-auto -mx-2 pb-2">
+          <a href="details.html" class="group relative flex-0 w-[calc(33.33%-0.25rem)] sm:w-[calc(25%-0.75rem)] h-48 sm:rounded-xl overflow-hidden">
+            <img src="./img/destination-1.webp" class="w-full h-full transition duration-300 group-hover:scale-125 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75 text-white flex items-end text-center p-3">
+              <div class="line-clamp-2">Lovina Beach: Bali's Dolphin Playground in the North</div>
             </div>
           </a>
-          <a href="details.html" class="flex-0 w-2/5 sm:w-[calc(25%-0.75rem)] p-2 bg-white rounded-xl overflow-hidden border shadow-md shadow-sky-100">
-            <img src="./img/destination-2.jpg" class="rounded-lg">
-            <div class="p-2 pt-4">
-              <div class="flex items-center justify-between mb-2">
-                <h5 class="font-bold">Swim with Plankton</h5>
-              </div>
-              <p class="line-clamp-2 font-barlow text-slate-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
+          <a href="details.html" class="group relative flex-0 w-[calc(33.33%-0.25rem)] sm:w-[calc(25%-0.75rem)] h-48 sm:rounded-xl overflow-hidden">
+            <img src="./img/destination-2.webp" class="w-full h-full transition duration-300 group-hover:scale-125 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75 text-white flex items-end text-center p-3">
+              <div class="line-clamp-2">Menjangan Island: West Bali's Hidden Dive Gem</div>
             </div>
           </a>
-          <a href="details.html" class="flex-0 w-2/5 sm:w-[calc(25%-0.75rem)] p-2 bg-white rounded-xl overflow-hidden border shadow-md shadow-sky-100">
-            <img src="./img/destination-3.jpg" class="rounded-lg">
-            <div class="p-2 pt-4">
-              <div class="flex items-center justify-between mb-2">
-                <h5 class="font-bold">Jalapati Dive Spot</h5>
-              </div>
-              <p class="line-clamp-2 font-barlow text-slate-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
+          <a href="details.html" class="group relative flex-0 w-[calc(33.33%-0.25rem)] sm:w-[calc(25%-0.75rem)] h-48 sm:rounded-xl overflow-hidden">
+            <img src="./img/destination-3.webp" class="w-full h-full transition duration-300 group-hover:scale-125 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75 text-white flex items-end text-center p-3">
+              <div class="line-clamp-2">Ulun Danu Beratan: Iconic Temple on Lake Beratan</div>
             </div>
           </a>
-          <a href="details.html" class="flex-0 w-2/5 sm:w-[calc(25%-0.75rem)] p-2 bg-white rounded-xl overflow-hidden border shadow-md shadow-sky-100">
-            <img src="./img/destination-4.jpg" class="rounded-lg">
-            <div class="p-2 pt-4">
-              <div class="flex items-center justify-between mb-2">
-                <h5 class="font-bold">Lovina Reef</h5>
-              </div>
-              <p class="line-clamp-2 font-barlow text-slate-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
+          <a href="details.html" class="group relative flex-0 w-[calc(33.33%-0.25rem)] sm:w-[calc(25%-0.75rem)] h-48 sm:rounded-xl overflow-hidden">
+            <img src="./img/destination-4.webp" class="w-full h-full transition duration-300 group-hover:scale-125 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75 text-white flex items-end text-center p-3">
+              <div class="line-clamp-2">Suluban Beach: Bali's Serene Surfer’s Getaway</div>
             </div>
           </a>
-        
-          <a href="details.html" class="flex-0 w-2/5 sm:w-[calc(25%-0.75rem)] p-2 bg-white rounded-xl overflow-hidden border shadow-md shadow-sky-100">
-            <img src="./img/destination-5.jpg" class="rounded-lg">
-            <div class="p-2 pt-4">
-              <div class="flex items-center justify-between mb-2">
-                <h5 class="font-bold">Diving & Snorkeling</h5>
-              </div>
-              <p class="line-clamp-2 font-barlow text-slate-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, neque!</p>
+          <a href="details.html" class="group relative flex-0 w-[calc(33.33%-0.25rem)] sm:w-[calc(25%-0.75rem)] h-48 sm:rounded-xl overflow-hidden">
+            <img src="./img/destination-5.webp" class="w-full h-full transition duration-300 group-hover:scale-125 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75 text-white flex items-end text-center p-3">
+              <div class="line-clamp-2">Bali's Janger Dance: A Joyful Delight for All Ages</div>
+            </div>
+          </a>
+          <a href="details.html" class="group relative flex-0 w-[calc(33.33%-0.25rem)] sm:w-[calc(25%-0.75rem)] h-48 sm:rounded-xl overflow-hidden">
+            <img src="./img/destination-6.webp" class="w-full h-full transition duration-300 group-hover:scale-125 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75 text-white flex items-end text-center p-3">
+              <div class="line-clamp-2">Pura Besakih: Bali's Revered Mother Temple</div>
             </div>
           </a>
         </div>
-        <div class="flex items-center justify-end text-sky-500 text-sm">
-          <a href="./lists.html">Explore more <i class="fa-solid fa-arrow-right ml-4"></i></a>
+        <div class="flex items-center py-2 justify-end text-sky-500 text-sm">
+          <a href="./lists.html" class="p-2 px-3 border rounded-full bg-white">Explore more <i class="fa-solid fa-arrow-right ml-4"></i></a>
         </div>
       </div>
     </div>
