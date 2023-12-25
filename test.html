@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>chickencrispy | github.io</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="flex items-center justify-center w-full h-screen">
+    <form id="frm-example" name="frm-example" class="w-[380px] flex flex-col gap-3">
+       <div class="flex flex-col gap-1">
+          <label class="text-sm text-slate-400">Name</label>
+          <input value="John Doe" type="text" class="w-full p-2 px-3 border rounded-lg">
+       </div>
+       <div class="flex flex-col gap-1">
+          <label class="text-sm text-slate-400">File</label>
+          <input id="example-file" type="file" class="w-full p-2 px-3 border rounded-lg">
+       </div>
+       <div class="flex flex-col gap-1">
+          <button id="btn-example-file-reset" type="button" class="w-full p-2 px-6 bg-sky-500 text-white rounded-lg">Reset file</button>
+       </div>
+    </form>
+  </div>
+  
+  <script>
+    document.getElementById('btn-example-file-reset').addEventListener('click', function(e) {
+      var el = document.getElementById('example-file');
+      
+      // Membuat elemen form baru dan membungkus elemen target di dalamnya
+      var form = document.createElement('form');
+      el.parentNode.insertBefore(form, el);
+      form.appendChild(el);
+    
+      // Mereset nilai elemen form
+      form.reset();
+    
+      // Mencopot elemen dari form dan mengembalikan ke posisi awal
+      form.parentNode.insertBefore(el, form);
+      form.parentNode.removeChild(form);
+    });
+  </script>
+</body>
+</html>

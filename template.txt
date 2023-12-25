@@ -20,3 +20,47 @@ Expand/Collapse Checkbox
     </div>
   </div>
 </div>
+
+Reset Input File
+=======================================================
+function resetFileInput() {
+  // Mendapatkan elemen dengan ID "example-file"
+  var el = document.getElementById('example-file');
+
+  // Membuat elemen form baru dan membungkus elemen target di dalamnya
+  var form = document.createElement('form');
+  el.parentNode.insertBefore(form, el);
+  form.appendChild(el);
+
+  // Mereset nilai elemen form
+  form.reset();
+
+  // Mencopot elemen dari form dan mengembalikan ke posisi awal
+  form.parentNode.insertBefore(el, form);
+  form.parentNode.removeChild(form);
+}
+
+// Memanggil fungsi resetFileInput
+resetFileInput();
+
+nginx rewrite rules
+============================================================
+server {
+    listen 80;
+    server_name planethms.com;
+
+    return 301 https://beta.planethms.com$request_uri;
+}
+
+server {
+    listen 80;
+    server_name beta.planethms.com;
+
+    location / {
+        rewrite ^/$ /login/login.php last;
+        rewrite ^/public/([^/]+)$ /public/index.php?id=$1 last;
+        rewrite ^/public/([^/]+)/?$ /public/index.php?pg=$1 last;
+    }
+
+    # Add other server configurations as needed
+}
