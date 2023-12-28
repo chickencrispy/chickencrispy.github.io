@@ -64,3 +64,8 @@ server {
 
     # Add other server configurations as needed
 }
+
+
+Link
+=============================================================
+https://stackoverflow.com/questions/39782753/filter-options-of-a-select-with-javascript
