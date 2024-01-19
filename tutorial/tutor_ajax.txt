@@ -1,0 +1,110 @@
+<a href="#" data-id="0018" class="btn-del" onclick="deleteData(event)">delete id: 0018</a>
+
+Javascript:
+function deleteData(event) {
+    event.preventDefault();
+
+    var dataId = event.target.getAttribute('data-id');
+    var linkElement = event.target; // Simpan referensi ke elemen link
+
+    // Menggunakan AJAX untuk mengirim permintaan penghapusan ke server PHP
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/path/to/delete-endpoint.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    // Menanggapi hasil penghapusan
+    xhr.onload = function () {
+        if (xhr.status == 200) {
+            // Data berhasil dihapus dari database, lakukan tindakan yang diperlukan
+            console.log('Data berhasil dihapus');
+            
+            // Hapus elemen link dari DOM
+            linkElement.parentNode.removeChild(linkElement);
+        } else {
+            // Gagal menghapus data, tampilkan pesan kesalahan atau tindakan lain yang sesuai
+            console.error('Gagal menghapus data');
+        }
+    };
+
+    // Mengirim permintaan dengan data ID yang akan dihapus
+    xhr.send('dataId=' + encodeURIComponent(dataId));
+}
+
+Javascript alt:
+document.addEventListener('DOMContentLoaded', function () {
+  var linkToDelete = document.querySelector('.btn-del');
+
+  // Atur event listener untuk menghapus data ketika link diklik
+  linkToDelete.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    // Ambil data dari elemen yang diklik
+    var dataId = linkToDelete.getAttribute('data-id');
+    var dataKelas = linkToDelete.getAttribute('data-kelas');
+    var dataJurusan = linkToDelete.getAttribute('data-jurusan');
+
+    // Inisialisasi objek XMLHttpRequest
+    var xhr = new XMLHttpRequest();
+
+    // Atur metode dan URL tujuan
+    xhr.open('POST', 'delete.php', true);
+
+    // Atur header agar server tahu tipe data yang dikirim
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    // Gabungkan data dalam format URL-encoded
+    var formData = 'dataId=' + encodeURIComponent(dataId) +
+                   '&dataKelas=' + encodeURIComponent(dataKelas) +
+                   '&dataJurusan=' + encodeURIComponent(dataJurusan);
+
+    // Kirim data
+    xhr.send(formData);
+
+    // Atur event listener untuk menanggapi respons dari server
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        // Tanggapan dari server
+        console.log(xhr.responseText);
+
+        // Tambahan: Hapus elemen yang terkait jika diperlukan
+        // linkToDelete.parentNode.removeChild(linkToDelete);
+      }
+    };
+  });
+});
+
+
+PHP:
+<?php
+// Ambil data ID dari permintaan POST
+$dataId = isset($_POST['dataId']) ? $_POST['dataId'] : '';
+
+// Validasi data ID jika diperlukan
+
+// Lakukan koneksi ke database (gantilah dengan informasi koneksi yang sesuai)
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "nama_database";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Periksa koneksi database
+if ($conn->connect_error) {
+    die("Koneksi ke database gagal: " . $conn->connect_error);
+}
+
+// Kueri untuk menghapus data dari database
+$sql = "DELETE FROM nama_tabel WHERE id = '$dataId'";
+
+if ($conn->query($sql) === TRUE) {
+    // Kirim respons OK jika data berhasil dihapus
+    http_response_code(200);
+} else {
+    // Kirim respons server error jika terjadi kesalahan
+    http_response_code(500);
+}
+
+// Tutup koneksi ke database
+$conn->close();
+?>
