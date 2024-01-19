@@ -1,0 +1,62 @@
+html:
+<ul id="sortable-list">
+   <li data-id="1">Item 1</li>
+   <li data-id="2">Item 2</li>
+   <li data-id="3">Item 3</li>
+   <!-- ... tambahkan lebih banyak elemen jika diperlukan -->
+</ul>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+<script>
+   var sortable = new Sortable(document.getElementById('sortable-list'), {
+      animation: 150,
+      onUpdate: function (evt) {
+         // Callback yang dipanggil saat urutan elemen berubah
+         updateIndexes(evt.newIndex + 1, evt.oldIndex + 1);
+      },
+   });
+
+   function updateIndexes(newIndex, oldIndex) {
+      // Kirim permintaan ke server PHP untuk mengupdate indeks di database
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/path/to/update-index.php', true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.send('newIndex=' + newIndex + '&oldIndex=' + oldIndex);
+   }
+</script>
+
+PHP:
+<?php
+// Mendapatkan nilai dari permintaan POST
+$newIndex = isset($_POST['newIndex']) ? intval($_POST['newIndex']) : 0;
+$oldIndex = isset($_POST['oldIndex']) ? intval($_POST['oldIndex']) : 0;
+
+// Validasi jika diperlukan
+
+// Lakukan koneksi ke database (sesuaikan dengan informasi koneksi Anda)
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "nama_database";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Periksa koneksi database
+if ($conn->connect_error) {
+   die("Koneksi ke database gagal: " . $conn->connect_error);
+}
+
+// Lakukan kueri untuk mengupdate indeks di database
+$sql = "UPDATE nama_tabel SET indeks = $newIndex WHERE indeks = $oldIndex";
+
+if ($conn->query($sql) === TRUE) {
+   // Kirim respons OK jika indeks berhasil diupdate
+   http_response_code(200);
+} else {
+   // Kirim respons server error jika terjadi kesalahan
+   http_response_code(500);
+}
+
+// Tutup koneksi ke database
+$conn->close();
+?>
