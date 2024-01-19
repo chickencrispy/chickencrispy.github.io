@@ -11,6 +11,14 @@ html:
    var sortable = new Sortable(document.getElementById('sortable-list'), {
       animation: 150,
       onUpdate: function (evt) {
+         // evt.newIndex adalah indeks baru elemen setelah diurutkan
+         // evt.oldIndex adalah indeks asli elemen sebelum diurutkan
+         console.log("New Index:", evt.newIndex);
+         console.log("Old Index:", evt.oldIndex);
+   
+         // Akses elemen yang diurutkan
+         console.log("Sorted Element:", evt.item);
+
          // Callback yang dipanggil saat urutan elemen berubah
          updateIndexes(evt.newIndex + 1, evt.oldIndex + 1);
       },
