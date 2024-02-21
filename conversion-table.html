@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <title>Conversion Table</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+    }
+    .container {
+      max-width: 1024px;
+      margin-inline: auto;
+    }
+    table.GeneratedTable td{
+      background-color: #eaeaea;
+    }
+
+    table.GeneratedTable {
+      width: 100%;
+      display:block;
+      overflow-x:auto !important;
+      background-color: #fff;
+      border-collapse: collapse;
+      border-width: 0px;
+      border-color: #dddddd;
+      border-style: solid;
+      color: #000;
+      margin-bottom:40px !important;
+    }
+    table.GeneratedTable td, table.GeneratedTable th {
+      border-width: 1px;
+      border-color: #dddddd !important;
+      border-style: solid;
+      padding: 3px;
+      font-weight: 400;
+    }
+    table.GeneratedTable th {
+      padding: 7px 3px;
+    }
+
+    table.GeneratedTable td:nth-child(1){
+      background-color: #171717;
+      padding-inline: 10px;
+      padding-inline-end: 15px;
+    }
+    table.GeneratedTable td:has(input) {
+      background-color: #fff;
+    }
+
+
+    @media only screen and (min-width: 769px) {
+      #menu-item-1483{
+        display:none !important;
+      }
+      #menu-item-1492{
+        display:none !important;
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      table.GeneratedTable {
+        font-size:12px;
+      }
+      table.GeneratedTable input{
+        font-size:12px;
+      }
+    }
+
+    .convtableinput{
+      min-width:100px !important;
+      width:100% !important;
+      background-color: #fff !important;
+      border:none !important;
+      color:#000 !important;
+      padding: 6px;
+      box-sizing: border-box;
+    }
+    .convtableinput:focus {
+      outline: none;
+    }
+    .collabel{
+      background-color: #171717;
+      color:#fff !important;
+    }
+    table.GeneratedTable thead {
+      background-color: #171717;
+      color:#fff !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <input type="hidden" id="decimally" name="decimally" min="1" max="6" value="3">
+
+    <table class="GeneratedTable">
+      <thead>
+        <tr>
+          <th>Given</th>
+          <th>GPM</th>
+          <th>LPM</th>
+          <th>LPS</th>
+          <th>m<sup>3</sup>/hr</th>
+          <th>m<sup>3</sup>/min</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="collabel">GPM</td>
+          <td><input type="number" id="a11" name="a11" class="convtableinput"></td>
+          <td><span id="a12"></span></td>
+          <td><span id="a13"></span></td>
+          <td><span id="a14"></span></td>
+          <td><span id="a15"></span></td>
+        </tr>
+        <tr>
+          <td class="collabel">LPM</td>
+          <td><span id="a21"></span></td>
+          <td><input type="number" id="a22" name="a22" class="convtableinput"></td>
+          <td><span id="a23"></span></td>
+          <td><span id="a24"></span></td>
+          <td><span id="a25"></span></td>
+        </tr>
+        <tr>
+          <td class="collabel">LPS</td>
+          <td><span id="a31"></span></td>
+          <td><span id="a32"></span></td>
+          <td><input type="number" id="a33" name="a33" class="convtableinput"></td>
+          <td><span id="a34"></span></td>
+          <td><span id="a35"></span></td>
+        </tr>
+        <tr>
+          <td class="collabel">m<sup>3</sup>/hr</td>
+          <td><span id="a41"></span></td>
+          <td><span id="a42"></span></td>
+          <td><span id="a43"></span></td>
+          <td><input type="number" id="a44" name="a44" class="convtableinput"></td>
+          <td><span id="a45"></span></td>
+        </tr>
+        <tr>
+          <td class="collabel">m<sup>3</sup>/min</td>
+          <td><span id="a51"></span></td>
+          <td><span id="a52"></span></td>
+          <td><span id="a53"></span></td>
+          <td><span id="a54"></span></td>
+          <td><input type="number" id="a55" name="a55" class="convtableinput"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="GeneratedTable">
+      <thead>
+        <tr>
+          <th>Given</th>
+          <th>Meters</th>
+          <th>Feet</th>
+          <th>PSI</th>
+          <th>atm</th>
+          <th>BAR</th>
+          <th>kPa</th>
+          <th>mmHg/Torr</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="collabel">Meters</td>
+          <td><input type="number" id="b11" name="b11" class="convtableinput"></td>
+          <td><span id="b12"></span></td>
+          <td><span id="b13"></span></td>
+          <td><span id="b14"></span></td>
+          <td><span id="b15"></span></td>
+          <td><span id="b16"></span></td>
+          <td><span id="b17"></span></td>
+        </tr>
+        <tr>
+          <td class="collabel">Feet</td>
+          <td><span id="b21"></span></td>
+          <td><input type="number" id="b22" name="b22" class="convtableinput"></td>
+          <td><span id="b23"></span></td>
+          <td><span id="b24"></span></td>
+          <td><span id="b25"></span></td>
+          <td><span id="b26"></span></td>
+          <td><span id="b27"></span></td>
+        </tr>
+        <tr>
+          <td class="collabel">PSI</td>
+          <td><span id="b31"></span></td>
+          <td><span id="b32"></span></td>
+          <td><input type="number" id="b33" name="b33" class="convtableinput"></td>
+          <td><span id="b34"></span></td>
+          <td><span id="b35"></span></td>
+          <td><span id="b36"></span></td>
+          <td><span id="b37"></span></td>
+        </tr>
+        <tr>
+          <td class="collabel">atm</td>
+          <td><span id="b41"></span></td>
+          <td><span id="b42"></span></td>
+          <td><span id="b43"></span></td>
+          <td><input type="number" id="b44" name="b44" class="convtableinput"></td>
+          <td><span id="b45"></span></td>
+          <td><span id="b46"></span></td>
+          <td><span id="b47"></span></td>
+        </tr>
+        <tr>
+          <td class="collabel">BAR</td>
+          <td><span id="b51"></span></td>
+          <td><span id="b52"></span></td>
+          <td><span id="b53"></span></td>
+          <td><span id="b54"></span></td>
+          <td><input type="number" id="b55" name="b55" class="convtableinput"></td>
+          <td><span id="b56"></span></td>
+          <td><span id="b57"></span></td>
+        </tr>
+        <tr>
+          <td class="collabel">kPa</td>
+          <td><span id="b61"></span></td>
+          <td><span id="b62"></span></td>
+          <td><span id="b63"></span></td>
+          <td><span id="b64"></span></td>
+          <td><span id="b65"></span></td>
+          <td><input type="number" id="b66" name="b66" class="convtableinput"></td>
+          <td><span id="b67"></span></td>
+        </tr>
+        <tr>
+          <td class="collabel">mmHg/Torr</td>
+          <td><span id="b71"></span></td>
+          <td><span id="b72"></span></td>
+          <td><span id="b73"></span></td>
+          <td><span id="b74"></span></td>
+          <td><span id="b75"></span></td>
+          <td><span id="b76"></span></td>
+          <td><input type="number" id="b77" name="b77" class="convtableinput"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="GeneratedTable">
+      <thead>
+        <tr>
+          <th>Given</th>
+          <th>HP</th>
+          <th>KW</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="collabel">HP</td>
+          <td><input type="number" id="c11" name="c11" class="convtableinput"></td>
+          <td><span id="c12"></span></td>
+        </tr>
+        <tr>
+          <td class="collabel">KW</td>
+          <td><span id="c21"></span></td>
+          <td><input type="number" id="c22" name="c22" class="convtableinput"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="GeneratedTable">
+      <thead>
+        <tr>
+          <th>Given</th>
+          <th>Gallons</th>
+          <th>Liters</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="collabel">Gallons</td>
+          <td><input type="number" id="d11" name="d11" class="convtableinput"></td>
+          <td><span id="d12"></span></td>
+        </tr>
+        <tr>
+          <td class="collabel">Liters</td>
+          <td><span id="d21"></span></td>
+          <td><input type="number" id="d22" name="d22" class="convtableinput"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript">
+
+    $(document).ready(function () {
+
+      var decimally = Number(3);
+
+      $("#decimally").keyup(function () {
+
+        var decimally = parseFloat($("#decimally").val());
+
+        var a11 = parseFloat($("#a11").val());
+
+        var a12 = (a11 * 3.785 || 0);
+        var a13 = (a12 / 60 || 0);
+        var a14 = (a11 / 4.4 || 0);
+        var a15 = (a14 / 60 || 0);
+
+        a12 = Number(a12.toFixed(decimally));
+        a13 = Number(a13.toFixed(decimally));
+        a14 = Number(a14.toFixed(decimally));
+        a15 = Number(a15.toFixed(decimally));
+
+        $("#a12").text(a12);
+        $("#a13").text(a13);
+        $("#a14").text(a14);
+        $("#a15").text(a15);
+
+      });
+
+      $("#a11").keyup(function () {
+        var a11 = parseFloat($("#a11").val());
+        var decimally = parseFloat($("#decimally").val());
+
+        var a12 = (a11 * 3.785 || 0);
+        var a13 = (a12 / 60 || 0);
+        var a14 = (a11 / 4.4 || 0);
+        var a15 = (a14 / 60 || 0);
+
+        a12 = Number(a12.toFixed(decimally));
+        a13 = Number(a13.toFixed(decimally));
+        a14 = Number(a14.toFixed(decimally));
+        a15 = Number(a15.toFixed(decimally));
+
+        $("#a12").text(a12);
+        $("#a13").text(a13);
+        $("#a14").text(a14);
+        $("#a15").text(a15);
+
+      });
+
+      $("#a22").keyup(function () {
+        var a22 = parseFloat($("#a22").val());
+        var decimally = parseFloat($("#decimally").val());
+
+        var a21 = (a22 / 3.785 || 0);
+        var a23 = (a22 / 60 || 0);
+        var a24 = (a21 / 4.4 || 0);
+        var a25 = (a24 / 60 || 0);
+
+        a21 = Number(a21.toFixed(decimally));
+        a23 = Number(a23.toFixed(decimally));
+        a24 = Number(a24.toFixed(decimally));
+        a25 = Number(a25.toFixed(decimally));
+
+        $("#a21").text(a21);
+        $("#a23").text(a23);
+        $("#a24").text(a24);
+        $("#a25").text(a25);
+      });
+
+      $("#a33").keyup(function () {
+        var a33 = parseFloat($("#a33").val());
+        var decimally = parseFloat($("#decimally").val());
+
+        var a32 = (a33 * 60 || 0);
+        var a31 = (a32 / 3.785 || 0);
+        var a34 = (a31 / 4.4 || 0);
+        var a35 = (a34 / 60 || 0);
+
+        a31 = Number(a31.toFixed(decimally));
+        a32 = Number(a32.toFixed(decimally));
+        a34 = Number(a34.toFixed(decimally));
+        a35 = Number(a35.toFixed(decimally));
+
+        $("#a31").text(a31);
+        $("#a32").text(a32);
+        $("#a34").text(a34);
+        $("#a35").text(a35);
+      });
+
+
+      $("#a44").keyup(function () {
+        var a44 = parseFloat($("#a44").val());
+        var decimally = parseFloat($("#decimally").val());
+
+        var a41 = (a44 * 4.4 || 0);
+        var a42 = (a41 * 3.785 || 0);
+        var a43 = (a42 / 60 || 0);
+        var a45 = (a44 / 60 || 0);
+
+        a41 = Number(a41.toFixed(decimally));
+        a42 = Number(a42.toFixed(decimally));
+        a43 = Number(a43.toFixed(decimally));
+        a45 = Number(a45.toFixed(decimally));
+
+        $("#a41").text(a41);
+        $("#a42").text(a42);
+        $("#a43").text(a43);
+        $("#a45").text(a45);
+      });
+
+      $("#a55").keyup(function () {
+        var a55 = parseFloat($("#a55").val());
+        var decimally = parseFloat($("#decimally").val());
+
+        var a54 = (a55 * 60 || 0);
+        var a51 = (a54 * 4.4 || 0);
+        var a52 = (a51 * 3.785 || 0);
+        var a53 = (a52 / 60 || 0);
+
+        a51 = Number(a51.toFixed(decimally));
+        a52 = Number(a52.toFixed(decimally));
+        a53 = Number(a53.toFixed(decimally));
+        a54 = Number(a54.toFixed(decimally));
+
+        $("#a51").text(a51);
+        $("#a52").text(a52);
+        $("#a53").text(a53);
+        $("#a54").text(a54);
+      });
+
+
+      //=================== Table 2 ===========================
+      $("#b11").keyup(function () {
+        var b11val = parseFloat($("#b11").val());
+        var decimally = parseFloat($("#decimally").val());
+
+        var b12 = (b11val * 3.28 || 0);
+        var b13 = (b12 / 2.31 || 0);
+        var b14 = (b13 / 14.696 || 0);
+        var b15 = (b14 * 1.01325 || 0);
+        var b16 = (b14 * 101.3 || 0);
+        var b17 = (b14 * 760 || 0);
+
+        b12 = Number(b12.toFixed(decimally));
+        b13 = Number(b13.toFixed(decimally));
+        b14 = Number(b14.toFixed(decimally));
+        b15 = Number(b15.toFixed(decimally));
+        b16 = Number(b16.toFixed(decimally));
+        b17 = Number(b17.toFixed(decimally));
+
+        $("#b12").text(b12);
+        $("#b13").text(b13);
+        $("#b14").text(b14);
+        $("#b15").text(b15);
+        $("#b16").text(b16);
+        $("#b17").text(b17);
+      });
+
+      $("#b22").keyup(function () {
+        var b22 = parseFloat($("#b22").val());
+        var decimally = parseFloat($("#decimally").val());
+
+        var b21 = (b22 / 3.28 || 0);
+        var b23 = (b22 / 2.31 || 0);
+        var b24 = (b23 / 14.696 || 0);
+        var b25 = (b24 * 1.01325 || 0);
+        var b26 = (b24 * 101.3 || 0);
+        var b27 = (b24 * 760 || 0);
+
+
+        b21 = Number(b21.toFixed(decimally));
+        b23 = Number(b23.toFixed(decimally));
+        b24 = Number(b24.toFixed(decimally));
+        b25 = Number(b25.toFixed(decimally));
+        b26 = Number(b26.toFixed(decimally));
+        b27 = Number(b27.toFixed(decimally));
+
+        $("#b21").text(b21);
+        $("#b23").text(b23);
+        $("#b24").text(b24);
+        $("#b25").text(b25);
+        $("#b26").text(b26);
+        $("#b27").text(b27);
+      });
+
+      $("#b33").keyup(function () {
+        var b33 = parseFloat($("#b33").val());
+        var decimally = parseFloat($("#decimally").val());
+
+        var b32 = (b33 * 2.31 || 0);
+        var b31 = (b32 / 3.28 || 0);
+        var b34 = (b33 / 14.696 || 0);
+        var b35 = (b34 * 1.01325 || 0);
+        var b36 = (b34 * 101.3 || 0);
+        var b37 = (b34 * 760 || 0);
+
+        b31 = Number(b31.toFixed(decimally));
+        b32 = Number(b32.toFixed(decimally));
+        b34 = Number(b34.toFixed(decimally));
+        b35 = Number(b35.toFixed(decimally));
+        b36 = Number(b36.toFixed(decimally));
+        b37 = Number(b37.toFixed(decimally));
+
+        $("#b31").text(b31);
+        $("#b32").text(b32);
+        $("#b34").text(b34);
+        $("#b35").text(b35);
+        $("#b36").text(b36);
+        $("#b37").text(b37);
+      });
+
+      $("#b44").keyup(function () {
+        var b44 = parseFloat($("#b44").val());
+        var decimally = parseFloat($("#decimally").val());
+
+        var b43 = (b44 * 14.696 || 0);
+        var b42 = (b43 * 144 / 62.4 || 0);
+        var b41 = (b42 / 3.28 || 0);
+        var b45 = (b44 * 1.01325 || 0);
+        var b46 = (b44 * 101.3 || 0);
+        var b47 = (b44 * 760 || 0);
+
+        b41 = Number(b41.toFixed(decimally));
+        b42 = Number(b42.toFixed(decimally));
+        b43 = Number(b43.toFixed(decimally));
+        b45 = Number(b45.toFixed(decimally));
+        b46 = Number(b46.toFixed(decimally));
+        b47 = Number(b47.toFixed(decimally));
+
+        $("#b41").text(b41);
+        $("#b42").text(b42);
+        $("#b43").text(b43);
+        $("#b45").text(b45);
+        $("#b46").text(b46);
+        $("#b47").text(b47);
+      });
+
+      $("#b55").keyup(function () {
+        var b55 = parseFloat($("#b55").val());
+        var decimally = parseFloat($("#decimally").val());
+
+        var b54 = (b55 / 1.01325 || 0);
+        var b53 = (b54 * 14.696 || 0);
+        var b52 = (b53 * 2.31 || 0);
+        var b51 = (b52 / 3.28 || 0);
+        var b56 = (b54 * 101.3 || 0);
+        var b57 = (b54 * 760 || 0);
+
+        b51 = Number(b51.toFixed(decimally));
+        b52 = Number(b52.toFixed(decimally));
+        b53 = Number(b53.toFixed(decimally));
+        b54 = Number(b54.toFixed(decimally));
+        b56 = Number(b56.toFixed(decimally));
+        b57 = Number(b57.toFixed(decimally));
+
+        $("#b51").text(b51);
+        $("#b52").text(b52);
+        $("#b53").text(b53);
+        $("#b54").text(b54);
+        $("#b56").text(b56);
+        $("#b57").text(b57);
+      });
+
+      $("#b66").keyup(function () {
+        var b66 = parseFloat($("#b66").val());
+        var decimally = parseFloat($("#decimally").val());
+
+        var b64 = (b66 / 101.3 || 0);
+        var b63 = (b64 * 14.696 || 0);
+        var b62 = (b63 * 2.31 || 0);
+        var b61 = (b62 / 3.28 || 0);
+        var b65 = (b64 * 1.01325 || 0);
+        var b67 = (b64 * 760 || 0);
+
+        b61 = Number(b61.toFixed(decimally));
+        b62 = Number(b62.toFixed(decimally));
+        b63 = Number(b63.toFixed(decimally));
+        b64 = Number(b64.toFixed(decimally));
+        b65 = Number(b65.toFixed(decimally));
+        b67 = Number(b67.toFixed(decimally));
+
+        $("#b61").text(b61);
+        $("#b62").text(b62);
+        $("#b63").text(b63);
+        $("#b64").text(b64);
+        $("#b65").text(b65);
+        $("#b67").text(b67);
+      });
+
+      $("#b77").keyup(function () {
+        var b77 = parseFloat($("#b77").val());
+        var decimally = parseFloat($("#decimally").val());
+
+        var b74 = (b77 / 760 || 0);
+        var b73 = (b74 * 14.696 || 0);
+        var b72 = (b73 * 2.31 || 0);
+        var b71 = (b72 / 3.28 || 0);
+        var b75 = (b74 * 1.01325 || 0);
+        var b76 = (b74 * 101.3 || 0);
+
+        b71 = Number(b71.toFixed(decimally));
+        b72 = Number(b72.toFixed(decimally));
+        b73 = Number(b73.toFixed(decimally));
+        b74 = Number(b74.toFixed(decimally));
+        b75 = Number(b75.toFixed(decimally));
+        b76 = Number(b76.toFixed(decimally));
+
+        $("#b71").text(b71);
+        $("#b72").text(b72);
+        $("#b73").text(b73);
+        $("#b74").text(b74);
+        $("#b75").text(b75);
+        $("#b76").text(b76);
+      });
+
+      //=================== Table 3 ===========================
+      $("#c11").keyup(function () {
+        var c11 = parseFloat($("#c11").val());
+        var decimally = parseFloat($("#decimally").val());
+
+        var c12 = (c11 * 0.746 || 0);
+        c12 = Number(c12.toFixed(decimally));
+
+        $("#c12").text(c12);
+      });
+
+      $("#c22").keyup(function () {
+        var c22 = parseFloat($("#c22").val());
+        var decimally = parseFloat($("#decimally").val());
+
+        var c21 = (c22 / 0.746 || 0);
+
+        c21 = Number(c21.toFixed(decimally));
+
+        $("#c21").text(c21);
+      });
+
+
+
+      //=================== Table 4 ===========================
+      $("#d11").keyup(function () {
+        var d11 = parseFloat($("#d11").val());
+        var decimally = parseFloat($("#decimally").val());
+
+        var d12 = (d11 * 3.785 || 0);
+        d12 = Number(d12.toFixed(decimally));
+
+        $("#d12").text(d12);
+      });
+
+      $("#d22").keyup(function () {
+        var d22 = parseFloat($("#d22").val());
+        var decimally = parseFloat($("#decimally").val());
+
+        var d21 = (d22 * 0.2642 || 0);
+
+        d21 = Number(d21.toFixed(decimally));
+
+        $("#d21").text(d21);
+      });
+
+    });
+
+  </script>
+</body>
+</html>
