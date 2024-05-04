@@ -1,0 +1,45 @@
+Auto Close Tag
+Auto Rename Tag
+Better Comments
+Database Client JDBC
+ESLint
+html tag wrapper
+indent-rainbow
+IntelliCode
+IntelliCode API Usage Example
+IntelliSense for CSS class names in HTML
+Live Preview
+Live Server (Five Server)
+MySQL
+Path Intellisense
+Tabnine
+Tailwind CSS IntelliSense
+HTML to CSS autocompletition
+
+
+
+{
+    "workbench.colorTheme": "GitHub Dark Default",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.minimap.enabled": false,
+    "git.autofetch": true,
+    "php.validate.executablePath": "C:/xampp/php/php.exe",
+    "synthwave84.brightness": 0.45,
+    "synthwave84.disableGlow": true,
+    "editor.fontFamily": "Fira Code",
+    "editor.fontSize": 13,
+    "editor.tabSize": 2,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "terminal.integrated.env.windows": {},
+    "svg.preview.mode": "svg",
+    "window.zoomLevel": -1,
+    "workbench.editor.enablePreview": false,
+    "console-ninja.featureSet": "Community",
+    "css.lint.unknownAtRules": "ignore",
+    "scss.lint.unknownAtRules": "ignore",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "indentRainbow.indicatorStyle": "light",
+    "vscode-pets.theme": "castle",
+    "vscode-pets.petSize": "small",
+    "tabnine.experimentalAutoImports": true
+}
