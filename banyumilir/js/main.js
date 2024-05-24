@@ -1,4 +1,5 @@
 const topHeaderLocation = document.querySelector(".top-header-location");
+const calendarDates = document.querySelector(".calendar-dates");
 
 function getCurrentLocation() {
   navigator.geolocation.getCurrentPosition(
@@ -14,8 +15,20 @@ function getCurrentLocation() {
           topHeaderLocation.innerHTML = `<i class="fi fi-rr-marker"></i> <span>${currentLocation}</span>`;
         })
     },
-    (error) => alert("Please allow location access for best experiences")
+    (error) => console.log("Please allow location access for best experiences")
   )
 }
 
+function selectCalendarBoxed() {
+  const dateBoxed = calendarDates.querySelectorAll(".dates-boxed");
+
+  dateBoxed.forEach(dateBox => {
+    dateBox.addEventListener("click", () => {
+      dateBoxed.forEach(box => box.classList.remove("selected"));
+      dateBox.classList.add("selected");
+    });
+  });
+}
+
 if(topHeaderLocation) { getCurrentLocation(); }
+if(calendarDates) { selectCalendarBoxed(); }

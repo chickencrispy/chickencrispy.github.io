@@ -6,9 +6,13 @@
   font-family: 'Prata', serif;
 }
 
+.text-bebas {
+  font-family: 'Bebas Neue', serif;
+}
+
 .fi {
   position: relative;
-  top: 1.5px;
+  top: 2px;
 }
 
 .btn {
@@ -30,5 +34,53 @@
     height: 6px;
     border-radius: 50%;
     background-color: red;
+  }
+}
+
+.btn-calendar {
+  font-size: $fs-base;
+  padding-left: 16px;
+  padding-right: 16px;
+  font-weight: 500;
+
+  .fi {
+    font-size: $fs-lg;
+  }
+}
+
+.calendar-dates {
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: nowrap;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+
+  .dates-boxed {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: 8px 16px;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    text-align: center;
+    text-wrap: nowrap;
+    scroll-snap-align: start;
+    user-select: none;
+    cursor: pointer;
+
+    small {
+      font-size: $fs-sm;
+    }
+  }
+
+  .dates-boxed.selected {
+    color: #007bff;
+    border-color: #007bff;
+    
+    small {
+      color: #007bff !important;
+    }
   }
 }
