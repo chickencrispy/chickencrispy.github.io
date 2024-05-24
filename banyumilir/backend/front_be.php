@@ -20,7 +20,7 @@ if ($result_front_be_cfg_packet->num_rows > 0) {
 
 //print"<pre>";print_r($data_cfg_packet);print"</pre>";
 
-$json_cfg_packet = json_encode($data_cfg_packet[], JSON_PRETTY_PRINT);
+$json_cfg_packet = json_encode($data_cfg_packet, JSON_PRETTY_PRINT);
 
 header('Content-Type: application/json');
 echo $json_cfg_packet;
