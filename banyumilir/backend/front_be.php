@@ -1,5 +1,10 @@
 <?php
 
+//*********handle error*****************
+error_reporting(E_ALL);
+ini_set('display_errors',0);
+
+
 //************TIME ZONE**********
 date_default_timezone_set('Asia/Jakarta');
 
@@ -17,7 +22,7 @@ if ($result_front_be_cfg_packet->num_rows > 0) {
         $data_cfg_packet[] = $row_front_be_cfg_packet;
     }
   } else {
-    echo "0 results";
+    echo "zero request \n";
   }
 
 
