@@ -201,10 +201,21 @@
       }
     }
 
+    function formatToK(numberString) {
+      const number = parseInt(numberString, 10);
+      if (number < 1000) {
+        return numberString;
+      }
+      const formattedNumber = (number / 1000).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 3 });
+      return formattedNumber + 'K';
+    }
+
     function displayData(data) {
       const userList = document.getElementById('userList');
       data.forEach(data => {
         //console.log(data)
+        let formattedString = formatToK(data.price_packet);
+
         const newPackage = document.createElement("div");
         newPackage.innerHTML = `<div class="col-12">
                   <div class="card p-3 h-100">
@@ -228,6 +239,7 @@
         console.log(newPackage);
         newPackage.querySelector("h6 strong").textContent = data.title_packet;
         newPackage.querySelector("h6 span").textContent = data.subtitle_packet;
+        newPackage.querySelector("h4").textContent = formattedString;
         console.log(data);
         packageEl.append(newPackage);
       });
