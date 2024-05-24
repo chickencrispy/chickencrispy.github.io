@@ -9,7 +9,7 @@ require('mysql_connector.php');
 $cat = $_REQUEST['cat'] ?? "";
 
 //*****************************GET DATA CFG_PACKET***************************************************
-$result_front_be_cfg_packet = mysqli_query($con, "SELECT * FROM ticketing.01_cfg_packet where company_id like '1' and category_packet like '".$cat."';");
+$result_front_be_cfg_packet = mysqli_query($con, "SELECT * FROM ticketing.01_cfg_packet where company_id like '1' and category_packet like '".$cat."%';");
 //$row_front_be_cfg_packet = mysqli_fetch_row($result_front_be_cfg_packet);
 
 if ($result_front_be_cfg_packet->num_rows > 0) {
