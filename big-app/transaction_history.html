@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BIG Vacation Club</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/uicons-rounded.css">
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="css/ui.css">
+</head>
+<body>
+  <div class="app-container">
+    <div class="app-page-header">
+      <div class="top-bar gap-2">
+        <h4>Transaction History</h4>
+        <button class="btn-icon" onclick="javascript:history.go(-1)"><i class="fi fi-rr-cross"></i></button>
+      </div>
+      <div class="top-bar-search">
+        <div class="search-bar flex-fill">
+          <input type="text" class="form-control" placeholder="Search here...">
+          <div class="input-group-icon"><i class="fi fi-rr-search"></i></div>
+        </div>
+        <button class="btn border" data-bs-toggle="offcanvas" data-bs-target="#off_customer" aria-controls="off_customer">
+          <i class="fi fi-rr-settings-sliders"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="app-page-content">
+      <ul class="list-group list-group-between-link">
+        <li class="list-group-item">
+          <a href="transaction_details.html">
+            <div class="item-content">
+              <strong>Transfer to Velline</strong>
+              <small>Point Transfer</small>
+              <small>23 May 2024 &bull; 10:36</small>
+            </div>
+            <div class="item-content">
+              <strong>-28.000</strong>
+              <small>Founder Point</small>
+              <small class="text-success">Success</small>
+            </div>
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="transaction_details.html">
+            <div class="item-content">
+              <strong>Buy from +6281275438855</strong>
+              <small>Point Transfer</small>
+              <small>16 May 2024 &bull; 15:12</small>
+            </div>
+            <div class="item-content">
+              <strong class="fw-bold text-success">+28.000</strong>
+              <small>Club Point</small>
+              <small class="text-success">Success</small>
+            </div>
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="transaction_details.html">
+            <div class="item-content">
+              <strong>Cashback Antapura #78634675</strong>
+              <small>Point Earning</small>
+              <small>15 May 2024 &bull; 08:09</small>
+            </div>
+            <div class="item-content">
+              <strong class="text-success">+80.000</strong>
+              <small>Founder Point</small>
+              <small class="text-success">Success</small>
+            </div>
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="transaction_details.html">
+            <div class="item-content">
+              <strong>Planet Holiday Hotel #237635</strong>
+              <small>Hotel Booking</small>
+              <small>11 Apr 2024 &bull; 12:23</small>
+            </div>
+            <div class="item-content">
+              <strong>-16.000</strong>
+              <small>Founder Point</small>
+              <small class="text-success">Success</small>
+            </div>
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="transaction_details.html">
+            <div class="item-content">
+              <strong>Garuda Airlines #21389167</strong>
+              <small>Tickets</small>
+              <small>01 Apr 2024 &bull; 16:20</small>
+            </div>
+            <div class="item-content">
+              <strong>-18.000</strong>
+              <small>Club Point</small>
+              <small class="text-success">Success</small>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Offcanvas -->
+  <div class="offcanvas offcanvas-bottom offcanvas-full" tabindex="-1" id="off_customer" aria-labelledby="offcanvasBottomLabel">
+    <div class="offcanvas-header">
+      <h4 class="offcanvas-title fw-bold" id="offcanvasBottomLabel">Transaction History Filter</h4>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body small">
+      <form action="" class="flex-high">
+        <div id="filter-type" class="mb-3">
+          <label for="select-type" class="text-xs fw-bold mb-2">Transaction Type</label>
+          <div class="dropdown mt-2 d-grid">
+            <button class="btn btn-dropdown btn-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">Select Transaction Type</button>
+            <ul class="dropdown-menu">
+              <li><label><input type="checkbox" name="" id="" class="form-check-input"> Point Transfer</label></li>
+              <li><label><input type="checkbox" name="" id="" class="form-check-input"> Point Earning</label></li>
+              <li><label><input type="checkbox" name="" id="" class="form-check-input"> Hotel Booking</label></li>
+              <li><label><input type="checkbox" name="" id="" class="form-check-input"> Ticket</label></li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="filter-source" class="mb-3">
+          <label for="select-source" class="text-xs fw-bold mb-2">Source of Point</label>
+          <div class="dropdown mt-2 d-grid">
+            <button class="btn btn-dropdown btn-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">Select Source of Point</button>
+            <ul class="dropdown-menu">
+              <li><label><input type="checkbox" name="" id="" class="form-check-input"> Founder Point</label></li>
+              <li><label><input type="checkbox" name="" id="" class="form-check-input"> Club Point</label></li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="filter-period" class="mb-3">
+          <label for="fth-period" class="text-xs fw-bold mb-2">Period</label>
+          <div class="mb-2">
+            <div class="dropdown d-grid">
+              <button class="btn btn-dropdown btn-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Select Period
+              </button>
+              <ul class="dropdown-menu">
+                <li><label><input type="radio" name="filter-period" id="" value="today" class="form-check-input"> Today</label></li>
+                <li><label><input type="radio" name="filter-period" id="" value="week" class="form-check-input"> This Week</label></li>
+                <li><label><input type="radio" name="filter-period" id="" value="month" class="form-check-input"> This Month</label></li>
+                <li><label><input type="radio" name="filter-period" id="" value="custom" class="form-check-input"> Custom</label></li>
+              </ul>
+            </div>
+
+            <div id="fth-period" class="grid-2 gap-2 d-none mt-2">
+              <div>
+                <label class="text-xs fw-bold mb-1">From</label>
+                <div class="input-date-icon">
+                  <input type="date" name="" id="" class="form-control max-today text-sm">
+                  <div class="input-group-icon"><i class="fi fi-rr-calendar"></i></div>
+                </div>
+              </div>
+              <div>
+                <label class="text-xs fw-bold mb-1">Until</label>
+                <div class="input-date-icon">
+                  <input type="date" name="" id="" class="form-control max-today text-sm">
+                  <div class="input-group-icon"><i class="fi fi-rr-calendar"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="offcanvas-footer grid-2 gap-2 mt-auto">
+          <button type="reset" class="btn btn-light border" data-bs-dismiss="offcanvas">Reset</button>
+          <button type="button" class="btn btn-dark">Show</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/swiper-bundle.min.js"></script>
+  <script>
+    if ($("input").hasClass("max-today")) {
+      const dateToday = new Date().toISOString().split("T")[0];
+      $(".max-today").each(function() {
+        $(this).attr("max", dateToday);
+        $(this).on('focus', function() {
+          if (this.showPicker) { this.showPicker(); } else { $(this).trigger('click'); }
+        });
+      });
+    }
+
+    const dropdownMenu = document.querySelectorAll(".dropdown-menu");
+    dropdownMenu.forEach(dropdown => {
+      dropdown.querySelectorAll(".form-check-input").forEach(checkbox => {
+        checkbox.addEventListener("change", () => {
+          const checkeds = dropdown.querySelectorAll(".form-check-input:checked");
+          const dropdBtn = dropdown.previousElementSibling;
+          var checkLen = checkeds.length;
+          if(checkLen == 1) {
+            dropdBtn.textContent = checkeds[0].parentNode.textContent;
+          }else if(checkLen == 2) {
+            dropdBtn.textContent = checkeds[0].parentNode.textContent + ", " + checkeds[1].parentNode.textContent;
+          }else if(checkLen > 2) {
+            dropdBtn.textContent = checkeds[0].parentNode.textContent + ", " + checkeds[1].parentNode.textContent  + ", & " + (checkLen-2) + " more";
+          }
+        });
+      });
+    });
+
+    const filterPeriod = document.querySelectorAll('input[name="filter-period"]');
+    filterPeriod.forEach(periods => {
+      periods.addEventListener("change", function() {
+        document.getElementById("fth-period").classList.toggle("d-none", this.value != "custom");
+      });
+    });
+  </script>
+</body>
+</html>
