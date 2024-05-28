@@ -12,6 +12,7 @@ require('mysql_connector.php');
 
 
 $cat = $_REQUEST['cat'] ?? "";
+$cat_packet =$_REQUEST['cat_packet'] ?? "";
 
 //*****************************GET DATA CFG_PACKET***************************************************
 $result_front_be_cfg_packet = mysqli_query($con, "SELECT * FROM ticketing.01_cfg_packet where company_id like '1' and category_packet like '".$cat."%';");
@@ -33,25 +34,25 @@ if ($result_front_be_cfg_packet->num_rows > 0) {
     echo "zero request \n";
   }
 
-  print_r($company_id);
+  //print_r($company_id);
 
 
 
 //print"<pre>";print_r($data_cfg_packet);print"</pre>";
 
 $json_cfg_packet = json_encode($data_cfg_packet, JSON_PRETTY_PRINT);
-$json_company_id = json_encode($company_id, JSON_PRETTY_PRINT);
-$json_category = json_encode($category, JSON_PRETTY_PRINT);
-$json_title = json_encode($title, JSON_PRETTY_PRINT);
-$json_subtitle = json_encode($subtitle, JSON_PRETTY_PRINT);
-$json_price = json_encode($price, JSON_PRETTY_PRINT);
-$json_additional = json_encode($additional, JSON_PRETTY_PRINT);
+//$json_company_id = json_encode($company_id, JSON_PRETTY_PRINT);
+//$json_category = json_encode($category, JSON_PRETTY_PRINT);
+//$json_title = json_encode($title, JSON_PRETTY_PRINT);
+//$json_subtitle = json_encode($subtitle, JSON_PRETTY_PRINT);
+//$json_price = json_encode($price, JSON_PRETTY_PRINT);
+//$json_additional = json_encode($additional, JSON_PRETTY_PRINT);
 
 
 
 header('Content-Type: application/json');
-//echo $json_cfg_packet;
-echo $json_category;
+echo $json_cfg_packet;
+//echo $json_category;
 
 
 ?>
