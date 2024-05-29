@@ -1,8 +1,8 @@
 <?php
 
 $servertype="mysql";
-$serverhost="103.246.3.4";
-$dbname="ticketing";
+$serverhost="103.246.3.2";
+$dbname="test";
 $dbuser="root174";
 $dbpassword="root";
 
