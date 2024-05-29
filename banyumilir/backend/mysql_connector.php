@@ -1,7 +1,7 @@
 <?php
 
 $servertype="mysql";
-$serverhost="103.246.3.4";
+$serverhost="103.246.3.2";
 $dbname="ticketing";
 $dbuser="root174";
 $dbpassword="root";
