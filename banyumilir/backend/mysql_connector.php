@@ -2,7 +2,7 @@
 
 $servertype="mysql";
 $serverhost="103.246.3.2";
-$dbname="test";
+$dbname="ticketing";
 $dbuser="root174";
 $dbpassword="root";
 
