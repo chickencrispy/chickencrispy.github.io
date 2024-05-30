@@ -86,6 +86,10 @@
     </div>
   </div>
 
+  <?php
+    include("./backend/front_be.php");
+  ?>
+
   <section class="bg-primary mb-3" style="background-image: url(https://t4.ftcdn.net/jpg/04/06/23/25/360_F_406232562_fYs0cUQUKqL22IATq1q6XKCcInfGsE7O.jpg);">
     <div class="container px-0">
       <div class="p-3">
@@ -93,6 +97,16 @@
           <div class="row g-3 justify-content-end">
             <div class="col-md-6">
               <div id="package" class="row g-3 h-100">
+                <?php
+                  print_r($json_cfg_packet);
+                  foreach($json_cfg_packet->number as $mydata) {
+                    echo $mydata->name . "\n";
+                    
+                    foreach($mydata->category_packet as $values) {
+                      echo $values->value . "\n";
+                    }
+                  } 
+                ?>
               </div>
             </div>
           </div>
@@ -190,13 +204,12 @@
     // Fungsi untuk mengambil data JSON dari file PHP
     async function fetchData() {
       try {
-        const response = await fetch('./backend/front_be.php');
+        const response = await fetch('./backend/front_be.php?cat=diving');
         if (!response.ok) {
           throw new Error('Network response was not ok ' + response.statusText);
         }
         const data = await response.json();
         displayData(data);
-        console.log(response.json())
       } catch (error) {
         console.error('Error fetching data:', error);
       }
