@@ -49,45 +49,31 @@
         </button>
 
         <div class="calendar-dates">
-          <div class="dates-boxed">
-            <small class="text-muted">Today</small>
-            <strong>24 May</strong>
-          </div>
-          <div class="dates-boxed">
-            <small class="text-muted">Sat</small>
-            <strong>25 May</strong>
-          </div>
-          <div class="dates-boxed">
-            <small class="text-muted">Sun</small>
-            <strong>26 May</strong>
-          </div>
-          <div class="dates-boxed">
-            <small class="text-muted">Mon</small>
-            <strong>27 May</strong>
-          </div>
-          <div class="dates-boxed">
-            <small class="text-muted">Tue</small>
-            <strong>28 May</strong>
-          </div>
-          <div class="dates-boxed">
-            <small class="text-muted">Wed</small>
-            <strong>29 May</strong>
-          </div>
-          <div class="dates-boxed">
-            <small class="text-muted">Thu</small>
-            <strong>30 May</strong>
-          </div>
-          <div class="dates-boxed">
-            <small class="text-muted">Fri</small>
-            <strong>31 May</strong>
-          </div>
+          <?php
+            $today = new DateTime();
+            $shortDays = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
+
+            for ($i = 0; $i <= 7; $i++) {
+              $date = clone $today;
+              $date->modify("+$i day");
+
+              $dayName = ($i === 0) ? 'Today' : $shortDays[$date->format('w')];
+              $formattedDate = $date->format('d F');
+          ?>
+            <div class="dates-boxed">
+                <small class="text-muted"><?php echo $dayName; ?></small>
+                <strong><?php echo $formattedDate; ?></strong>
+            </div>
+          <?php
+            }
+          ?>
         </div>
       </div>
     </div>
   </div>
 
   <?php
-    include("./backend/front_be.php");
+    include("./backend/load_packages.php");
   ?>
 
   <section class="bg-primary mb-3" style="background-image: url(https://t4.ftcdn.net/jpg/04/06/23/25/360_F_406232562_fYs0cUQUKqL22IATq1q6XKCcInfGsE7O.jpg);">
@@ -98,14 +84,37 @@
             <div class="col-md-6">
               <div id="package" class="row g-3 h-100">
                 <?php
-                  print_r($json_cfg_packet);
-                  foreach($json_cfg_packet->number as $mydata) {
-                    echo $mydata->name . "\n";
-                    
-                    foreach($mydata->category_packet as $values) {
-                      echo $values->value . "\n";
+                  // Decode JSON data into PHP array
+                  //$data = json_decode($json_category, true);
+                  foreach ($categories as $cat) {
+                    if($cat['category'] == 'diving'){
+                      foreach($cat['packages'] as $packages) {
+                ?>
+                        <div class="col-12">
+                          <div class="card p-3 h-100">
+                            <h6 class="mb-1 text-lg">
+                              <strong><?php echo $packages['nama_paket']; ?></strong>
+                              <span><?php echo $packages['subtitle_paket']; ?></span>
+                            </h6>
+                            <div class="mb-2 text-sm">
+                              <a href="#">See details</a>
+                            </div>
+                            <div class="mt-auto d-flex align-items-center justify-content-between">
+                              <div class="price d-flex align-items-baseline gap-1 text-danger">
+                                <span class="text-sm">IDR</span>
+                                <h4 class="mb-0 pt-1 fw-bold"><?php echo number_format($packages['harga_paket'], 0, ",", "."); ?></h4>
+                              </div>
+                              <div>
+                                <button class="btn btn-light border"><i class="fi fi-rr-shopping-cart-add"></i></button>
+                                <button class="btn btn-primary text-sm">Select Ticket</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                <?php
+                      }
                     }
-                  } 
+                  }
                 ?>
               </div>
             </div>
@@ -199,46 +208,5 @@
   <script src="js/swiper-bundle.min.js"></script>
   <script src="js/date-picker.min.js"></script>
   <script src="js/main.js"></script>
-  <script>
-    const packageEl = document.getElementById("package");
-    // Fungsi untuk mengambil data JSON dari file PHP
-    async function fetchData() {
-      try {
-        const response = await fetch('./backend/front_be.php?cat=diving');
-        if (!response.ok) {
-          throw new Error('Network response was not ok ' + response.statusText);
-        }
-        const data = await response.json();
-        displayData(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    }
-
-    function formatToK(numberString) {
-      const number = parseInt(numberString, 10);
-      if (number < 1000) {
-        return numberString;
-      }
-      const formattedNumber = (number / 1000).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 3 });
-      return formattedNumber + 'K';
-    }
-
-    function displayData(data) {
-      const userList = document.getElementById('userList');
-      data.forEach(data => {
-        let formattedString = formatToK(data.price_packet);
-
-        const newPackage = document.createElement("div");
-        newPackage.innerHTML = `<div class="col-12"><div class="card p-3 h-100"><h6 class="mb-1 text-lg"><strong>LOVINA REEF</strong><span>2x Dive + 1x Night Dive</span></h6><div class="mb-2 text-sm"><a href="#">See details</a></div><div class="mt-auto d-flex align-items-center justify-content-between"><div class="price d-flex align-items-baseline gap-1 text-danger"><span class="text-sm">IDR</span><h4 class="mb-0 pt-1 fw-bold">1.250K</h4></div><div><button class="btn btn-light border"><i class="fi fi-rr-shopping-cart-add"></i></button><button class="btn btn-primary text-sm">Select Ticket</button></div></div></div></div>`;
-        newPackage.querySelector("h6 strong").textContent = data.title_packet;
-        newPackage.querySelector("h6 span").textContent = data.subtitle_packet;
-        newPackage.querySelector("h4").textContent = formattedString;
-        packageEl.append(newPackage);
-      });
-    }
-
-    window.onload = fetchData;
-  </script>
 </body>
 </html>
