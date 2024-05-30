@@ -74,46 +74,46 @@
 
   <?php
     include("./backend/load_packages.php");
+    foreach ($categories as $cat) {
+      if($cat['category'] != ''){
   ?>
 
-  <section class="bg-primary mb-3" style="background-image: url(https://t4.ftcdn.net/jpg/04/06/23/25/360_F_406232562_fYs0cUQUKqL22IATq1q6XKCcInfGsE7O.jpg);">
+  <section class="packages">
     <div class="container px-0">
       <div class="p-3">
         <div class="py-0 py-lg-5">
           <div class="row g-3 justify-content-end">
-            <div class="col-md-6">
+            <div class="col-md-12">
               <div id="package" class="row g-3 h-100">
                 <?php
                   // Decode JSON data into PHP array
                   //$data = json_decode($json_category, true);
-                  foreach ($categories as $cat) {
-                    if($cat['category'] == 'diving'){
-                      foreach($cat['packages'] as $packages) {
+                  echo "<div class='col-12'><h1 class='text-light fw-bold'>".ucwords($cat['category'])."</h1></div>";
+                  foreach($cat['packages'] as $packages) {
                 ?>
-                        <div class="col-12">
-                          <div class="card p-3 h-100">
-                            <h6 class="mb-1 text-lg">
-                              <strong><?php echo $packages['nama_paket']; ?></strong>
-                              <span><?php echo $packages['subtitle_paket']; ?></span>
-                            </h6>
-                            <div class="mb-2 text-sm">
-                              <a href="#">See details</a>
-                            </div>
-                            <div class="mt-auto d-flex align-items-center justify-content-between">
-                              <div class="price d-flex align-items-baseline gap-1 text-danger">
-                                <span class="text-sm">IDR</span>
-                                <h4 class="mb-0 pt-1 fw-bold"><?php echo number_format($packages['harga_paket'], 0, ",", "."); ?></h4>
-                              </div>
-                              <div>
-                                <button class="btn btn-light border"><i class="fi fi-rr-shopping-cart-add"></i></button>
-                                <button class="btn btn-primary text-sm">Select Ticket</button>
-                              </div>
-                            </div>
+                    <div class="col-sm-4">
+                      <div class="card p-3 h-100 rounded-4">
+                        <img src="https://s3-us-west-2.amazonaws.com/imgds360live/product_images/3545461/part_images/open-water-diver.jpg_3545461_F74RCW0R5H" class="img-fluid mb-3 rounded-3">
+                        <h6 class="mb-1 text-lg">
+                          <strong><?php echo $packages['nama_paket']; ?></strong>
+                          <span><?php echo $packages['subtitle_paket']; ?></span>
+                        </h6>
+                        <div class="mb-2 text-sm">
+                          <a href="#">See details</a>
+                        </div>
+                        <div class="mt-auto d-flex align-items-center justify-content-between">
+                          <div class="price d-flex align-items-baseline gap-1 text-danger">
+                            <span class="text-sm">IDR</span>
+                            <h4 class="mb-0 pt-1 fw-bold"><?php echo number_format($packages['harga_paket'], 0, ",", "."); ?></h4>
+                          </div>
+                          <div>
+                            <button class="btn btn-light border"><i class="fi fi-rr-shopping-cart-add"></i></button>
+                            <button class="btn btn-primary text-sm">Select Ticket</button>
                           </div>
                         </div>
+                      </div>
+                    </div>
                 <?php
-                      }
-                    }
                   }
                 ?>
               </div>
@@ -123,6 +123,11 @@
       </div>
     </div>
   </section>
+
+  <?php
+      }
+    }
+  ?>
   
   <div class="container px-0 d-none">
     <section class="p-3">

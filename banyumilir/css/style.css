@@ -153,3 +153,11 @@ a {
 section {
   background-size: cover;
 }/*# sourceMappingURL=style.css.map */
+
+section.packages {
+  background-color: #007bff;
+}
+
+section.packages:nth-child(even) {
+  background-color: #097447;
+}
