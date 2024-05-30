@@ -93,6 +93,24 @@
           <div class="row g-3 justify-content-end">
             <div class="col-md-6">
               <div id="package" class="row g-3 h-100">
+                <div class="col-12">
+                  <div class="card p-3 h-100">
+                    <h6 class="mb-1 text-lg"><strong>LOVINA REEF</strong><span>2x Dive + 1x Night Dive</span></h6>
+                    <div class="mb-2 text-sm">
+                      <a href="#">See details</a>
+                    </div>
+                    <div class="mt-auto d-flex align-items-center justify-content-between">
+                      <div class="price d-flex align-items-baseline gap-1 text-danger">
+                        <span class="text-sm">IDR</span>
+                        <h4 class="mb-0 pt-1 fw-bold">1.250K</h4>
+                      </div>
+                      <div>
+                        <button class="btn btn-light border"><i class="fi fi-rr-shopping-cart-add"></i></button>
+                        <button class="btn btn-primary text-sm">Select Ticket</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -185,47 +203,5 @@
   <script src="js/swiper-bundle.min.js"></script>
   <script src="js/date-picker.min.js"></script>
   <script src="js/main.js"></script>
-  <script>
-    const packageEl = document.getElementById("package");
-    // Fungsi untuk mengambil data JSON dari file PHP
-    async function fetchData() {
-      try {
-        const response = await fetch('./backend/front_be.php');
-        if (!response.ok) {
-          throw new Error('Network response was not ok ' + response.statusText);
-        }
-        const data = await response.json();
-        displayData(data);
-        console.log(response.json())
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    }
-
-    function formatToK(numberString) {
-      const number = parseInt(numberString, 10);
-      if (number < 1000) {
-        return numberString;
-      }
-      const formattedNumber = (number / 1000).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 3 });
-      return formattedNumber + 'K';
-    }
-
-    function displayData(data) {
-      const userList = document.getElementById('userList');
-      data.forEach(data => {
-        let formattedString = formatToK(data.price_packet);
-
-        const newPackage = document.createElement("div");
-        newPackage.innerHTML = `<div class="col-12"><div class="card p-3 h-100"><h6 class="mb-1 text-lg"><strong>LOVINA REEF</strong><span>2x Dive + 1x Night Dive</span></h6><div class="mb-2 text-sm"><a href="#">See details</a></div><div class="mt-auto d-flex align-items-center justify-content-between"><div class="price d-flex align-items-baseline gap-1 text-danger"><span class="text-sm">IDR</span><h4 class="mb-0 pt-1 fw-bold">1.250K</h4></div><div><button class="btn btn-light border"><i class="fi fi-rr-shopping-cart-add"></i></button><button class="btn btn-primary text-sm">Select Ticket</button></div></div></div></div>`;
-        newPackage.querySelector("h6 strong").textContent = data.title_packet;
-        newPackage.querySelector("h6 span").textContent = data.subtitle_packet;
-        newPackage.querySelector("h4").textContent = formattedString;
-        packageEl.append(newPackage);
-      });
-    }
-
-    window.onload = fetchData;
-  </script>
 </body>
 </html>
