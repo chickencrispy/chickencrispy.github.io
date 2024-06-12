@@ -1,3 +1,15 @@
+<?php
+
+$signature=$_REQUEST['signature'] ?? "";
+$sign = bin2hex($signature);
+
+print $signature."<br>";
+
+?>
+
+
+<img src="<?php echo(hex2bin($sign)); ?>"></img>
+
 <script>
 
 if (navigator.geolocation) {
