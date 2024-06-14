@@ -7,7 +7,7 @@ class PDF extends FPDF
     function Header()
     {
         // Logo
-        $this->Image('banyumilir.png', 85, 10, 30); // Adjust position and size as needed
+        $this->Image('banyumilir.png', 85, 10, 30); // Atur posisi dan ukuran sesuai kebutuhan
         // Pindah ke posisi tengah
         $this->SetY(60);
         // Pilih font Arial tebal 15
@@ -17,7 +17,6 @@ class PDF extends FPDF
         // Pindah baris
         $this->Ln(20);
     }
-
 
     // Fungsi footer
     function Footer()
@@ -45,6 +44,26 @@ class PDF extends FPDF
     {
         $this->ChapterBody($body);
     }
+
+    // Fungsi untuk menambahkan tanda tangan di posisi yang tepat
+    function AddSignature($width = 50, $height = 20)
+    {
+        // Posisi X dan Y untuk gambar tanda tangan
+        $signatureText = 'Tanda Tangan Peserta:';
+        $this->SetFont('Arial', '', 12);
+        
+        // Dapatkan posisi Y saat ini
+        $y = $this->GetY();
+        
+        // Tentukan posisi X berdasarkan lebar teks "Tanda Tangan Peserta"
+        $x = $this->GetX() + $this->GetStringWidth($signatureText) + 5; // 5 mm adalah jarak antara teks dan gambar
+
+        // Atur posisi Y otomatis di atas garis tanda tangan
+        $y -= $height + 20; // 2 mm adalah jarak antara gambar dan garis
+
+        // Tambahkan tanda tangan ke dalam dokumen PDF
+        $this->Image("../signature.png", $x, $y, $width, $height); // Atur posisi dan ukuran gambar sesuai kebutuhan
+    }
 }
 
 // Buat instance PDF dengan ukuran halaman F4
@@ -52,7 +71,7 @@ $pdf = new PDF('P', 'mm', array(210, 330));
 
 // Tambah halaman dan konten
 $pdf->AddPage();
-$pdf->SetAutoPageBreak(true, 15); // Enable auto page break with a margin of 15 mm
+$pdf->SetAutoPageBreak(true, 15); // Aktifkan auto page break dengan margin 15 mm
 
 $content = '
 To join Dolphin & Snorkeling tour, it\'s important to be in good physical health.
@@ -77,21 +96,11 @@ Participant Signature: _______________________________
 
 ';
 
+// Tambahkan konten
 $pdf->AddContent($content);
 
-// Decode base64 string menjadi data gambar
-$image_data = base64_decode($base64_image);
-
-// Tentukan path dan nama file untuk menyimpan gambar PNG
-$png_file = 'signature.png';
-
-// Simpan data gambar ke file PNG
-file_put_contents($png_file, $image_data);
-
-// Tambahkan tanda tangan ke dalam dokumen PDF
-$pdf->Image($png_file, 10, 10, 50, 20); // Atur posisi dan ukuran gambar sesuai kebutuhan Anda
-
-
+// Tambahkan tanda tangan
+$pdf->AddSignature(); // Ukuran gambar tanda tangan disesuaikan secara otomatis
 
 // Tentukan jalur dan nama file untuk menyimpan PDF
 $file_path = 'saved_dolphin_snorkeling_document.pdf';
@@ -101,8 +110,8 @@ $pdf->Output('F', $file_path);
 
 // Verifikasi apakah file berhasil disimpan
 if (file_exists($file_path)) {
-    echo 'PDF has been saved to ' . $file_path;
+    echo 'PDF telah disimpan ke ' . $file_path;
 } else {
-    echo 'Failed to save PDF';
+    echo 'Gagal menyimpan PDF';
 }
 ?>
