@@ -2,6 +2,7 @@
   max-width: 576px;
   margin: auto;
   min-height: 100dvh;
+  padding-bottom: 70px;
 }
 
 .app-header {
@@ -140,5 +141,21 @@
       object-fit: cover;
       border-radius: 10px;
     }
+  }
+}
+
+.bottom-navbar {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  max-width: 576px;
+  margin: auto;
+  padding: 12px;
+  background-color: white;
+
+  a {
+    text-align: center;
+    font-size: 11px;
+    text-decoration: none;
+    color: #171717;
   }
 }

@@ -4,17 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cingkreman</title>
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/swiper-bundle.min.css">
-  <link rel="stylesheet" href="/css/uicons-rounded.css">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="./css/uicons-rounded.css">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
   <div class="app-container">
     <div class="fixed-top">
       <div class="app-header">
         <div class="app-brands">
-          <img src="/assets/icon/logo-brands.png" alt="Cingkreman">
+          <img src="./assets/icon/logo-brands.png" alt="Cingkreman">
           <h5>Cingkreman</h5>
         </div>
 
@@ -45,10 +45,23 @@
       <div class="swiper-container project-list">
         <div class="swiper-wrapper">
           <a href="#" class="swiper-slide">
+            <img src="https://www.greeners.co/wp-content/uploads/2020/09/Penyu-Hijau-1-min.jpg" alt="Penangkaran Penyu Hijau">
+            <div class="project-details">
+              <div class="location"><i class="fi fi-rr-marker"></i> Kalibukbuk, Bali</div>
+              <div class="title">Penangkaran Penyu Hijau</div>
+              <div class="status">Sedang Berjalan</div>
+
+              <div class="progress">
+                <div class="progress-bar bg-primary" role="progressbar" aria-label="Pembuatan Indukan Karang" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="swiper-slide">
             <img src="https://web.pln.co.id/statics/uploads/2022/07/2ae91b3e-b8a0-42e0-bee6-c4188e2407fa.jpg" alt="Pembuatan Indukan Karang">
             <div class="project-details">
               <div class="location"><i class="fi fi-rr-marker"></i> Kalibukbuk, Bali</div>
-              <div class="title">Pembuatan Indukan Karang</div>
+              <div class="title">Penangkaran Penyu Hijau</div>
               <div class="status">Sedang Berjalan</div>
 
               <div class="progress">
@@ -75,9 +88,19 @@
     </section>
   </div>
 
-  <script src="/js/jquery.min.js"></script>
-  <script src="/js/bootstrap.bundle.min.js"></script>
-  <script src="/js/swiper-bundle.min.js"></script>
+  <div class="fixed-bottom">
+    <div class="bottom-navbar">
+      <a href="index.html" class="navbar-menu active"><h5 class="mb-1"><i class="fi fi-rr-house-blank"></i></h5>Home</a>
+      <a href="#" class="navbar-menu"><h5 class="mb-1"><i class="fi fi-rr-people-roof"></i></h5>Project</a>
+      <a href="#" class="navbar-menu"><h5 class="mb-1"><i class="fi fi-rr-ticket-alt"></i></h5>Promo</a>
+      <a href="#" class="navbar-menu"><h5 class="mb-1"><i class="fi fi-rr-wallet"></i></h5>Dompet</a>
+      <a href="#" class="navbar-menu"><h5 class="mb-1"><i class="fi fi-rr-circle-user"></i></h5>Akun</a>
+    </div>
+  </div>
+
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script src="./js/swiper-bundle.min.js"></script>
   <script>
     if ($("div").hasClass("swiper-container")) {
       var swiper = new Swiper(".app-hero", {

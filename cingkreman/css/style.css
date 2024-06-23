@@ -14,10 +14,18 @@
   z-index: 9;
 }
 
+.fixed-bootm {
+  position: fixed;
+  bottom: 0;
+  inset-inline: 0;
+  z-index: 9;
+}
+
 .app-container {
   max-width: 576px;
   margin: auto;
   min-height: 100dvh;
+  padding-bottom: 70px;
 }
 
 .app-header {
@@ -142,6 +150,21 @@
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
+}
+
+.bottom-navbar {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  max-width: 576px;
+  margin: auto;
+  padding: 12px;
+  background-color: white;
+}
+.bottom-navbar a {
+  text-align: center;
+  font-size: 11px;
+  text-decoration: none;
+  color: #171717;
 }
 
 body {
