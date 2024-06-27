@@ -87,6 +87,7 @@
           <!-- Reservation Details -->
 
           <div class="p-4 sm:p-6 bg-white rounded-xl space-y-4">
+            <h6 class="font-semibold text-slate-500">Customer Contact</h6>
             <div class="space-y-2">
               <div class="relative">
                 <span class="absolute top-2 left-3 text-sm text-slate-500">Name</span>
@@ -105,21 +106,7 @@
             
           </div>
 
-          <div class="p-4 sm:p-6 bg-white rounded-xl space-y-4">
-            <h6 class="font-semibold text-slate-500">Emergency User</h6>
-            <div class="space-y-2">
-              <div class="relative">
-                <span class="absolute top-2 left-3 text-sm text-slate-500">Add Name</span>
-                <input type="text" name="name_user_add[]" id="name_user_add" class="border w-full p-3 pt-7 rounded-lg" >
-              </div>
-              <div class="relative">
-                <span class="absolute top-2 left-3 text-sm text-slate-500">Additional Phone Number (Emergency Call)</span>
-                <input type="phone" name="phone_user_add[]" id="phone_user_add" class="border w-full p-3 pt-7 rounded-lg" >
-              </div>
-            </div>
-            
-          </div>
-
+          
           <div class="p-4 sm:p-6 bg-white rounded-xl space-y-4">
             <div class="space-y-2">
               <h6 class="font-semibold text-slate-500">Reservation</h6>
@@ -159,6 +146,20 @@
                 </div>
               </div>
 
+            </div>
+          </div>
+          
+          <div class="p-4 sm:p-6 bg-white rounded-xl space-y-4">
+            <h6 class="font-semibold text-slate-500">Add contact</h6>
+            <div class="space-y-2">
+              <div class="relative">
+                <span class="absolute top-2 left-3 text-sm text-slate-500">Add Name</span>
+                <input type="text" name="name_user_add[]" id="name_user_add" class="border w-full p-3 pt-7 rounded-lg" >
+              </div>
+              <div class="relative">
+                <span class="absolute top-2 left-3 text-sm text-slate-500">Additional Phone Number</span>
+                <input type="phone" name="phone_user_add[]" id="phone_user_add" class="border w-full p-3 pt-7 rounded-lg" >
+              </div>
             </div>
           </div>
 
@@ -229,6 +230,15 @@
 
 
           <!-- Reservation Summary -->
+          <div class="p-4 sm:p-6 bg-white rounded-xl space-y-4 divide-y">
+            <div class="space-y-1">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">PROMO CODE</span>
+                <input type="text" name="promo_code" id="promo_code" class="border w-full p-3 pt-7 rounded-lg"></input>
+              </div>
+            </div>
+          </div>
+
           <div class="p-4 sm:p-6 bg-white rounded-xl space-y-4 divide-y">
             <div class="space-y-1">
               <div class="flex items-center justify-between">

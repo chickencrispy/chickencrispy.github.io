@@ -69,37 +69,122 @@
           <!-- Personal Info -->
           <div class="p-4 sm:p-6 bg-white rounded-xl">
             <div class="space-y-2">
-              <h6 class="font-semibold text-slate-500">Personal Information</h6>
+              <h6 class="font-semibold text-slate-500">Ticketing General Requirement</h6>
               <small class="text-slate-400 lead">Fill in the form correctly, e-ticket will be sent to the email address according to ordering data.</small>
 
               <div class="relative">
-                <span class="absolute top-2 left-3 text-sm text-slate-500">Email or phone number</span>
-                <input type="text" class="border w-full p-3 pt-7 rounded-lg" data-te-datepicker-toggle-ref data-te-datepicker-toggle-button-ref>
+                <h6 class="font-semibold text-slate-500">Medical Traveler | POKMASWAS BANYUMILIR</h6>
+                <ol>
+                  <li>If you have any pre-existing health conditions, such as a heart condition or respiratory 
+                    condition, contact your tour operator before booking to determine whether you can safely 
+                    do the tour. People who have or are susceptible to any of following health conditions should 
+                    seek medical evaluation. This Medical Tour Participant Questionnaire provides a basis for 
+                    deciding whether you should seek this evaluation.</li>
+                  <li>If you have any concerns about your suitability for snorkeling that are not listed on this 
+                    form, consult your doctor before doing snorkeling. If you feel ill, avoid dolphin watching 
+                    and snorkeling.</li>
+                  <li>If you think you may have a contagious disease, protect yourself and others by not 
+                    participating in dolphin watching and snorkeling. This form is intended primarily as an 
+                    initial medical evaluation for travelers going dolphin watching and snorkeling.</li>
+                  <li>If you decide to take your children on dolphin and snorkeling tour ensure they are fully 
+                    briefed and know what they will be doing before entering the water. Children need constant 
+                    adult supervision on board and in the water.</li>
+                  <li>To avoid putting yourself or others at risk, it is important to know how to use and feel 
+                    comfortable with your equipment; otherwise, you could flood your mask or swallow nasty 
+                    saltwater. This can be really scary and dangerous if you don’t know how to handle the 
+                    situation!</li>
+                  <li>Most tour captain require you to be able to swim if you want to do snorkeling. Even if some 
+                    activity providers let you sign up without knowing how to swim, don’t rely on guides to 
+                    save you. You need to be responsible for yourself.</li>
+                  <li>Alcohol and ocean activities are not a good mix. Being under the influence can impair your 
+                    swimming abilities and awareness, turning what should be a beautiful experience into a 
+                    safety hazard.</li>
+                </ol>
               </div>
 
               <div class="relative">
-                <span class="absolute top-2 left-3 text-sm text-slate-500">Guests Name</span>
-                <input type="text" class="border w-full p-3 pt-7 rounded-lg" data-te-datepicker-toggle-ref data-te-datepicker-toggle-button-ref>
+                <label><strong>Dolphine Complete this questionnaire *</strong></label>
+                <label><strong>Snorkeling Complete this questionnaire *</strong></label>
               </div>
+
+              <div class="relative">
+                <label>Plase check or not this questionaire to complete this form </label>
+                <ul>
+                  <li>
+                    <input type="checkbox" name="dolphin" required>
+                    Be prepared to always use the personal safety equipment provided (Life jacket) & Personal belongings 
+                    are the responsibility of each person individually.
+                  </li>
+
+                  <li>
+                    <input type="checkbox" name="snorkling[]" >
+                    I am over 45 years of age.
+                  </li>
+                  <li>
+                    <input type="checkbox" name="snorkling[]" >
+                    I struggle to perform moderate exercise (for example, walk 1.6 kilometer/one mile in 14 
+                    minutes or swim 200 meters/yards without resting), OR I have been unable to participate 
+                    in a normal physical activity due to fitness or health reasons
+                  </li>
+                  <li>
+                    <input type="checkbox" name="snorkling[]" >
+                    I have had problems with my eyes, ears, or nasal passages/sinuses.
+                  </li>
+                  <li>
+                    <input type="checkbox" name="snorkling[]" >
+                    I have had surgery within the last 12 months, OR I have ongoing problems related to past 
+                    surgery.
+                  </li>
+                  <li>
+                    <input type="checkbox" name="snorkling[]" >
+                    I have lost consciousness, had migraine headaches, seizures, stroke, significant head 
+                    injury, or suffer from persistent neurologic injury or disease.
+                  </li>
+                  <li>
+                    <input type="checkbox" name="snorkling[]" >
+                    I am currently undergoing treatment (or have required treatment within the last five 
+                    years) for psychological problems, personality disorder, panic attacks, or an addiction to 
+                    drugs or alcohol; or, I have been diagnosed with a learning or or developmental disability
+                  </li>
+                  <li>
+                    <input type="checkbox" name="snorkling[]" >
+                    I have had back problems, hernia, ulcers, or diabetes.
+                  </li>
+                  <li>
+                    <input type="checkbox" name="snorkling[]" >
+                    I have had stomach or intestine problems, including recent diarrhea.
+                  </li>
+                  <li>
+                    <input type="checkbox" name="snorkling[]" >
+                    I am taking prescription medications (with the exception of birth control or anti-malarial 
+                    drugs other than mefloquine (Lariam).
+                  </li>
+                </ul>
+              </div>
+
+              <div class="relative">
+                <label>
+                  <input type="checkbox" name="agree" required>
+                  I the Undersigned above, have read all the provision and regulation. I will be responsible for the
+                  risk posed by my negligence and will not take the management to legal action for my own risk.
+                </label>
+              </div>
+
+              <div class="relative">
+                <label for="signature"><strong>Signature:</strong></label>
+                <div id="signature-pad" class="signature-pad">
+                    <canvas></canvas>
+                </div>
+                <button type="button" onclick="clearSignature()">Clear Signature</button>
+                
+                <br><br>
+                
+                <input type="hidden" name="signature" id="signature">
+              </div>
+              
             </div>
           </div>
 
-          <!-- Additional Info -->
-          <div class="p-4 sm:p-6 bg-white rounded-xl">
-            <div class="space-y-2">
-              <h6 class="font-semibold text-slate-500">Additional Information</h6>
-
-              <div class="relative">
-                <span class="absolute top-2 left-3 text-sm text-slate-500">Address</span>
-                <input type="text" class="border w-full p-3 pt-7 rounded-lg">
-              </div>
-
-              <div class="relative">
-                <span class="absolute top-2 left-3 text-sm text-slate-500">Nationality</span>
-                <input type="text" class="border w-full p-3 pt-7 rounded-lg">
-              </div>
-            </div>
-          </div>
 
           <!-- Payment -->
           <div class="p-4 sm:p-6 bg-white rounded-xl space-y-4 divide-y divide-dashed">
@@ -194,3 +279,35 @@
   </script>
 </body>
 </html>
+
+<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+    <script>
+        var canvas = document.querySelector("canvas");
+        var signaturePad = new SignaturePad(canvas);
+
+        function resizeCanvas() {
+            var ratio =  Math.max(window.devicePixelRatio || 1, 1);
+            canvas.width = canvas.offsetWidth * ratio;
+            canvas.height = canvas.offsetHeight * ratio;
+            canvas.getContext("2d").scale(ratio, ratio);
+            signaturePad.clear(); // otherwise isEmpty() might return incorrect value
+        }
+
+        window.addEventListener("resize", resizeCanvas);
+        resizeCanvas();
+
+        function clearSignature() {
+            signaturePad.clear();
+        }
+
+        function submitForm() {
+            if (signaturePad.isEmpty()) {
+                alert("Please provide a signature first.");
+                return false;
+            }
+
+            var dataURL = signaturePad.toDataURL();
+            document.getElementById("signature").value = dataURL;
+            return true;
+        }
+    </script>
