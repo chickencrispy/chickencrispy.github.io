@@ -184,26 +184,28 @@
 
   <div id="category-modal" tabindex="-1" class="fixed inset-0 z-50 hidden overflow-y-auto overflow-x-hidden">
     <div class="relative w-full h-full max-w-md p-4 m-auto">
-      <!-- Modal content -->
-      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-        <div class="flex items-start justify-between p-4 border-b rounded-t">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-            Package Details
-          </h3>
-          <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-hide="category-modal">
-            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-            </svg>
-            <span class="sr-only">Close modal</span>
-          </button>
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <div class="flex items-start justify-between p-4 border-b rounded-t">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                    Package Details
+                </h3>
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-hide="category-modal">
+                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <div class="p-6 space-y-6">
+                <p id="modal-package-content" class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    <ul>
+                        <li>Package Dolphin Private 500,000</li>
+                        <li>Package Snorkeling Private 750,000</li>
+                    </ul>
+                </p>
+            </div>
         </div>
-        <div class="p-6 space-y-6">
-          <p id="modal-package-content" class="text-base leading-relaxed text-gray-500 dark:text-gray-400"></p>
-        </div>
-        <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b">
-          <button data-modal-hide="category-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Close</button>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -224,35 +226,35 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
-  <script>
+<script>
     // JavaScript to handle modal content dynamically
     document.addEventListener('DOMContentLoaded', function() {
-      const categoryLinks = document.querySelectorAll('.category-link');
-      const modalContent = document.getElementById('modal-package-content');
+        const categoryLinks = document.querySelectorAll('.category-link');
+        const modalContent = document.getElementById('modal-package-content');
 
-      categoryLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
-          event.preventDefault();
-          const packageContent = link.getAttribute('data-package-content');
-          modalContent.textContent = packageContent;
-          const modalTarget = document.getElementById(link.getAttribute('data-modal-target'));
-          if (modalTarget) {
-            modalTarget.classList.remove('hidden');
-          }
+        categoryLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const packageContent = link.getAttribute('data-package-content');
+                modalContent.textContent = packageContent;
+                const modalTarget = document.getElementById(link.getAttribute('data-modal-target'));
+                if (modalTarget) {
+                    modalTarget.classList.remove('hidden');
+                }
+            });
         });
-      });
 
-      const closeModalButtons = document.querySelectorAll('[data-modal-hide]');
-      closeModalButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const modalTarget = document.getElementById(button.getAttribute('data-modal-hide'));
-          if (modalTarget) {
-            modalTarget.classList.add('hidden');
-          }
+        const closeModalButtons = document.querySelectorAll('[data-modal-hide]');
+        closeModalButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const modalTarget = document.getElementById(button.getAttribute('data-modal-hide'));
+                if (modalTarget) {
+                    modalTarget.classList.add('hidden');
+                }
+            });
         });
-      });
     });
-  </script>
+</script>
 </body>
 
 </html>
