@@ -12,53 +12,66 @@
 <body>
   <div class="app-container">
     <div class="fixed-top">
-      <div class="app-header">
-        <button class="btn btn-icon text-light">
+      <div class="page-header">
+        <button class="btn btn-icon" onclick="javascript:window.open('./index.html','_self')">
           <i class="fi fi-rr-angle-left"></i>
         </button>
 
-        <button class="btn btn-icon text-light">
+        <button class="btn btn-icon">
           <i class="fi fi-rr-share"></i>
         </button>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-hero mb-3">
+        <img src="https://www.greeners.co/wp-content/uploads/2020/09/Penyu-Hijau-1-min.jpg" alt="">
+      </div>
+
+      <div class="project-title mb-3">
+        <h5>Pembuatan Indukan Karang</h5>
+        <div class="location"><i class="fi fi-rr-marker"></i> Kalibukbuk, Bali</div>
+      </div>
+
+      <div class="project-progress mb-3">
+        <div class="d-flex justify-content-between mb-1">
+          <span>IDR 128.525.000</span>
+          <span>IDR 350.000.000</span>
+        </div>
+        <div class="progress mb-2">
+          <div class="progress-bar bg-primary" role="progressbar" aria-label="Pembuatan Indukan Karang" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <i class="fi fi-rr-users"></i> <span>8 orang telah bergabung</span>
+        </div>
+      </div>
+
+      <div class="project-starter mb-3">
+        <div class="avatar">
+          <img src="./assets/img/user.webp" alt="">
+        </div>
+
+        <div class="details">
+          <div>Project Starter</div>
+          <h6>Banyumilir</h6>
+        </div>
+      </div>
+
+      <div class="project-details">
+        <h6>Tentang</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada, lacus ut convallis semper, ante urna vulputate est, et ultrices enim erat a erat. Phasellus sit amet ex ac dui aliquet tempor. Vivamus molestie laoreet luctus. Vivamus ullamcorper accumsan ex et pharetra. Fusce mattis fringilla urna, non suscipit nisi maximus in. Nunc mollis risus vel posuere malesuada. Vestibulum in gravida nulla. Curabitur vestibulum tortor vitae metus commodo volutpat.</p>
       </div>
     </div>
   </div>
 
   <div class="fixed-bottom">
-    <div class="bottom-navbar">
-      <a href="index.html" class="navbar-menu active"><h5 class="mb-1"><i class="fi fi-rr-house-blank"></i></h5>Home</a>
-      <a href="#" class="navbar-menu"><h5 class="mb-1"><i class="fi fi-rr-people-roof"></i></h5>Project</a>
-      <a href="#" class="navbar-menu"><h5 class="mb-1"><i class="fi fi-rr-ticket-alt"></i></h5>Promo</a>
-      <a href="#" class="navbar-menu"><h5 class="mb-1"><i class="fi fi-rr-wallet"></i></h5>Dompet</a>
-      <a href="#" class="navbar-menu"><h5 class="mb-1"><i class="fi fi-rr-circle-user"></i></h5>Akun</a>
+    <div class="bottom-action">
+      <button class="btn btn-primary">Join Project</button>
     </div>
   </div>
 
   <script src="./js/jquery.min.js"></script>
   <script src="./js/bootstrap.bundle.min.js"></script>
   <script src="./js/swiper-bundle.min.js"></script>
-  <script>
-    if ($("div").hasClass("swiper-container")) {
-      var swiper = new Swiper(".app-hero", {
-        parallax: true,
-        slidesPerView: 1,
-        loop: true,
-      });
-
-      var swiper = new Swiper(".project-list", {
-        parallax: true,
-        slidesPerView: 1.5,
-        spaceBetween: 16,
-        loop: true,
-      });
-
-      var swiper = new Swiper(".recommend-card", {
-        parallax: true,
-        slidesPerView: 1,
-        spaceBetween: 16,
-        loop: true,
-      });
-    }
-  </script>
 </body>
 </html>
