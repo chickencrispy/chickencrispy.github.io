@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cingkreman</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="./css/uicons-rounded.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <div class="fixed-top">
+      <div class="app-header">
+        <button class="btn btn-icon text-light">
+          <i class="fi fi-rr-angle-left"></i>
+        </button>
+
+        <button class="btn btn-icon text-light">
+          <i class="fi fi-rr-share"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="fixed-bottom">
+    <div class="bottom-navbar">
+      <a href="index.html" class="navbar-menu active"><h5 class="mb-1"><i class="fi fi-rr-house-blank"></i></h5>Home</a>
+      <a href="#" class="navbar-menu"><h5 class="mb-1"><i class="fi fi-rr-people-roof"></i></h5>Project</a>
+      <a href="#" class="navbar-menu"><h5 class="mb-1"><i class="fi fi-rr-ticket-alt"></i></h5>Promo</a>
+      <a href="#" class="navbar-menu"><h5 class="mb-1"><i class="fi fi-rr-wallet"></i></h5>Dompet</a>
+      <a href="#" class="navbar-menu"><h5 class="mb-1"><i class="fi fi-rr-circle-user"></i></h5>Akun</a>
+    </div>
+  </div>
+
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script src="./js/swiper-bundle.min.js"></script>
+  <script>
+    if ($("div").hasClass("swiper-container")) {
+      var swiper = new Swiper(".app-hero", {
+        parallax: true,
+        slidesPerView: 1,
+        loop: true,
+      });
+
+      var swiper = new Swiper(".project-list", {
+        parallax: true,
+        slidesPerView: 1.5,
+        spaceBetween: 16,
+        loop: true,
+      });
+
+      var swiper = new Swiper(".recommend-card", {
+        parallax: true,
+        slidesPerView: 1,
+        spaceBetween: 16,
+        loop: true,
+      });
+    }
+  </script>
+</body>
+</html>
