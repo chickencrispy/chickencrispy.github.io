@@ -1,0 +1,16 @@
+$fs-xs  : 12px;
+$fs-sm  : 13px;
+$fs-md  : 14px;
+$fs-lg  : 16px;
+$fs-xl  : 18px;
+$fs-2xl : 20px;
+
+.text-xs { font-size: $fs-xs; }
+.text-sm { font-size: $fs-sm ; }
+.text-md { font-size: $fs-md; }
+.text-lg { font-size: $fs-lg; }
+
+.top-3 { top: 16px; }
+
+.rounded-6 { border-radius: 6px; }
+.rounded-normal { border-radius: 10px; }
