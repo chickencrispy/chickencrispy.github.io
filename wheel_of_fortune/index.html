@@ -1,0 +1,216 @@
+<html>
+  <head>
+    <title>HTML5 Canvas Winning Wheel</title>
+    <link rel="stylesheet" href="main.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="tweenmax.min.js"></script>
+    <script type="text/javascript" src="winwheel.js"></script>
+    <style>
+      .wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .the_wheel {
+        position: relative;
+        display: grid;
+        place-content: center;
+        width: 438px;
+        height: 582px;
+        background-image: url(./wheel_back.png);
+        background-position: center;
+        background-repeat: none;
+      }
+
+      .pin {
+        position: absolute;
+        display: none;
+        width: 30px;
+        height: 30px;
+        border-style: solid;
+        border-right: 15px solid transparent;
+        border-left: 15px solid transparent;
+        border-top: 30px solid #000;
+        border-bottom: 0;
+        left: 50%;
+        top: 65px;
+        transform: translateX(-50%);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="d-flex align-items-center justify-content-center flex-fill p-4">
+        <div class="the_wheel">
+          <div class="pin"></div>
+          <canvas id="canvas" width="434" height="434">
+            <p style="color: white" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
+          </canvas>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column align-items-center justify-content-center gap-1 flex-fill bg-black p-4">
+        <div id="prize" class="d-none">
+          <h2></h2>
+        </div>
+        <div class="d-grid w-50">
+          <button id="spin_button" class="btn btn-danger" onclick="startSpin();">Spin</button>
+        </div>
+        <div class="d-grid w-50">
+          <button id="reset_button" class="btn btn-light d-none" onclick="resetWheel();">Play Again</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Create new wheel object specifying the parameters at creation time.
+      let theWheel = new Winwheel({
+        'outerRadius'     : 212,        // Set outer radius so wheel fits inside the background.
+        'innerRadius'     : 75,         // Make wheel hollow so segments don't go all way to center.
+        'textFontSize'    : 24,         // Set default font size for the segments.
+        'textOrientation' : 'vertical', // Make text vertial so goes down from the outside of wheel.
+        'textAlignment'   : 'outer',    // Align text to outside of wheel.
+        'numSegments'     : 24,         // Specify number of segments.
+        'segments'        :             // Define segments including colour and text.
+          [                             // font size and test colour overridden on backrupt segments.
+            {'fillStyle' : '#ee1c24', 'text' : '300'},
+            {'fillStyle' : '#3cb878', 'text' : '450'},
+            {'fillStyle' : '#f6989d', 'text' : '600'},
+            {'fillStyle' : '#00aef0', 'text' : '750'},
+            {'fillStyle' : '#f26522', 'text' : '500'},
+            {'fillStyle' : '#000000', 'text' : 'BANKRUPT', 'textFontSize' : 16, 'textFillStyle' : '#ffffff'},
+            {'fillStyle' : '#e70697', 'text' : '3000'},
+            {'fillStyle' : '#fff200', 'text' : '600'},
+            {'fillStyle' : '#f6989d', 'text' : '700'},
+            {'fillStyle' : '#ee1c24', 'text' : '350'},
+            {'fillStyle' : '#3cb878', 'text' : '500'},
+            {'fillStyle' : '#f26522', 'text' : '800'},
+            {'fillStyle' : '#a186be', 'text' : '300'},
+            {'fillStyle' : '#fff200', 'text' : '400'},
+            {'fillStyle' : '#00aef0', 'text' : '650'},
+            {'fillStyle' : '#ee1c24', 'text' : '1000'},
+            {'fillStyle' : '#f6989d', 'text' : '500'},
+            {'fillStyle' : '#f26522', 'text' : '400'},
+            {'fillStyle' : '#3cb878', 'text' : '900'},
+            {'fillStyle' : '#000000', 'text' : 'BANKRUPT', 'textFontSize' : 16, 'textFillStyle' : '#ffffff'},
+            {'fillStyle' : '#a186be', 'text' : '600'},
+            {'fillStyle' : '#fff200', 'text' : '700'},
+            {'fillStyle' : '#00aef0', 'text' : '800'},
+            {'fillStyle' : '#ffffff', 'text' : 'LOOSE TURN', 'textFontSize' : 12}
+          ],
+        'animation' :           // Specify the animation to use.
+          {
+              'type'     : 'spinToStop',
+              'duration' : 10,    // Duration in seconds.
+              'spins'    : 3,     // Default number of complete spins.
+              'callbackFinished' : alertPrize,
+              'callbackSound'    : playSound,   // Function to call when the tick sound is to be triggered.
+              'soundTrigger'     : 'pin'        // Specify pins are to trigger the sound, the other option is 'segment'.
+          },
+        'pins' :				// Turn pins on.
+          {
+            'number'     : 24,
+            'fillStyle'  : 'silver',
+            'outerRadius': 4,
+          }
+      });
+
+      // Loads the tick audio sound in to an audio object.
+      let audio = new Audio('tick.mp3');
+
+      // This function is called when the sound is to be played.
+      function playSound() {
+        // Stop and rewind the sound if it already happens to be playing.
+        audio.pause();
+        audio.currentTime = 0;
+
+        // Play the sound.
+        audio.play();
+      }
+
+      // Vars used by the code in this page to do power controls.
+      let wheelPower    = 1;
+      let wheelSpinning = false;
+
+      // -------------------------------------------------------
+      // Click handler for spin button.
+      // -------------------------------------------------------
+      function startSpin() {
+        // Ensure that spinning can't be clicked again while already running.
+        if (wheelSpinning == false) {
+          // Based on the power level selected adjust the number of spins for the wheel, the more times is has
+          // to rotate with the duration of the animation the quicker the wheel spins.
+          if (wheelPower == 1) {
+              theWheel.animation.spins = 3;
+          } else if (wheelPower == 2) {
+              theWheel.animation.spins = 6;
+          } else if (wheelPower == 3) {
+              theWheel.animation.spins = 10;
+          }
+
+          // Disable the spin button so can't click again while wheel is spinning.
+          document.getElementById('spin_button').classList.add('d-none');
+
+          // Begin the spin animation by calling startAnimation on the wheel object.
+          theWheel.startAnimation();
+
+          // Set to true so that power can't be changed and spin button re-enabled during
+          // the current animation. The user will have to reset before spinning again.
+          wheelSpinning = true;
+        }
+      }
+
+      // -------------------------------------------------------
+      // Function for reset button.
+      // -------------------------------------------------------
+      function resetWheel() {
+        theWheel.stopAnimation(false);  // Stop the animation, false as param so does not call callback function.
+        theWheel.rotationAngle = 0;     // Re-set the wheel angle to 0 degrees.
+        theWheel.draw();                // Call draw to render changes to the wheel.
+
+        document.getElementById('spin_button').classList.remove('d-none'); // Enable spin button.
+        document.getElementById('reset_button').classList.add('d-none'); // Enable spin button.
+        document.getElementById('prize').className = 'd-none'; // Reset Prize Result
+
+        audio = new Audio('tick.mp3');
+
+        wheelSpinning = false;          // Reset to false to power buttons and spin can be clicked again.
+      }
+
+      // -------------------------------------------------------
+      // Called when the spin animation has finished by the callback feature of the wheel because I specified callback in the parameters.
+      // -------------------------------------------------------
+      function alertPrize(indicatedSegment) {
+        let prize_text;
+        // Just alert to the user what happened.
+        // In a real project probably want to do something more interesting than this with the result.
+        if (indicatedSegment.text == 'LOOSE TURN') {
+          //alert('Sorry but you loose a turn.');
+          prize_text = 'Sorry but you loose a turn';
+        } else if (indicatedSegment.text == 'BANKRUPT') {
+          //alert('Oh no, you have gone BANKRUPT!');
+          prize_text = 'Oh no, you have gone <br> BANKRUPT';
+          indicatedSegment.fillStyle = '#ff0000';
+        } else {
+          //alert("You have won " + indicatedSegment.text);
+          prize_text = "Congratulations, You have won <br>" + indicatedSegment.text;
+        }
+
+        if(indicatedSegment.text == 'BANKRUPT' || indicatedSegment.text == 'LOOSE TURN') {
+          audio = new Audio('lose.mp3');
+        }else{
+          audio = new Audio('goodresult.mp3');
+        }
+        audio.play();
+
+        document.getElementById('prize').className = 'p-3 mb-3 text-white text-center';
+        document.getElementById('prize').querySelector('h2').innerHTML = prize_text;
+        document.getElementById('prize').querySelector('h2').style.color = indicatedSegment.fillStyle;
+
+        document.getElementById('reset_button').classList.remove('d-none');
+      }
+    </script>
+  </body>
+</html>
