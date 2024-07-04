@@ -62,13 +62,13 @@
 
 <?php
 // Sertakan file library PHP QR Code
-include './js/phpqrcode/qrlib.php';
+include './phpqrcode/qrlib.php';
 
 // Data yang ingin dienkripsi menjadi QR Code
 $data = "https://banyumilir.com/234512";
 
 // Direktori untuk menyimpan file QR Code
-$tempdir = "temp/";
+$tempdir = "./";
 if (!file_exists($tempdir)) {
     mkdir($tempdir);
 }
