@@ -60,7 +60,7 @@ class PDF extends FPDF
         $this->Cell(0, 8, date(' F d, Y',strtotime($flightDetails['Booking Date'])). ' | '. $flightDetails['Booking Time'], 0, 1, 'L');
 
         // Tambahkan gambar PNG
-        $image_file = 'logo.png'; // Ganti dengan nama dan lokasi file gambar PNG Anda
+        $image_file = 'qrcode.png'; // Ganti dengan nama dan lokasi file gambar PNG Anda
         list($width, $height) = getimagesize($image_file); // Ambil dimensi asli gambar
 
         // Hitung ulang skala gambar agar sesuai dengan area yang ditentukan
