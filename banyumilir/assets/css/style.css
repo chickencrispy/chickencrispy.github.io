@@ -1,27 +1,31 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Prata&display=swap");
 .text-xs {
-  font-size: 12px;
+  font-size: 12px !important;
 }
 
 .text-sm {
-  font-size: 13px;
+  font-size: 13px !important;
 }
 
 .text-md {
-  font-size: 14px;
+  font-size: 14px !important;
 }
 
 .text-lg {
-  font-size: 16px;
+  font-size: 16px !important;
+}
+
+.text-xl {
+  font-size: 18px !important;
+}
+
+.text-2xl {
+  font-size: 20px !important;
 }
 
 .top-3 {
   top: 16px;
-}
-
-.rounded-6 {
-  border-radius: 6px;
 }
 
 .rounded-normal {
@@ -46,7 +50,7 @@
 
 .btn {
   padding: 8px 14px;
-  border-radius: 6px;
+  border-radius: 10px;
   font-size: 14px;
 }
 
@@ -116,13 +120,13 @@
 
 .form-control {
   padding: 8px 12px;
-  border-radius: 6px;
+  border-radius: 10px;
   font-size: 14px;
 }
 
 .form-select {
   padding: 8px 12px;
-  border-radius: 6px;
+  border-radius: 10px;
   font-size: 14px;
   box-shadow: none;
 }
@@ -233,7 +237,7 @@ input::-webkit-inner-spin-button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 150px;
+  width: 128px;
   padding: 8px;
   border: 2px solid #eee;
   border-radius: 8px;
@@ -247,7 +251,7 @@ input::-webkit-inner-spin-button {
 }
 .list-guide .guide-box img {
   width: 100%;
-  height: 132px;
+  height: 108px;
   -o-object-fit: cover;
      object-fit: cover;
   margin-bottom: 8px;
@@ -313,6 +317,31 @@ input::-webkit-inner-spin-button {
 .label-check:has(:checked) {
   background-color: rgba(var(--mdb-primary-rgb), 1);
   color: white;
+}
+
+.package-info {
+  position: relative;
+}
+.package-info img {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 8px;
+  border-radius: 10px;
+}
+.package-info .details {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  padding: 16px;
+  padding-top: 24px;
+  color: white;
+  background: linear-gradient(0deg, rgb(2, 0, 36) 0%, rgba(2, 0, 36, 0) 100%);
+  border-radius: 0 0 10px 10px;
+}
+.package-info .details h6 {
+  margin-bottom: 0;
 }
 
 .app-home-header {

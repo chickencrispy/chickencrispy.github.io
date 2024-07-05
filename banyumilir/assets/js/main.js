@@ -67,6 +67,7 @@ inputNumberButton.forEach(number => {
 function guestListsConf(e) {
   const newGuestList = guestList.querySelector(".list-group-item").cloneNode(true);
   newGuestList.querySelector("label").textContent = "Guest Name " + e;
+  newGuestList.querySelector("input").value = "";
 
   if(e > guestList.children.length) {
     guestList.appendChild(newGuestList);

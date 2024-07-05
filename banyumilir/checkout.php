@@ -4,67 +4,17 @@
 ?>
 
   <div class="container">
-    <div class="breadcrumb p-3 bg-secondary-subtle mt-3 rounded-5">
+    <div class="breadcrumb py-2 mt-3">
       <div class="d-flex align-items-center">
         <a href="#" class="text-nowrap">Home</a>
         <i class="fi fi-rr-angle-small-right mx-1"></i>
-        <a href="#" class="text-nowrap">Book Now</a>
+        <a href="#" class="text-nowrap">Select Package</a>
         <i class="fi fi-rr-angle-small-right mx-1"></i>
         <span class="text-nowrap">Checkout</span>
       </div>
     </div>
 
-    <div class="row g-3">
-      <div class="col-md-4">
-        <div class="position-sticky top-3 p-3 bg-secondary-subtle rounded-normal">
-          <h6 class="fw-bold">Available Package</h6>
-          <ul class="list-group list-group-options">
-            <li class="list-group-item toggle-show">
-              <label><input type="checkbox" class="d-none"></label>
-            </li>
-
-            <li class="list-group-item">
-              <label class="label-select w-100">
-                <input type="radio" name="dolphine-package" id="" class="d-none form-check-input">
-                <strong>Dolphine Tour Regular</strong>
-                <h5>IDR 150.000</h5>
-                <div class="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis est magnam voluptatem tempore!</div>
-              </label>
-            </li>
-            <li class="list-group-item">
-              <label class="label-select w-100">
-                <input type="radio" name="dolphine-package" id="" class="d-none form-check-input">
-                <strong>Dolphine Tour & Snorkeling Regular</strong>
-                <h5>IDR 250.000</h5>
-                <div class="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis est magnam voluptatem tempore!</div>
-              </label>
-            </li>
-            <li class="list-group-item">
-              <label class="label-select w-100">
-                <input type="radio" name="dolphine-package" id="" class="d-none form-check-input">
-                <strong>Dolphine Tour Private</strong>
-                <h5>IDR 300.000</h5>
-                <div class="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis est magnam voluptatem tempore!</div>
-              </label>
-            </li>
-            <li class="list-group-item">
-              <label class="label-select w-100">
-                <input type="radio" name="dolphine-package" id="" class="d-none form-check-input">
-                <strong>Dolphine Tour & Long Trip Snorkeling</strong>
-                <h5>IDR 500.000</h5>
-                <div class="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis est magnam voluptatem tempore!</div>
-              </label>
-            </li>
-
-            <li class="list-group-item note">
-              <div class="text-xs">
-                The price are include: <br> Life Jacket, Transport Boat, Guide and Entrance Fee
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-
+    <div class="row g-0">
       <div class="col-md-8">
         <div id="customer-contact" class="p-3 bg-white border rounded-normal mb-3">
           <h6 class="fw-bold">Customer Contact</h6>
@@ -95,19 +45,19 @@
             <li class="list-group-item">
               <label for="">Select Time</label>
               <div class="d-flex flex-nowrap overflow-auto gap-2">
-                <label class="label-check border p-2 text-nowrap rounded-4 text-center">
+                <label class="label-check border p-2 text-nowrap rounded-normal text-center">
                   <input type="radio" name="times" id="" class="d-none">
                   <span>06.00 - 08.00</span>
                 </label>
-                <label class="label-check border p-2 text-nowrap rounded-4 text-center">
+                <label class="label-check border p-2 text-nowrap rounded-normal text-center">
                   <input type="radio" name="times" id="" class="d-none">
                   <span>09.00 - 11.00</span>
                 </label>
-                <label class="label-check border p-2 text-nowrap rounded-4 text-center">
+                <label class="label-check border p-2 text-nowrap rounded-normal text-center">
                   <input type="radio" name="times" id="" class="d-none">
                   <span>14.00 - 16.00</span>
                 </label>
-                <label class="label-check border p-2 text-nowrap rounded-4 text-center">
+                <label class="label-check border p-2 text-nowrap rounded-normal text-center">
                   <input type="radio" name="times" id="" class="d-none">
                   <span>17.00 - 19.00</span>
                 </label>
@@ -197,7 +147,7 @@
               <select name="" id="" class="form-select">
                 <option value="" hidden></option>
                 <option value="">Singaraja Area</option>
-                <option value="">Outside Singaraja</option>
+                <option value="">Outside Singaraja Area</option>
               </select>
             </li>
             <li class="list-group-item">
@@ -206,14 +156,74 @@
             </li>
           </ul>
         </div>
+      </div>
 
-        <div id="summary" class="p-3 bg-white border rounded-normal mb-3">
-          <div class="d-flex">
-            <div>
-              <div>Total</div>
-              <h6 class="fw-bold">IDR 1.000.000</h6>
+      <div class="col-md-4">
+        <div id="summary" class="position-sticky top-3 ps-0 ps-sm-4 bg-light">
+          <div class="package-info mb-4">
+            <img src="https://res.klook.com/image/upload/c_fill,w_1265,h_712/q_80/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/waqymbchzuiollxqhr4u.webp">
+            <div class="details">
+              <h6>Dolphine Tour Private</h6>
+              <small>IDR 300.000</small>
             </div>
-            <button type="button" class="btn btn-primary btn-sm ms-auto">Proceed</button>
+          </div>
+          <div class="summary">
+            <h6 class="pb-2 fw-semibold text-md border-bottom">Your Trip Summary</h6>
+            <ul class="list-group list-group-light list-group-small mb-3">
+              <li class="list-group-item">
+                <div class="d-flex align-items-center">
+                  <div class="text-sm text-muted">Date</div>
+                  <div class="ms-auto">October 15, 2022</div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex align-items-center">
+                  <div class="text-sm text-muted">Time</div>
+                  <div class="ms-auto">09.00 - 11.00</div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex align-items-center">
+                  <div class="text-sm text-muted">Guests</div>
+                  <div class="ms-auto">1 person</div>
+                </div>
+              </li>
+            </ul>
+
+            <h6 class="pb-2 fw-semibold text-md border-bottom">Pricing Breakdown</h6>
+            <ul class="list-group list-group-light list-group-small mb-3">
+              <li class="list-group-item">
+                <div class="d-flex align-items-center">
+                  <div class="text-sm text-muted">Ticket price x 1</div>
+                  <div class="ms-auto">IDR 1.000.000</div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex align-items-center">
+                  <div class="text-sm text-muted">Transportation</div>
+                  <div class="ms-auto">IDR 100.000</div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex align-items-center">
+                  <div class="text-sm text-muted">Service fee</div>
+                  <div class="ms-auto">IDR 100.000</div>
+                </div>
+              </li>
+            </ul>
+
+            <hr class="my-2">
+            <ul class="list-group list-group-light list-group-small mb-3">
+              <li class="list-group-item">
+                <div class="d-flex align-items-center fw-bold">
+                  <div class="text-sm text-muted">Total before taxes</div>
+                  <div class="ms-auto">IDR 1.200.000</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="d-grid pb-3">
+            <button class="btn btn-primary py-3 text-xs rounded-normal" onclick="javascript:location.href='./medical_travel.php'">Continue</button>
           </div>
         </div>
       </div>
