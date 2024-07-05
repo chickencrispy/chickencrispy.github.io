@@ -1798,6 +1798,7 @@
 <b>Deprecated</b>:  Implicit conversion from float 15.5 to int loses precision in <b>C:\laragon\www\chickencrispy.github.io\travee\js\phpqrcode\qrencode.php</b> on line <b>144</b><br />
 <br />
 <b>Deprecated</b>:  Implicit conversion from float 15.75 to int loses precision in <b>C:\laragon\www\chickencrispy.github.io\travee\js\phpqrcode\qrencode.php</b> on line <b>144</b><br />
+<<<<<<< HEAD
 2024-07-03 15:42:44: <br />
 <b>Deprecated</b>:  Implicit conversion from float 0.25 to int loses precision in <b>C:\laragon\www\chickencrispy.github.io\travee\js\phpqrcode\qrencode.php</b> on line <b>140</b><br />
 <br />
@@ -1949,6 +1950,9 @@
 <br />
 <b>Deprecated</b>:  Implicit conversion from float 15.75 to int loses precision in <b>C:\laragon\www\chickencrispy.github.io\travee\js\phpqrcode\qrencode.php</b> on line <b>144</b><br />
 2024-07-03 15:45:21: <br />
+=======
+2024-07-04 01:34:23: <br />
+>>>>>>> 09ded2b3bfc1f6e283f7d3db97c66f1cd45afd4a
 <b>Deprecated</b>:  Implicit conversion from float 0.25 to int loses precision in <b>C:\laragon\www\chickencrispy.github.io\banyumilir\backend\phpqrcode\qrencode.php</b> on line <b>140</b><br />
 <br />
 <b>Deprecated</b>:  Implicit conversion from float 0.5 to int loses precision in <b>C:\laragon\www\chickencrispy.github.io\banyumilir\backend\phpqrcode\qrencode.php</b> on line <b>140</b><br />
@@ -2098,7 +2102,11 @@
 <b>Deprecated</b>:  Implicit conversion from float 15.5 to int loses precision in <b>C:\laragon\www\chickencrispy.github.io\banyumilir\backend\phpqrcode\qrencode.php</b> on line <b>144</b><br />
 <br />
 <b>Deprecated</b>:  Implicit conversion from float 15.75 to int loses precision in <b>C:\laragon\www\chickencrispy.github.io\banyumilir\backend\phpqrcode\qrencode.php</b> on line <b>144</b><br />
+<<<<<<< HEAD
 2024-07-03 15:53:52: <br />
+=======
+2024-07-04 05:40:02: <br />
+>>>>>>> 09ded2b3bfc1f6e283f7d3db97c66f1cd45afd4a
 <b>Deprecated</b>:  Implicit conversion from float 0.25 to int loses precision in <b>C:\laragon\www\chickencrispy.github.io\banyumilir\backend\phpqrcode\qrencode.php</b> on line <b>140</b><br />
 <br />
 <b>Deprecated</b>:  Implicit conversion from float 0.5 to int loses precision in <b>C:\laragon\www\chickencrispy.github.io\banyumilir\backend\phpqrcode\qrencode.php</b> on line <b>140</b><br />

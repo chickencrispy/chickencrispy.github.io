@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 <?php
@@ -99,6 +100,65 @@ function cekTeks($teks, $polaBahasa) {
 // Panggil fungsi cekTeks untuk menguji teks
 $hasil = cekTeks($teks, $polaBahasa);
 echo "Bahasa yang terdeteksi: " . implode(', ', $hasil);
+=======
+<?php
+function deteksiBahasa($teks) {
+    $url = "https://api.mymemory.translated.net/get?q=" . urlencode($teks) . "&onlyprivate=0&de=a@b.c";
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $respons = curl_exec($ch);
+    
+    if(curl_errno($ch)) {
+        echo 'Error: ' . curl_error($ch);
+        return false;
+    }
+    
+    curl_close($ch);
+
+    $hasil = json_decode($respons, true);
+    return isset($hasil['responseData']['language']) ? $hasil['responseData']['language'] : false;
+}
+
+function terjemahkanTeks($teks, $bahasaTujuan) {
+    $bahasaSumber = deteksiBahasa($teks);
+    if (!$bahasaSumber) {
+        return false; // Tidak dapat mendeteksi bahasa sumber
+    }
+
+    $url = "https://api.mymemory.translated.net/get?q=" . urlencode($teks) . "&langpair=" . $bahasaSumber . "|" . $bahasaTujuan;
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $respons = curl_exec($ch);
+    
+    if(curl_errno($ch)) {
+        echo 'Error: ' . curl_error($ch);
+        return false;
+    }
+    
+    curl_close($ch);
+
+    $hasil = json_decode($respons, true);
+    return isset($hasil['responseData']['translatedText']) ? $hasil['responseData']['translatedText'] : false;
+}
+
+$teks = "tolong untuk memberikan nomor tiket anda?";
+$bahasaTujuan = 'zh'; // Bahasa Tionghoa
+$teksTerjemahan = terjemahkanTeks($teks, $bahasaTujuan);
+
+if ($teksTerjemahan) {
+    echo "Teks terjemahan: " . $teksTerjemahan;
+} else {
+    echo "Gagal menerjemahkan teks.";
+}
+
+
+print "<br>";
+
+>>>>>>> 09ded2b3bfc1f6e283f7d3db97c66f1cd45afd4a
 ?>
 
 
@@ -110,10 +170,13 @@ echo "Bahasa yang terdeteksi: " . implode(', ', $hasil);
 
 
 
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> 09ded2b3bfc1f6e283f7d3db97c66f1cd45afd4a
 <?php
 function translateText($text, $sourceLang, $targetLang) {
     $url = "https://api.mymemory.translated.net/get?q=" . urlencode($text) . "&langpair=" . $sourceLang . "|" . $targetLang;
@@ -129,7 +192,11 @@ function translateText($text, $sourceLang, $targetLang) {
 }
 
 $text = "tolong untuk memberikan nomor tiket anda?";
+<<<<<<< HEAD
 $translatedText = translateText($text, 'id', 'en'); // Inggris ke Bahasa Indonesia
+=======
+$translatedText = translateText($text, 'id', 'zh'); // Inggris ke Bahasa Indonesia
+>>>>>>> 09ded2b3bfc1f6e283f7d3db97c66f1cd45afd4a
 echo "Translated text: " . $translatedText;
 
 ?>
