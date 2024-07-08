@@ -431,13 +431,15 @@
   var medicalAssesment = document.getElementsByName("medical_travel_assesment[]");
 
 
-  var signature = signaturePad.toDataURL();
-    document.getElementById("signature").value = signature;
-
-  
+ 
   var formData=document.getElementById("Myform");
   formData.addEventListener("submit", (event) => {
+
+    var dataURL = signaturePad.toDataURL();
+        document.getElementById("signature").value = dataURL;
+
     var Data = new FormData();
+
 
     Data.append("administrasi_id", "1");
     Data.append("date_booking", "<?php echo(date("Y-m-d")); ?>");
@@ -476,7 +478,7 @@
     }
 
     Data.append("captain_id", captain_id.value);
-    Data.append("signature", signature);
+    Data.append("signature", dataURL);
 
     Data.append("order_ticket", '');
 

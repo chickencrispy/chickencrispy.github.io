@@ -129,8 +129,6 @@
     //include "./mysql_connector.php";
 
 
-
-
     //***********REQUEST VARIABLE******************
     $administrasi_id = $_REQUEST['administrasi_id'];
         print "administrasi_id =".$administrasi_id."\n";
@@ -265,6 +263,35 @@
           echo "Terjadi kesalahan: " . $e->getMessage();
       }
     */
+    //file_put_contents('./sign.txt', $signature);
+
+      // Data gambar dalam base64
+      $base64_string = $signature;
+      // Hapus bagian tidak perlu dari data string (header, dsb)
+      $base64_string = str_replace('data:image/png;base64,', '', $base64_string);
+
+      // Decode base64 menjadi data biner
+      $image_data = base64_decode($base64_string);
+
+      // Direktori untuk menyimpan gambar
+      $upload_dir = './';
+
+      // Nama file yang diinginkan
+      $file_name = 'signature.png';
+
+      // Simpan gambar ke direktori
+      $file = $upload_dir . $file_name;
+      file_put_contents($file, $image_data);
+
+      // Beritahu jika penyimpanan berhasil atau tidak
+      if (file_exists($file)) {
+          echo "Gambar berhasil disimpan di: $file";
+      } else {
+          echo "Gagal menyimpan gambar.";
+      }
+
+
+
   }
 
 
