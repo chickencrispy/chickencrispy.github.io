@@ -23,7 +23,7 @@
             <ul class="list-group list-group-borderless list-group-1/3">
               <li class="list-group-item">
                 <label for="">Reservation Type</label>
-                <select name="" id="resv-type" class="form-select">
+                <select name="" id="resv-type" class="form-select" required>
                   <option value="1">Personal</option>
                   <option value="2">Travel Agent</option>
                 </select>
@@ -34,15 +34,15 @@
               </li>
               <li class="list-group-item">
                 <label for="">Full Name</label>
-                <input type="text" name="guest_name" id="guest_name" class="form-control">
+                <input type="text" name="guest_name" id="guest_name" class="form-control" required>
               </li>
               <li class="list-group-item">
                 <label for="">Email</label>
-                <input type="email" name="guest_email" id="guest_email" inputmode="email" class="form-control">
+                <input type="email" name="guest_email" id="guest_email" inputmode="email" class="form-control" required>
               </li>
               <li class="list-group-item">
                 <label for="">Phone Number</label>
-                <input type="tel" name="guest_phone" id="guest_phone" inputmode="tel" class="form-control">
+                <input type="tel" name="guest_phone" id="guest_phone" inputmode="tel" class="form-control" required>
               </li>
             </ul>
           </div>
@@ -54,7 +54,7 @@
             <ul class="list-group list-group-borderless list-group-1/3">
               <li class="list-group-item">
                 <label for="">Select Date</label>
-                <input type="date" name="date_checkin" id="date_checkin" class="form-control min-today">
+                <input type="date" name="date_checkin" id="date_checkin" class="form-control min-today" required>
               </li>
               <li class="list-group-item">
                 <label for="">Select Time</label>
@@ -100,7 +100,7 @@
                 <label class=" align-self-baseline pt-2">Guest Name 1</label>
                 <div class="d-flex flex-column gap-2">
                   <div class="d-flex gap-2">
-                    <input type="text" name="guest_add_name[]" id="" class="form-control">
+                    <input type="text" name="guest_add_name[]" id="" class="form-control" required>
                     <button class="btn-add-note btn btn-link text-reset" onclick="addGuestNote(this)" title="Add guest note"><i class="fi fi-rr-note-medical"></i></button>
                   </div>
                   <div class="guest-note d-none d-flex gap-2">
@@ -241,9 +241,12 @@
             </div>
 
             <!--------SIGNATURE-------------->
-            <div>
+            <div>   
               <h6 class="mb-0 fw-bold">Signature</h6>
-              <p class="text-muted text-sm">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+              <p class="text-muted text-sm">
+              <input type="checkbox" class="form-check-input form-check-sm" required>
+              <span> I the undersigned above, have read all the provision and regulation. I will be responsible for the risks posed by my negligence and will not take the management to legal action for my own risks.</span>
+              </p>
               <div id="signature-pad" class="signature-pad d-flex flex-column signature">
                 <canvas class="border rounded-normal" style="touch-action: none;" width="600" height="150"></canvas>
                 <button class="btn btn-tertiary text-xs text-muted ms-auto" onclick="clearSignature()" >Clear Signature</button>
@@ -434,6 +437,12 @@
  
   var formData=document.getElementById("Myform");
   formData.addEventListener("submit", (event) => {
+
+    if (signaturePad.isEmpty()) {
+        alert("Please provide a signature first.");
+        event.preventDefault(); // Menghentikan submit form
+        return false;
+    }
 
     var dataURL = signaturePad.toDataURL();
         document.getElementById("signature").value = dataURL;

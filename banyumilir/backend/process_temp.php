@@ -124,7 +124,8 @@
   
   if(isset($_REQUEST['order_ticket'])){
 
-
+    $signature = $_REQUEST['signature'];
+        //print "signature =".$signature."\n";    
 
     date_default_timezone_set("Asia/Jakarta");
 
@@ -209,8 +210,7 @@
     $admin_id = $_REQUEST['admin_id'] ?? "";
         print "admin_id =".$admin_id."\n"; 
 
-    $signature = $_REQUEST['signature'];
-        //print "signature =".$signature."\n";    
+
 
     /*
       try {
