@@ -124,6 +124,8 @@
   
   if(isset($_REQUEST['order_ticket'])){
 
+
+
     date_default_timezone_set("Asia/Jakarta");
 
     //include "./mysql_connector.php";
@@ -132,6 +134,12 @@
     //***********REQUEST VARIABLE******************
     $administrasi_id = $_REQUEST['administrasi_id'];
         print "administrasi_id =".$administrasi_id."\n";
+
+        // Membuat nomor voucher unik
+        $timestamp = strtotime(date("Y-m-d H:i:s"));
+    $no_voucher = $timestamp."0".$administrasi_id;
+      print "no-voucher =".$no_voucher."\n";
+    
 
     $date_booking = $_REQUEST['date_booking'] ?? "";
         print "date_booking =".$date_booking."\n";
@@ -191,7 +199,7 @@
         $medical_travel_assesment="";
         foreach($_REQUEST['medical_travel_assesment'] as $add_assesment){if($add_assesment){$medical_travel_assesment=$medical_travel_assesment.$add_assesment.";";}}    
     }
-        print "travel_assesment =".$medical_travel_assesment."\n";
+    print "travel_assesment =".$medical_travel_assesment."\n";
     $status_ticket = $_REQUEST['status_ticket'] ?? "";
         print "status_ticket =".$status_ticket."\n";
     $status_admin = $_REQUEST['status_admin'] ?? "";
@@ -202,7 +210,7 @@
         print "admin_id =".$admin_id."\n"; 
 
     $signature = $_REQUEST['signature'];
-        print "signature =".$signature."\n";    
+        //print "signature =".$signature."\n";    
 
     /*
       try {
@@ -265,6 +273,9 @@
     */
     //file_put_contents('./sign.txt', $signature);
 
+
+
+
       // Data gambar dalam base64
       $base64_string = $signature;
       // Hapus bagian tidak perlu dari data string (header, dsb)
@@ -277,7 +288,7 @@
       $upload_dir = './';
 
       // Nama file yang diinginkan
-      $file_name = 'signature.png';
+      $file_name = $no_voucher.'.png';
 
       // Simpan gambar ke direktori
       $file = $upload_dir . $file_name;
