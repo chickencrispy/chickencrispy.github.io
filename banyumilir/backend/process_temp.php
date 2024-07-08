@@ -121,11 +121,12 @@
     }
   */
 
+  
   if(isset($_REQUEST['order_ticket'])){
 
     date_default_timezone_set("Asia/Jakarta");
 
-    include "./mysql_connector.php";
+    //include "./mysql_connector.php";
 
 
 
@@ -149,13 +150,15 @@
     $promo_price = $_REQUEST['promo_price'] ?? "";
         print "promo_price =".$promo_price."\n";
     if(isset($_REQUEST['additional_id'])){
-        foreach($_REQUEST['additional_id'] as $add_id){$additional_id=$additional_id.$add_id.";";}    
+        $additional_id="";
+        foreach($_REQUEST['additional_id'] as $add_id){if($add_id!=""){$additional_id=$additional_id.$add_id.";";}}    
     }   
         print "additional_id =".$additional_id."\n";
-    if(isset($_REQUEST['additional_price'])){
-        foreach($_REQUEST['additional_price'] as $add_price){$additional_price=$additional_price.$add_price.";";}    
+    if(isset($_REQUEST['additional_req'])){
+      $additional_req="";
+        foreach($_REQUEST['additional_req'] as $add_req){if($add_req!=""){$additional_req=$additional_req.$add_req.";";}}    
     }   
-        print "additional_price =".$additional_price."\n";
+        print "additional_req =".$additional_req."\n";
     $guest_name = $_REQUEST['guest_name'] ?? "";
         print "guest_name =".$guest_name."\n";
     $guest_email = $_REQUEST['guest_email'] ?? "";
@@ -165,11 +168,13 @@
     $guest_amount = $_REQUEST['guest_amount'] ?? "";
         print "guest_amount =".$guest_amount."\n";
     if(isset($_REQUEST['guest_add_name'])){
-        foreach($_REQUEST['guest_add_name'] as $add_name){$guest_add_name=$guest_add_name.$add_name.";";}    
+        $guest_add_name="";
+        foreach($_REQUEST['guest_add_name'] as $add_name){if($add_name!=""){$guest_add_name=$guest_add_name.$add_name.";";}}    
     }
         print "guest_add_name =".$guest_add_name."\n";
     if(isset($_REQUEST['guest_add_note'])){
-        foreach($_REQUEST['guest_add_note'] as $add_note){$guest_add_note=$guest_add_note.$add_note.";";}    
+        $guest_add_note="";
+        foreach($_REQUEST['guest_add_note'] as $add_note){if($add_note!=""){$guest_add_note=$guest_add_note.$add_note.";";}}    
     }
         print"guest_add_note =".$guest_add_note."\n";
     $agent_name = $_REQUEST['agent_name'] ?? "";
@@ -185,7 +190,8 @@
     $note = $_REQUEST['note'] ?? "";
         print "note =".$note."\n";
     if(isset($_REQUEST['medical_travel_assesment'])){
-        foreach($_REQUEST['medical_travel_assesment'] as $add_assesment){$medical_travel_assesment=$medical_travel_assesment.$add_assesment.";";}    
+        $medical_travel_assesment="";
+        foreach($_REQUEST['medical_travel_assesment'] as $add_assesment){if($add_assesment){$medical_travel_assesment=$medical_travel_assesment.$add_assesment.";";}}    
     }
         print "travel_assesment =".$medical_travel_assesment."\n";
     $status_ticket = $_REQUEST['status_ticket'] ?? "";
@@ -197,64 +203,69 @@
     $admin_id = $_REQUEST['admin_id'] ?? "";
         print "admin_id =".$admin_id."\n"; 
 
+    $signature = $_REQUEST['signature'];
+        print "signature =".$signature."\n";    
 
-    try {
-        // Menggunakan transaksi jika diperlukan
-        mysqli_begin_transaction($con);
+    /*
+      try {
+          // Menggunakan transaksi jika diperlukan
+          mysqli_begin_transaction($con);
 
-        // Proses pengambilan variabel dari request
-        $administrasi_id = $_REQUEST['administrasi_id'];
-        // ... Ambil variabel lainnya seperti sebelumnya ...
+          // Proses pengambilan variabel dari request
+          $administrasi_id = $_REQUEST['administrasi_id'];
+          // ... Ambil variabel lainnya seperti sebelumnya ...
 
-        // Membuat nomor voucher unik
-        $timestamp = strtotime(date("Y-m-d H:i:s"));
-        $no_voucher = $timestamp."0".$administrasi_id;
+          // Membuat nomor voucher unik
+          $timestamp = strtotime(date("Y-m-d H:i:s"));
+          $no_voucher = $timestamp."0".$administrasi_id;
 
-        // Loop untuk setiap tamu
-        for ($i=0; $i<=$guest_amount; $i++){
-            $result_order_insert = mysqli_query($con, "insert into 03_ticket set 
-                no_voucher = '".$no_voucher."', 
-                date_booking = '".$date_booking."', 
-                package_id = '".$package_id."', 
-                package_price = '".$package_price."', 
-                date_checkin = '".$date_checkin."', 
-                package_time = '".$package_time."', 
-                promo_id = '".$promo_id."', 
-                promo_price = '".$promo_price."', 
-                additional_id = '".$additional_id."', 
-                additional_price = '".$additional_price."', 
-                guest_name = '".$guest_name."', 
-                guest_email = '".$guest_email."', 
-                guest_phone = '".$guest_phone."', 
-                guest_amount = '".$guest_amount."', 
-                guest_add_name = '".$guest_add_name."', 
-                guest_add_note = '".$guest_add_note."', 
-                agent_name = '".$agent_name."', 
-                payment_by = '".$payment_by."', 
-                total_price = '".$total_price."', 
-                total_payment = '".$total_payment."', 
-                captain_id = '".$captain_id."', 
-                note = '".$note."', 
-                medical_travel_assesment = '".$medical_travel_assesment."', 
-                status_ticket = '".$status_ticket."', 
-                status_admin = '".$status_admin."', 
-                status_email = '".$status_email."', 
-                admin_id = '".$admin_id."'");
+          // Loop untuk setiap tamu
+          for ($i=0; $i<=$guest_amount; $i++){
+              $result_order_insert = mysqli_query($con, "insert into 03_ticket set 
+                  no_voucher = '".$no_voucher."', 
+                  date_booking = '".$date_booking."', 
+                  package_id = '".$package_id."', 
+                  package_price = '".$package_price."', 
+                  date_checkin = '".$date_checkin."', 
+                  package_time = '".$package_time."', 
+                  promo_id = '".$promo_id."', 
+                  promo_price = '".$promo_price."', 
+                  additional_id = '".$additional_id."', 
+                  additional_price = '".$additional_price."', 
+                  guest_name = '".$guest_name."', 
+                  guest_email = '".$guest_email."', 
+                  guest_phone = '".$guest_phone."', 
+                  guest_amount = '".$guest_amount."', 
+                  guest_add_name = '".$guest_add_name."', 
+                  guest_add_note = '".$guest_add_note."', 
+                  agent_name = '".$agent_name."', 
+                  payment_by = '".$payment_by."', 
+                  total_price = '".$total_price."', 
+                  total_payment = '".$total_payment."', 
+                  captain_id = '".$captain_id."', 
+                  note = '".$note."', 
+                  medical_travel_assesment = '".$medical_travel_assesment."', 
+                  status_ticket = '".$status_ticket."', 
+                  status_admin = '".$status_admin."', 
+                  status_email = '".$status_email."', 
+                  admin_id = '".$admin_id."'");
 
-            if (!$result_order_insert) {
-                throw new Exception("Gagal menyimpan data tiket: " . mysqli_error($con));
-            }
-        }
+              if (!$result_order_insert) {
+                  throw new Exception("Gagal menyimpan data tiket: " . mysqli_error($con));
+              }
+          }
 
-        // Commit transaksi jika berhasil
-        mysqli_commit($con);
-        echo "Pemesanan tiket berhasil.";
+          // Commit transaksi jika berhasil
+          mysqli_commit($con);
+          echo "Pemesanan tiket berhasil.";
 
-    } catch (Exception $e) {
-        // Rollback transaksi jika terjadi kesalahan
-        mysqli_rollback($con);
-        echo "Terjadi kesalahan: " . $e->getMessage();
-    }
+      } catch (Exception $e) {
+          // Rollback transaksi jika terjadi kesalahan
+          mysqli_rollback($con);
+          echo "Terjadi kesalahan: " . $e->getMessage();
+      }
+    */
   }
+
 
 ?>
