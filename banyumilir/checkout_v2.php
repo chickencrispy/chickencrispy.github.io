@@ -1,6 +1,8 @@
 <?php
   include './component/head.php';
   include './component/navbar.php';
+
+  include './backend/function.php';
 ?>
 
   <div class="container">
@@ -191,13 +193,13 @@
             <div class="mb-4">
               <h6 class="fw-bold">Medical Traveler by POKMASWAS BANYUMILIR</h6>
               <ol>
-                <li>If you have any pre-existing health conditions, such as a heart condition or respiratory condition, contact your tour operator before booking to determine whether you can safely do the tour. People who have or are susceptible to any of following health conditions should seek medical evaluation. This Medical Tour Participant Questionnaire provides a basis for deciding whether you should seek this evaluation.</li>
-                <li>If you have any concerns about your suitability for snorkeling that are not listed on this form, consult your doctor before doing snorkeling. If you feel ill, avoid dolphin watching and snorkeling.</li>
-                <li>If you think you may have a contagious disease, protect yourself and others by not participating in dolphin watching and snorkeling. This form is intended primarily as an initial medical evaluation for travelers going dolphin watching and snorkeling.</li>
-                <li>If you decide to take your children on dolphin and snorkeling tour ensure they are fully briefed and know what they will be doing before entering the water. Children need constant adult supervision on board and in the water.</li>
-                <li>To avoid putting yourself or others at risk, it is important to know how to use and feel comfortable with your equipment; otherwise, you could flood your mask or swallow nasty saltwater. This can be really scary and dangerous if you don’t know how to handle the situation!</li>
-                <li>Most tour captain require you to be able to swim if you want to do snorkeling. Even if some activity providers let you sign up without knowing how to swim, don’t rely on guides to save you. You need to be responsible for yourself.</li>
-                <li>Alcohol and ocean activities are not a good mix. Being under the influence can impair your swimming abilities and awareness, turning what should be a beautiful experience into a safety hazard.</li>
+                <?php
+                  foreach ($info_mc as $row) {
+                ?>
+                    <li><?php echo ($row['medical_text']); ?></li>
+                <?php
+                  }
+                ?>
               </ol>
             </div>
 
@@ -206,37 +208,20 @@
               <p class="text-muted text-sm">Please check or not this questionnaire to complete this form:</p>
 
               <ul class="list-group list-group-borderless">
-                <li class="list-group-item">
-                  <label class="d-flex gap-2">
-                    <input type="checkbox" name="medical_travel_assesment[]" id="" value="1" class="form-check-input form-check-sm">
-                    <span>I am over 45 years of age.</span>
-                  </label>
-                </li>
-                <li class="list-group-item">
-                  <label class="d-flex gap-2">
-                    <input type="checkbox" name="medical_travel_assesment[]" value="2" class="form-check-input form-check-sm">
-                    <span>Be prepared to always use the personal safety equipment provided (Life jacket) & Personal belongings are the responsibility of each person individually.</span>
-                  </label>
-                </li>
-                
-                <li class="list-group-item">
-                  <label class="d-flex gap-2">
-                    <input type="checkbox" name="medical_travel_assesment[]" value="3" class="form-check-input form-check-sm">
-                    <span>I struggle to perform moderate exercise (for example, walk 1.6 kilometer/one mile in 14 minutes or swim 200 meters/yards without resting), OR I have been unable to participate in a normal physical activity due to fitness or health reasons.</span>
-                  </label>
-                </li>
-                <li class="list-group-item">
-                  <label class="d-flex gap-2">
-                    <input type="checkbox" name="medical_travel_assesment[]" value="4" class="form-check-input form-check-sm">
-                    <span>I have had problems with my eyes, ears, or nasal passages/sinuses.</span>
-                  </label>
-                </li>
-                <li class="list-group-item">
-                  <label class="d-flex gap-2">
-                    <input type="checkbox" name="medical_travel_assesment[]" value="5" class="form-check-input form-check-sm">
-                    <span>I have lost consciousness, had migraine headaches, seizures, stroke, significant head injury, or suffer from persistent neurologic injury or disease.</span>
-                  </label>
-                </li>
+                <?php
+                  foreach ($info_ma as $row) {
+                ?>
+                  <li class="list-group-item">
+                    <label class="d-flex gap-2">
+                      <input type="checkbox" name="medical_travel_assesment[]" id="" value="<?php echo($row['assesment_id']); ?>" class="form-check-input form-check-sm">
+                      <span><?php echo($row['assesment_text']); ?></span>
+                    </label>
+                  </li>
+                <?php
+                  }
+                ?>
+
+ 
               </ul>
             </div>
 
