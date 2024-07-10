@@ -129,33 +129,22 @@
                   <h6>Jack Sparrow</h6>
                 </label>
               </li>
-              <li>
-                <label class="guide-box">
-                  <input type="radio" name="captain_id" id="captain_id" class="d-none" value="2">
-                  <img src="https://i.pinimg.com/474x/ec/ce/c8/eccec8817c5d0391e030d86c7de07df6.jpg" alt="Guide 1">
-                  <h6>Hector Barbossa</h6>
-                </label>
-              </li>
-              <li>
-                <label class="guide-box">
-                  <input type="radio" name="captain_id" id="captain_id" class="d-none" value="3">
-                  <img src="https://www.piratesinfo.com/media/qsjpt45d/annebonny.jpg" alt="Guide 1">
-                  <h6>Anne Bonny</h6>
-                </label>
-              </li>
-              <li>
-                <label class="guide-box">
-                  <input type="radio" name="captain_id" id="captain_id" class="d-none" value="4">
-                  <img src="https://www.lamar.edu/_files/images/news/2016/09/Phillips_Richard_Captain%20Web.jpg" alt="Guide 1">
-                  <h6>Richard Phillips</h6>
-                </label>
-              </li>
 
-              <li class="sticky-right">
-                <a href="#" class="more-list" data-mdb-modal-init data-mdb-target="#guideModal">
-                  <i class="fi fi-rr-angle-right"></i>
-                </a>
-              </li>
+              <?php
+                foreach ($info_cp as $row) {
+              ?>
+                <li>
+                  <label class="guide-box">
+                    <input type="radio" name="captain_id" id="captain_id" class="d-none" value="<?php echo($row['captain_id']); ?>">
+                    <img src="https://i.pinimg.com/474x/ec/ce/c8/eccec8817c5d0391e030d86c7de07df6.jpg" alt="Guide 1">
+                    <h6><?php echo ($row['captain_name']); ?></h6>
+                  </label>
+                </li>
+
+              <?php
+                }
+              ?>
+
             </ul>
           </div>
 

@@ -7,6 +7,7 @@ print $packageId."\n";
 
 
 require "./backend/mysql_connector.php";
+//require "./mysql_connector.php";
 
 //*********PACKAGE INFO*****************
 function getPackageInfo($con, $packageId) {
