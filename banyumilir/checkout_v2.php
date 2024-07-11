@@ -423,11 +423,11 @@
     var Data = new FormData();
 
 
-    Data.append("administrasi_id", "1");
+    Data.append("administrasi_id", "<?php echo $packageInfo['administrasi_id']; ?>");
     Data.append("date_booking", "<?php echo(date("Y-m-d")); ?>");
-    Data.append("package_id", "1");
-    Data.append("package_price", "300000");
-    Data.append("promo_id", "34de131");
+    Data.append("package_id", "<?php echo $packageInfo['package_id']; ?>");
+    Data.append("package_price", "<?php echo $packageInfo['package_price']; ?>");
+    Data.append("promo_id", "");
     
 
     Data.append("agent_name", agent_name.value);
