@@ -143,7 +143,7 @@
     
 
     $date_booking = $_REQUEST['date_booking'] ?? "";
-        print "date_booking =".$date_booking."\n";
+        print "date_booking =".date("Y-m-d")."\n";
     $package_id = $_REQUEST['package_id'] ?? "";
         print "package_id =".$package_id."\n";
     $package_price = $_REQUEST['package_price'] ?? "";
@@ -174,15 +174,19 @@
         print "guest_phone =".$guest_phone."\n";
     $guest_amount = $_REQUEST['guest_amount'] ?? "";
         print "guest_amount =".$guest_amount."\n";
-    if(isset($_REQUEST['guest_add_name'])){
-        $guest_add_name="";
-        foreach($_REQUEST['guest_add_name'] as $add_name){if($add_name!=""){$guest_add_name=$guest_add_name.$add_name.";";}}    
-    }
+    $guest_add_name = $_REQUEST['guest_add_name'];
+        if(is_array($guest_add_name)){
+            $guest_add_name = implode(";",$guest_add_name);
+        }
         print "guest_add_name =".$guest_add_name."\n";
-    if(isset($_REQUEST['guest_add_note'])){
+    /* if(isset($_REQUEST['guest_add_note'])){
         $guest_add_note="";
         foreach($_REQUEST['guest_add_note'] as $add_note){if($add_note!=""){$guest_add_note=$guest_add_note.$add_note.";";}}    
-    }
+    } */
+    $guest_add_note = $_REQUEST['guest_add_note'] ?? "";
+        if(is_array($guest_add_note)){
+            $guest_add_note = implode(";",$guest_add_note);
+        }
         print"guest_add_note =".$guest_add_note."\n";
     $agent_name = $_REQUEST['agent_name'] ?? "";
         print "agent_name =".$agent_name."\n";
@@ -196,11 +200,11 @@
         print "captain_id =".$captain_id."\n";
     $note = $_REQUEST['note'] ?? "";
         print "note =".$note."\n";
-    if(isset($_REQUEST['medical_travel_assesment'])){
-        $medical_travel_assesment="";
-        foreach($_REQUEST['medical_travel_assesment'] as $add_assesment){if($add_assesment){$medical_travel_assesment=$medical_travel_assesment.$add_assesment.";";}}    
+    $medical_travel_assesment = $_REQUEST['medical_travel_assesment'] ?? "";
+    if (is_array($medical_travel_assesment)) {
+        $medical_travel_assesment = implode(';', $medical_travel_assesment);
     }
-    print "travel_assesment =".$medical_travel_assesment."\n";
+        print "travel_assesment =".$medical_travel_assesment."\n";
     $status_ticket = $_REQUEST['status_ticket'] ?? "";
         print "status_ticket =".$status_ticket."\n";
     $status_admin = $_REQUEST['status_admin'] ?? "";

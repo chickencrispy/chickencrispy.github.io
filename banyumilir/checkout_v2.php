@@ -351,137 +351,66 @@
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
-    <script>
-        var canvas = document.querySelector("canvas");
-        var signaturePad = new SignaturePad(canvas);
+  <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+  <script>
+    var canvas = document.querySelector("canvas");
+    var signaturePad = new SignaturePad(canvas);
 
-        function resizeCanvas() {
-            var ratio =  Math.max(window.devicePixelRatio || 1, 1);
-            canvas.width = canvas.offsetWidth * ratio;
-            canvas.height = canvas.offsetHeight * ratio;
-            canvas.getContext("2d").scale(ratio, ratio);
-            signaturePad.clear(); // otherwise isEmpty() might return incorrect value
-        }
+    function resizeCanvas() {
+      var ratio =  Math.max(window.devicePixelRatio || 1, 1);
+      canvas.width = canvas.offsetWidth * ratio;
+      canvas.height = canvas.offsetHeight * ratio;
+      canvas.getContext("2d").scale(ratio, ratio);
+      signaturePad.clear(); // otherwise isEmpty() might return incorrect value
+    }
 
-        window.addEventListener("resize", resizeCanvas);
-        resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
 
-        function clearSignature() {
-            signaturePad.clear();
-        }
+    function clearSignature() {
+      signaturePad.clear();
+    }
+  </script>
 
-      /*
-        function submitForm() {
-            if (signaturePad.isEmpty()) {
-                alert("Please provide a signature first.");
-                return false;
-            }
+  <script>
+    var formCheckout = document.getElementById("Myform");
 
-            var dataURL = signaturePad.toDataURL();
-            document.getElementById("signature").value = dataURL;
-            return true;
-        }
-      */
-
-    </script>
-
-<script>
-
-  var agent_name = document.getElementById("agent_name");
-  var guest_name = document.getElementById("guest_name");
-  var guest_email = document.getElementById("guest_email");
-  var guest_phone = document.getElementById("guest_phone");
-  var date_checkin = document.getElementById("date_checkin");
-  var package_time = document.getElementById("package_time");
-  var guest_amount = document.getElementById("guest_amount");
-
-  var guestAddNames = document.getElementsByName("guest_add_name[]");
-  var guestAddNotes = document.getElementsByName("guest_add_note[]");
-
-  var captain_id = document.getElementById("captain_id");
-
-  var additionalID = document.getElementsByName("additional_id[]");
-  var additionalReq = document.getElementsByName("additional_req[]");
-
-  var medicalAssesment = document.getElementsByName("medical_travel_assesment[]");
-
-
- 
-  var formData=document.getElementById("Myform");
-  formData.addEventListener("submit", (event) => {
-
-    if (signaturePad.isEmpty()) {
+    formCheckout.addEventListener("submit", (event) => {
+      if (signaturePad.isEmpty()) {
         alert("Please provide a signature first.");
         event.preventDefault(); // Menghentikan submit form
         return false;
-    }
-
-    var dataURL = signaturePad.toDataURL();
-        document.getElementById("signature").value = dataURL;
-
-    var Data = new FormData();
-
-
-    Data.append("administrasi_id", "<?php echo $packageInfo['administrasi_id']; ?>");
-    Data.append("date_booking", "<?php echo(date("Y-m-d")); ?>");
-    Data.append("package_id", "<?php echo $packageInfo['package_id']; ?>");
-    Data.append("package_price", "<?php echo $packageInfo['package_price']; ?>");
-    Data.append("promo_id", "");
-    
-
-    Data.append("agent_name", agent_name.value);
-    Data.append("guest_name", guest_name.value);
-    Data.append("guest_email", guest_email.value);
-    Data.append("guest_phone", guest_phone.value);
-    
-    Data.append("date_checkin", date_checkin.value);
-    Data.append("package_time", package_time.value);
-    Data.append("guest_amount", guest_amount.value);
-
-    for (var i = 0; i < guestAddNames.length; i++) {
-        Data.append("guest_add_name[]", guestAddNames[i].value);
-    }
-    for (var i = 0; i < guestAddNotes.length; i++) {
-        Data.append("guest_add_note[]", guestAddNotes[i].value);
-    }
-
-    for (var i = 0; i < additionalID.length; i++) {
-        Data.append("additional_id[]", additionalID[i].value);
-    }
-    for (var i = 0; i < additionalReq.length; i++) {
-        Data.append("additional_req[]", additionalReq[i].value);
-    }
-
-    for (var i = 0; i < medicalAssesment.length; i++) {
-      if (medicalAssesment[i].checked) {
-        Data.append("medical_travel_assesment[]", medicalAssesment[i].value);
       }
-    }
 
-    Data.append("captain_id", captain_id.value);
-    Data.append("signature", dataURL);
+      var dataURL = signaturePad.toDataURL();
+      document.getElementById("signature").value = dataURL;
 
-    Data.append("order_ticket", '');
+      var Data = new FormData(event.target);
 
+      Data.append("administrasi_id", "<?php echo $packageInfo['administrasi_id']; ?>");
+      Data.append("package_id", "<?php echo $packageInfo['package_id']; ?>");
+      Data.append("package_price", "<?php echo $packageInfo['package_price']; ?>");
+      Data.append("promo_id", "");
+      Data.append("order_ticket", ""); 
 
-    var chr = new XMLHttpRequest();
-        chr.open("POST", "./backend/process_temp.php", true);
-        chr.send(Data);
-        chr.onreadystatechange = function() {
-        
+      for (const [key, value] of Data.entries()) {
+        //console.log(`${key}: ${value}`);
+      }
 
-          if (chr.readyState === 4 && chr.status === 200) {
-            console.log(this.status);
-            console.log(this.responseText);
-            
-          }
-        };
+      var chr = new XMLHttpRequest();
+      chr.open("POST", "./backend/process_temp.php", true);
+      chr.send(Data);
+      chr.onreadystatechange = function() {
+        if (chr.readyState === 4 && chr.status === 200) {
+          console.log(this.status);
+          console.log(this.responseText);
+        }
+      };
 
-    event.preventDefault();
-  });
+      event.preventDefault();
+    });
 
-</script>
+  </script>
 
 
 
