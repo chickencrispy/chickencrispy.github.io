@@ -90,9 +90,9 @@
               <li class="list-group-item">
                 <label for="">Number of guests</label>
                 <div class="input-number-button">
-                  <button class="btn btn-secondary"><i class="fi fi-rr-minus"></i></button>
-                  <input type="number" name="guest_amount" id="guest_amount" class="form-control" data-low="1" data-price="350000">
-                  <button class="btn btn-secondary"><i class="fi fi-rr-plus"></i></button>
+                  <button type="button" class="btn btn-secondary"><i class="fi fi-rr-minus"></i></button>
+                  <input type="number" name="guest_amount" id="guest_amount" class="form-control" data-low="1" data-price="<?php echo $packageInfo['package_price']; ?>">
+                  <button type="button" class="btn btn-secondary"><i class="fi fi-rr-plus"></i></button>
                 </div>
               </li>
             </ul>
@@ -103,11 +103,11 @@
                 <div class="d-flex flex-column gap-2">
                   <div class="d-flex gap-2">
                     <input type="text" name="guest_add_name[]" id="" class="form-control" required>
-                    <button class="btn-add-note btn btn-link text-reset" onclick="addGuestNote(this)" title="Add guest note"><i class="fi fi-rr-note-medical"></i></button>
+                    <button type="button" class="btn-add-note btn btn-link text-reset" onclick="addGuestNote(this)" title="Add guest note"><i class="fi fi-rr-note-medical"></i></button>
                   </div>
                   <div class="guest-note d-none d-flex gap-2">
                     <input type="text" name="guest_add_note[]" id="" class="form-control" placeholder="Guest note...">
-                    <button class="btn-del-note btn btn-link text-danger" onclick="delGuestNote(this)" title="Remove guest note"><i class="fi fi-rr-cross"></i></button>
+                    <button type="button" class="btn-del-note btn btn-link text-danger" onclick="delGuestNote(this)" title="Remove guest note"><i class="fi fi-rr-cross"></i></button>
                   </div>
                 </div>
               </li>
@@ -137,7 +137,7 @@
                   <label class="guide-box">
                     <input type="radio" name="captain_id" id="captain_id" class="d-none" value="<?php echo($row['captain_id']); ?>">
                     <img src="https://i.pinimg.com/474x/ec/ce/c8/eccec8817c5d0391e030d86c7de07df6.jpg" alt="Guide 1">
-                    <h6><?php echo ($row['captain_name']); ?></h6>
+                    <h6><?php echo ucwords($row['captain_name']); ?></h6>
                   </label>
                 </li>
 
@@ -175,7 +175,7 @@
             </ul>
           </div>
 
-
+          <!----------MEDICAL TRAVEL----------------->
           <div id="medical-travel" class="p-4 bg-white border rounded-normal mb-3">
 
             <!-------MEDICAL TRAVEL---------------->
@@ -185,7 +185,7 @@
                 <?php
                   foreach ($info_mc as $row) {
                 ?>
-                    <li><?php echo ($row['medical_text']); ?></li>
+                  <li><?php echo ($row['medical_text']); ?></li>
                 <?php
                   }
                 ?>
@@ -209,18 +209,17 @@
                 <?php
                   }
                 ?>
-
- 
               </ul>
             </div>
 
             <!--------SIGNATURE-------------->
             <div>   
-              <h6 class="mb-0 fw-bold">Signature</h6>
-              <p class="text-muted text-sm">
-              <input type="checkbox" class="form-check-input form-check-sm" required>
-              <span> I the undersigned above, have read all the provision and regulation. I will be responsible for the risks posed by my negligence and will not take the management to legal action for my own risks.</span>
-              </p>
+              <h6 class="fw-bold">Signature</h6>
+              <label class="d-flex gap-2 text-muted text-sm mb-3">
+                <input type="checkbox" class="form-check-input form-check-sm" required>
+                <span> I the undersigned above, have read all the provision and regulation. I will be responsible for the risks posed by my negligence and will not take the management to legal action for my own risks.</span>
+              </label>
+
               <div id="signature-pad" class="signature-pad d-flex flex-column signature">
                 <canvas class="border rounded-normal" style="touch-action: none;" width="600" height="150"></canvas>
                 <button class="btn btn-tertiary text-xs text-muted ms-auto" onclick="clearSignature()" >Clear Signature</button>
@@ -237,8 +236,8 @@
             <div class="package-info mb-4">
               <img src="https://res.klook.com/image/upload/c_fill,w_1265,h_712/q_80/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/waqymbchzuiollxqhr4u.webp">
               <div class="details">
-                <h6>Dolphine Tour Private</h6>
-                <small>IDR 300.000</small>
+                <h6><?php echo ucwords($packageInfo['package_title']); ?></h6>
+                <small><?php echo ucwords($packageInfo['package_subtitle']); ?></small>
               </div>
             </div>
             <div class="summary-details">
@@ -262,7 +261,7 @@
               <ul class="summary-price list-group list-group-light list-group-small mb-3">
                 <li class="list-group-item d-flex align-items-center">
                   <div class="text-sm text-muted">Ticket price x 1</div>
-                  <div class="ms-auto">Rp 350.000</div>
+                  <div class="ms-auto">Rp <?php echo number_format($packageInfo['package_price'], 0, ",", "."); ?></div>
                 </li>
                 <li class="d-none list-group-item d-flex align-items-center">
                   <div class="text-sm text-muted">Transportation</div>

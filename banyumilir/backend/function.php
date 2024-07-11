@@ -2,7 +2,7 @@
 <?php
 
 
-$packageId = $_REQUEST['package_id'] ?? "";
+$packageId = $_REQUEST['package_id'] ?? "1";
 print $packageId."\n";
 
 
