@@ -2,10 +2,10 @@
   date_default_timezone_set('Asia/Jakarta');
   
   $servertype="mysql";
-  $serverhost="103.246.3.2";
+  $serverhost="localhost";
   $dbname="ticketing";
-  $dbuser="root174";
-  $dbpassword="root";
+  $dbuser="root";
+  $dbpassword="";
   $port="3307";
 
   $con = mysqli_connect($serverhost,$dbuser,$dbpassword,$dbname,$port);
