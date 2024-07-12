@@ -26,7 +26,7 @@ function getPackageInfo($con, $packageId) {
 }
 
 $packageInfo = getPackageInfo($con, $packageId);
-print_r($packageInfo);
+//print_r($packageInfo);
 
 
 //**********MEDICAL CLEARANCE************************
@@ -55,7 +55,7 @@ function getMedicalClearanceInfo($con, $packageId) {
 
 $info_mc = getMedicalClearanceInfo($con, $packageId); // Perbaiki nama fungsi
 foreach ($info_mc as $row) {
-  echo $row['medical_text'] . "\n";
+  //echo $row['medical_text'] . "\n";
 }
 
 
@@ -85,7 +85,7 @@ function getMedicalAssesmentCategoryPackageInfo($con, $packageId) {
 
 $info_ma = getMedicalAssesmentCategoryPackageInfo($con, $packageId);
 foreach ($info_ma as $row) {
-  echo $row['assesment_text'] . "\n";
+  //echo $row['assesment_text'] . "\n";
 }
 
 
@@ -129,7 +129,7 @@ function getCaptainPackage($con, $packageId) {
 
 $info_cp = getCaptainPackage($con, $packageId);
 foreach ($info_cp as $row) {
-  echo $row['captain_name'] . "\n";
+  //echo $row['captain_name'] . "\n";
 }
 
 ?>
