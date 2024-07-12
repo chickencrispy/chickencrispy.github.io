@@ -6,7 +6,7 @@
   $dbname="ticketing";
   $dbuser="root";
   $dbpassword="";
-  $port="3307";
+  $port="3306";
 
   $con = mysqli_connect($serverhost,$dbuser,$dbpassword,$dbname,$port);
   if(mysqli_connect_errno()){
