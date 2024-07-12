@@ -1,4 +1,61 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autocomplete Address with OSM</title>
+    <style>
+        /* Styling for the autocomplete dropdown */
+        .autocomplete-suggestions {
+            border: 1px solid #999;
+            background: #fff;
+            overflow: auto;
+            position: absolute;
+            z-index: 9999;
+        }
+
+        .autocomplete-suggestion {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .autocomplete-suggestion:hover {
+            background: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="address-input" placeholder="Type an address" oninput="fetchAddresses()" autocomplete="off">
+    <div id="suggestions" class="autocomplete-suggestions"></div>
+
+    <script>
+        async function fetchAddresses() {
+            const query = document.getElementById('address-input').value;
+            if (query.length < 3) return; // Minimal 3 karakter untuk mulai mencari
+
+            const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&addressdetails=1&limit=5`);
+            const data = await response.json();
+
+            const suggestions = document.getElementById('suggestions');
+            suggestions.innerHTML = '';
+
+            data.forEach(place => {
+                const div = document.createElement('div');
+                div.textContent = place.display_name;
+                div.className = 'autocomplete-suggestion';
+                div.onclick = () => selectAddress(place);
+                suggestions.appendChild(div);
+            });
+        }
+
+        function selectAddress(place) {
+            document.getElementById('address-input').value = place.display_name;
+            document.getElementById('suggestions').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
 
 
     
