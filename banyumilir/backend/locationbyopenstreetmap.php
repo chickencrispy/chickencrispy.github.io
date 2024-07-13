@@ -25,7 +25,9 @@
         }
 
         #map {
-            height: 400px;
+            height: 200px;
+            width: 400px;
+
             margin-top: 20px;
         }
     </style>
@@ -99,7 +101,7 @@
     <title>Peta Interaktif dengan Leaflet.js</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
-        #map { height: 400px; }
+        //#map { height: 500px; }
     </style>
 </head>
 <body>
