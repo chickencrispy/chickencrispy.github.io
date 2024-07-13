@@ -71,7 +71,7 @@
 
             const lat = place.lat;
             const lon = place.lon;
-            alert('lat ='+lat +' - '+'long ='+ lon);
+            //alert('lat ='+lat +' - '+'long ='+ lon);
             map.setView([lat, lon], 13);
 
             if (marker) {
