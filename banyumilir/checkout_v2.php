@@ -156,7 +156,7 @@
             <ul class="list-group list-group-borderless list-group-1/3">
               <li class="list-group-item">
                 <label for="">Transportation</label>
-                <select name="" id="" class="form-select">
+                <select name="" id="transportation" class="form-select">
                   <option value="no">No</option>
                   <option value="yes">Yes</option>
                 </select>
@@ -170,18 +170,17 @@
               </li>
               <li class="list-group-item d-none">
                 <label for="">Location Name</label>
-                <input type="tel" name="" id="" inputmode="tel" class="form-control">
+                <div>
+                  <input type="text" id="address-input" class="form-control mb-3" placeholder="Fill & Choose addres here" oninput="fetchAddresses()" autocomplete="off">
+                  <div id="suggestions" class="autocomplete-suggestions"></div>
+                </div>
               </li>
             </ul>
           </div>
 
-          <!-----------ADDITIONAL------------------------------>
-          <div id="additional" class="p-3 bg-white border rounded-normal mb-3">
-          <h6 class="fw-bold">Additional</h6>
-          <p class="text-xs text-muted">Fill this address which you will be pick up</p>
-            <input type="text" id="address-input" placeholder="Fill & Choose addres here" oninput="fetchAddresses()" autocomplete="off">
-            <div id="suggestions" class="autocomplete-suggestions"></div>
-            <div id="map" style='height:200px; width:400px;'></div>
+          <!-- LOCATION -->
+          <div id="location" class="p-3 bg-white border rounded-normal mb-3">
+            <div id="maps" class="overflow-hidden" style="height: 350px"></div>
           </div>
 
           <!----------MEDICAL TRAVEL----------------->
@@ -423,50 +422,50 @@
 
   </script>
 
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script>
-        let map = L.map('map').setView([0, 0], 2); // Inisialisasi peta dengan view default
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-        }).addTo(map);
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script>
+      let map = L.map('maps').setView([0, 0], 2); // Inisialisasi peta dengan view default
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+      }).addTo(map);
 
-        let marker;
+      let marker;
 
-        async function fetchAddresses() {
-            const query = document.getElementById('address-input').value;
-            if (query.length < 3) return; // Minimal 3 karakter untuk mulai mencari
+      async function fetchAddresses() {
+        const query = document.getElementById('address-input').value;
+        if (query.length < 3) return; // Minimal 3 karakter untuk mulai mencari
 
-            const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&addressdetails=1&limit=5`);
-            const data = await response.json();
+        const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&addressdetails=1&limit=5`);
+        const data = await response.json();
 
-            const suggestions = document.getElementById('suggestions');
-            suggestions.innerHTML = '';
+        const suggestions = document.getElementById('suggestions');
+        suggestions.innerHTML = '';
 
-            data.forEach(place => {
-                const div = document.createElement('div');
-                div.textContent = place.display_name;
-                div.className = 'autocomplete-suggestion';
-                div.onclick = () => selectAddress(place);
-                suggestions.appendChild(div);
-            });
-        }
+        data.forEach(place => {
+            const div = document.createElement('div');
+            div.textContent = place.display_name;
+            div.className = 'autocomplete-suggestion';
+            div.onclick = () => selectAddress(place);
+            suggestions.appendChild(div);
+        });
+      }
 
-        function selectAddress(place) {
-            document.getElementById('address-input').value = place.display_name;
-            document.getElementById('suggestions').innerHTML = '';
+      function selectAddress(place) {
+          document.getElementById('address-input').value = place.display_name;
+          document.getElementById('suggestions').innerHTML = '';
 
-            const lat = place.lat;
-            const lon = place.lon;
-            alert('lat ='+lat +' - '+'long ='+ lon);
-            map.setView([lat, lon], 13);
+          const lat = place.lat;
+          const lon = place.lon;
+          alert('lat ='+lat +' - '+'long ='+ lon);
+          map.setView([lat, lon], 13);
 
-            if (marker) {
-                marker.setLatLng([lat, lon]);
-            } else {
-                marker = L.marker([lat, lon]).addTo(map);
-            }
-        }
-    </script>
+          if (marker) {
+              marker.setLatLng([lat, lon]);
+          } else {
+              marker = L.marker([lat, lon]).addTo(map);
+          }
+      }
+  </script>
 
 
 

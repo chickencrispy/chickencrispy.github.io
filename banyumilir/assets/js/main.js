@@ -179,7 +179,7 @@ if(additional) {
   const addTransport = additional.querySelector("#transportation");
   const areaTransport = additional.querySelector("#transport-area");
 
-  /* addTransport.addEventListener("change", () => {
+  addTransport.addEventListener("change", () => {
     const isTransport = addTransport.value !== "yes";
     const transportFee = isTransport ? 0 : areaTransport.querySelector("option:checked").dataset.price;
     formField[1].classList.toggle("d-none", isTransport);
@@ -191,7 +191,7 @@ if(additional) {
   areaTransport.addEventListener("change", () => {
     const transportFee = areaTransport.querySelector("option:checked").dataset.price;
     summaryTransport(false,transportFee); 
-  }); */
+  });
 }
 
 function summaryTransport(b,p){
