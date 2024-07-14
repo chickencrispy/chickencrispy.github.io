@@ -25,15 +25,15 @@
         }
 
         #map {
-            height: 200px;
-            width: 400px;
-
+            height: 400px;
+            width:800px;
             margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <input type="text" id="address-input" placeholder="Type an address" oninput="fetchAddresses()" autocomplete="off">
+    <input type="text" id="latlon" value="">
     <div id="suggestions" class="autocomplete-suggestions"></div>
     <div id="map"></div>
 
@@ -71,7 +71,6 @@
 
             const lat = place.lat;
             const lon = place.lon;
-            //alert('lat ='+lat +' - '+'long ='+ lon);
             map.setView([lat, lon], 13);
 
             if (marker) {
@@ -81,15 +80,19 @@
             }
         }
 
-        
+        // Event listener untuk menangkap klik pada peta
+        map.on('click', function(e) {
+            const lat = e.latlng.lat;
+            const lon = e.latlng.lng;
+            if (marker) {
+                marker.setLatLng([lat, lon]);
+            } else {
+                marker = L.marker([lat, lon]).addTo(map);
+            }
+            document.getElementById("latlon").value=lat+','+lon;
+            //alert('Latitude: ' + lat + '\nLongitude: ' + lon);
+
+        });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
