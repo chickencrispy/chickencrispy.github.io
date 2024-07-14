@@ -172,7 +172,7 @@
               <li class="list-group-item d-none">
                 <label for="">Location Name</label>
                 <div>
-                  <input type="text" id="address-input" class="form-control mb-3" placeholder="Fill & Choose addres here" oninput="fetchAddresses()" autocomplete="off">
+                  <input type="text" id="address-input" class="form-control mb-3" placeholder="Fill & Choose addres here" oninput="fetchAddresses()" autocomplete="off" >
                   <div id="suggestions" class="autocomplete-suggestions"></div>
                 </div>
               </li>
@@ -180,7 +180,7 @@
           </div>
 
           <!-- LOCATION -->
-          <div id="location" class="p-3 bg-white border rounded-normal mb-3" >
+          <div id="location" class="p-3 bg-white border rounded-normal mb-3" hidden>
             <input type="text" id="latlon">
             <p class="text-xs text-muted">If your place is not defined, point to your location on the map by clicking where you will be picked up.</p>
             <div id="maps" class="overflow-hidden" style="height: 350px" ></div>
@@ -363,7 +363,7 @@
 ?>
 
 <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
   
   <script>
     function loadmap() {
@@ -371,6 +371,12 @@
       var x = document.getElementById("transportation").value;
       if (x == 'yes') {
         document.getElementById("location").hidden = false;
+
+        // Tampilkan peta dan panggil invalidateSize untuk memperbarui tampilannya
+        document.getElementById('maps').style.display = 'block';
+        setTimeout(() => {
+            map.invalidateSize();
+        }, 100); // Beri jeda waktu untuk memastikan perubahan tampilan telah terjadi
 
       } else {
         document.getElementById("location").hidden = true; // Menyembunyikan jika pilihannya 'no'
@@ -441,6 +447,8 @@
 
   </script>
 
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-routing-machine@3.3.4/dist/leaflet-routing-machine.min.js"></script>
     <script>
         let map = L.map('maps').setView([-8.1596944, 115.0257778], 10);
 
@@ -479,99 +487,156 @@
         ];
 
         // Tambahkan marker untuk menandai lokasi Pulau Bali
-        let marker = L.marker([0, 0]).addTo(map);
+        let marker = null;
+
+        // Polyline untuk menghubungkan marker dengan tujuan
+        let polyline = null;
 
 
 
         async function fetchAddresses() {
-            const query = document.getElementById('address-input').value;
-            if (query.length < 3) {
-                // Minimal 3 karakter untuk mulai mencari
-                document.getElementById('suggestions').innerHTML = '';
-                return;
-            }
+          const query = document.getElementById('address-input').value;
+          if (query.length < 3) {
+              // Minimal 3 karakter untuk mulai mencari
+              document.getElementById('suggestions').innerHTML = '';
+              return;
+          }
 
-            try {
-                const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&addressdetails=1&limit=5`);
-                if (!response.ok) {
-                    throw new Error('Failed to fetch data');
-                }
-                const data = await response.json();
+          try {
+              // Koordinat batas Bali
+              const bbox = "114,-9,116,-8";
 
-                const suggestions = document.getElementById('suggestions');
-                suggestions.innerHTML = '';
+              const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&addressdetails=1&limit=5&bounded=1&viewbox=${bbox}`);
+              if (!response.ok) {
+                  throw new Error('Failed to fetch data');
+              }
+              const data = await response.json();
 
-                if (data.length === 0) {
-                    const div = document.createElement('div');
-                    div.textContent = 'Place is not defined';
-                    div.className = 'autocomplete-suggestion no-results';
-                    suggestions.appendChild(div);
-                    return;
-                }
+              const suggestions = document.getElementById('suggestions');
+              suggestions.innerHTML = '';
 
-                data.forEach(place => {
-                    const div = document.createElement('div');
-                    div.textContent = place.display_name;
-                    div.className = 'autocomplete-suggestion';
-                    div.onclick = () => selectAddress(place);
-                    suggestions.appendChild(div);
-                });
-            } catch (error) {
-                console.error('Error fetching addresses:', error);
-            }
+              if (data.length === 0) {
+                  const div = document.createElement('div');
+                  div.textContent = 'Place is not defined';
+                  div.className = 'autocomplete-suggestion no-results';
+                  suggestions.appendChild(div);
+                  return;
+              }
+
+              data.forEach(place => {
+                  const div = document.createElement('div');
+                  div.textContent = place.display_name;
+                  div.className = 'autocomplete-suggestion';
+                  div.onclick = () => selectAddress(place);
+                  suggestions.appendChild(div);
+              });
+          } catch (error) {
+              console.error('Error fetching addresses:', error);
+          }
         }
 
 
+        var lat="";
+        var lon="";
         function selectAddress(place) {
             document.getElementById('address-input').value = place.display_name;
             document.getElementById('suggestions').innerHTML = '';
 
-            const lat = parseFloat(place.lat);
-            const lon = parseFloat(place.lon);
+                lat = parseFloat(place.lat);
+                lon = parseFloat(place.lon);
+            if (lat >= bounds[0][0] && lat <= bounds[1][0] && lon >= bounds[0][1] && lon <= bounds[1][1]) {
+              map.setView([lat, lon], 13);
 
-            map.setView([lat, lon], 13);
+              if (marker) {
+                  map.removeLayer(marker); // Hapus marker yang ada jika sudah ada
+              }
 
-            if (marker) {
-                map.removeLayer(marker); // Hapus marker yang ada jika sudah ada
+              marker = L.marker([lat, lon]).addTo(map);
+
+              document.getElementById("latlon").value = lat + ',' + lon;
+
+              // Koordinat tujuan Lovina, Bali
+              const latTujuan = -8.157536322741333;
+              const lonTujuan = 115.03335701099296;
+
+              // Hapus polyline sebelumnya jika sudah ada
+              if (polyline) {
+                  map.removeLayer(polyline);
+              }
+
+              // Tentukan koordinat polyline dari marker yang dipilih ke koordinat tujuan
+              const polylinePoints = [
+                  [lat, lon], // Koordinat marker yang dipilih
+                  [latTujuan, lonTujuan] // Koordinat tujuan
+              ];
+
+              // Buat polyline dengan warna dan opsi tertentu
+              const polylineOptions = { color: 'red', weight: 0.5, opacity: 0.6 };
+              polyline = L.polyline(polylinePoints, polylineOptions).addTo(map);
+
+
+              // Hitung jarak menggunakan rumus Haversine
+              const jarak = haversineDistance(lat, lon, latTujuan, lonTujuan);
+              console.log(`Jarak radius titik penjemputan ke titik tujuan adalah ${jarak.toFixed(2)} kilometer.`);
+            } else {
+                alert('Alamat yang dipilih berada di luar batas koordinat Pulau Bali.');
+                // Tindakan tambahan jika alamat tidak valid, misalnya reset marker atau tampilkan pesan kesalahan
             }
 
-            marker = L.marker([lat, lon]).addTo(map);
-
-            document.getElementById("latlon").value = lat + ',' + lon;
-
-            // Koordinat tujuan Lovina, Bali
-            const latTujuan = -8.16305115;
-            const lonTujuan = 115.02246398708351;
-
-            // Hitung jarak menggunakan rumus Haversine
-            const jarak = haversineDistance(lat, lon, latTujuan, lonTujuan);
-            console.log(`Jarak radius titik penjemputan ke titik tujuan adalah ${jarak.toFixed(2)} kilometer.`);
         }
+
+
 
         // Event listener untuk menangkap klik pada peta
         map.on('click', function(e) {
-            var lat = e.latlng.lat;
-            var lon = e.latlng.lng;
-            if (marker) {
-                map.removeLayer(marker); // Hapus marker yang ada jika sudah ada
+            lat = e.latlng.lat;
+            lon = e.latlng.lng;
+
+            // Periksa apakah klik berada di dalam batas koordinat
+            if (lat >= bounds[0][0] && lat <= bounds[1][0] && lon >= bounds[0][1] && lon <= bounds[1][1]) {
+                if (marker) {
+                    map.removeLayer(marker); // Hapus marker yang ada jika sudah ada
+                }
+
+                marker = L.marker([lat, lon]).addTo(map);
+                document.getElementById("latlon").value = lat + ',' + lon;
+
+                // Koordinat awal
+                const latAwal = lat;
+                const lonAwal = lon;
+
+              // Koordinat tujuan Lovina, Bali
+              const latTujuan = -8.157536322741333;
+              const lonTujuan = 115.03335701099296;
+
+
+                if (polyline) {
+                    map.removeLayer(polyline);
+                }
+
+                // Tentukan koordinat polyline dari marker yang dipilih ke koordinat tujuan
+                const polylinePoints = [
+                    [lat, lon], // Koordinat marker yang dipilih
+                    [latTujuan, lonTujuan] // Koordinat tujuan
+                ];
+
+                // Buat polyline dengan warna dan opsi tertentu
+                const polylineOptions = { color: 'red', weight: 0.5, opacity: 0.6 };
+                polyline = L.polyline(polylinePoints, polylineOptions).addTo(map);
+
+
+                // Hitung jarak
+                const jarak = haversineDistance(latAwal, lonAwal, latTujuan, lonTujuan);
+
+                console.log(`Jarak radius titik penjemputan ke titik tujuan adalah ${jarak.toFixed(2)} kilometer.`)
+
+                
+            } else {
+                alert('Marker hanya bisa ditambahkan di dalam batas koordinat Pulau Bali.');
             }
-
-            marker = L.marker([lat, lon]).addTo(map);
-            document.getElementById("latlon").value = lat + ',' + lon;
-
-            // Koordinat awal
-            const latAwal = lat;
-            const lonAwal = lon;
-
-            // Koordinat tujuan Lovina, Bali
-            const latTujuan = -8.16305115;
-            const lonTujuan = 115.02246398708351;
-
-            // Hitung jarak
-            const jarak = haversineDistance(latAwal, lonAwal, latTujuan, lonTujuan);
-
-            console.log(`Jarak radius titik penjemputan ke titik tujuan adalah ${jarak.toFixed(2)} kilometer.`)
         });
+
+
 
         function haversineDistance(lat1, lon1, lat2, lon2) {
             const R = 6371; // Radius bumi dalam kilometer
@@ -587,5 +652,10 @@
 
             return R * c; // Hasil dalam kilometer
         }
+
+
+
+
+
     </script>
 
