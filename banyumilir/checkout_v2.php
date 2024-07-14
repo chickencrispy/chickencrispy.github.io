@@ -162,10 +162,11 @@
                 </select>
               </li>
               <li class="list-group-item d-none">
-                <label for="">Pickup Area</label>
+                <label for="">Drop Area</label>
                 <select name="" id="transport-area" class="form-select">
-                  <option value="1" data-price="100000">Singaraja Area</option>
-                  <option value="2" data-price="200000">Outside Singaraja Area</option>
+                  <option value="1" data-price="0">West Gate</option>
+                  <option value="2" data-price="0">Midle Gate</option>
+                  <option value="3" data-price="0">East Gate</option>
                 </select>
               </li>
               <li class="list-group-item d-none">
@@ -182,7 +183,7 @@
           <div id="location" class="p-3 bg-white border rounded-normal mb-3" >
             <input type="text" id="latlon">
             <p class="text-xs text-muted">If your place is not defined, point to your location on the map by clicking where you will be picked up.</p>
-            <div id="maps" class="overflow-hidden" style="height: 350px"></div>
+            <div id="maps" class="overflow-hidden" style="height: 350px" ></div>
           </div>
 
           <!----------MEDICAL TRAVEL----------------->
@@ -360,12 +361,17 @@
 <?php
   include './component/footer.php';
 ?>
+
+<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  
   <script>
     function loadmap() {
       //alert(document.getElementById("transportation").value);
       var x = document.getElementById("transportation").value;
       if (x == 'yes') {
         document.getElementById("location").hidden = false;
+
       } else {
         document.getElementById("location").hidden = true; // Menyembunyikan jika pilihannya 'no'
       }
@@ -374,7 +380,7 @@
 
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+
   <script>
     var canvas = document.querySelector("canvas");
     var signaturePad = new SignaturePad(canvas);
@@ -435,16 +441,47 @@
 
   </script>
 
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
-        let map = L.map('maps').setView([-8.409518, 115.188919], 10); // Set view pada koordinat Pulau Bali dengan zoom level 10
+        let map = L.map('maps').setView([-8.1596944, 115.0257778], 10);
+
+        // Batas koordinat Pulau Bali
+        let bounds = [
+            [-9.0, 114.0], // Koordinat sudut barat daya
+            [-8.0, 116.0]  // Koordinat sudut timur laut
+        ];
+
+        // Terapkan batas tersebut pada peta
+        map.setMaxBounds(bounds);
+
+        // Mencegah pengguna menggulir ke luar area batas
+        map.on('drag', function() {
+            map.panInsideBounds(bounds, { animate: false });
+        });
+
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
         }).addTo(map);
 
+        // Ikon khusus untuk marker statis
+        let staticIcon = L.icon({
+            iconUrl: './backend/vacation.png', // Ganti dengan path ke ikon statis
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+        });
+
+
+        // Tambahkan marker statis dengan ikon khusus dan popup
+        let staticMarkers = [
+            L.marker([-8.1596944, 115.0257778], { icon: staticIcon }).addTo(map).bindPopup("West Gate/ Pintu Barat"),
+            L.marker([-8.15325, 115.0313889], { icon: staticIcon }).addTo(map).bindPopup("Middle Gate/ Pintu Tengah"),
+            L.marker([-8.151024, 115.035753], { icon: staticIcon }).addTo(map).bindPopup("East Gate/ Pintu Timur")
+        ];
+
         // Tambahkan marker untuk menandai lokasi Pulau Bali
-        let marker = L.marker([-8.409518, 115.188919]).addTo(map);
-        //marker.bindPopup("<b>Pulau Bali</b>").openPopup();
+        let marker = L.marker([0, 0]).addTo(map);
+
+
 
         async function fetchAddresses() {
             const query = document.getElementById('address-input').value;
