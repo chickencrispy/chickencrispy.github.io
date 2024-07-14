@@ -156,7 +156,7 @@
             <ul class="list-group list-group-borderless list-group-1/3">
               <li class="list-group-item">
                 <label for="">Transportation</label>
-                <select name="" id="transportation" class="form-select">
+                <select name="" id="transportation" class="form-select" onchange="loadmap();">
                   <option value="no">No</option>
                   <option value="yes">Yes</option>
                 </select>
@@ -179,7 +179,7 @@
           </div>
 
           <!-- LOCATION -->
-          <div id="location" class="p-3 bg-white border rounded-normal mb-3">
+          <div id="location" class="p-3 bg-white border rounded-normal mb-3" hidden>
             <div id="maps" class="overflow-hidden" style="height: 350px"></div>
           </div>
 
@@ -358,6 +358,20 @@
 <?php
   include './component/footer.php';
 ?>
+  <script>
+    function loadmap() {
+      alert(document.getElementById("transportation").value);
+      var x = document.getElementById("transportation").value;
+      if (x == 'yes') {
+        document.getElementById("location").hidden = false;
+        initializeMap();
+      } else {
+        document.getElementById("location").hidden = true; // Menyembunyikan jika pilihannya 'no'
+      }
+    }
+
+
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
   <script>
