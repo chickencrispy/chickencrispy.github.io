@@ -172,7 +172,7 @@
               <li class="list-group-item d-none">
                 <label for="">Location Name</label>
                 <div>
-                  <input type="text" id="address-input" class="form-control mb-3" placeholder="Fill & Choose addres here" oninput="fetchAddresses()" autocomplete="off" >
+                  <input type="text" id="address-input" name="address_input" class="form-control mb-3" placeholder="Fill & Choose addres here" oninput="fetchAddresses()" autocomplete="off" >
                   <div id="suggestions" class="autocomplete-suggestions"></div>
                 </div>
               </li>
@@ -181,7 +181,8 @@
 
           <!-- LOCATION -->
           <div id="location" class="p-3 bg-white border rounded-normal mb-3" hidden>
-            <input type="text" id="latlon">
+            <input type="hidden" id="latlon" name="latlon">
+            <input type="text" id="jarak" name="jarak">
             <p class="text-xs text-muted">If your place is not defined, point to your location on the map by clicking where you will be picked up.</p>
             <div id="maps" class="overflow-hidden" style="height: 350px" ></div>
           </div>
@@ -578,6 +579,8 @@
               // Hitung jarak menggunakan rumus Haversine
               const jarak = haversineDistance(lat, lon, latTujuan, lonTujuan);
               console.log(`Jarak radius titik penjemputan ke titik tujuan adalah ${jarak.toFixed(2)} kilometer.`);
+
+              document.getElementById("jarak").value = jarak;
             } else {
                 alert('Alamat yang dipilih berada di luar batas koordinat Pulau Bali.');
                 // Tindakan tambahan jika alamat tidak valid, misalnya reset marker atau tampilkan pesan kesalahan
@@ -630,6 +633,7 @@
 
                 console.log(`Jarak radius titik penjemputan ke titik tujuan adalah ${jarak.toFixed(2)} kilometer.`)
 
+                document.getElementById("jarak").value = jarak;
                 
             } else {
                 alert('Marker hanya bisa ditambahkan di dalam batas koordinat Pulau Bali.');

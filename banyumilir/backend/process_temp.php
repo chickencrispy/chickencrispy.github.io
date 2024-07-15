@@ -156,16 +156,27 @@
         print "promo_id =".$promo_id."\n";
     $promo_price = $_REQUEST['promo_price'] ?? "";
         print "promo_price =".$promo_price."\n";
-    if(isset($_REQUEST['additional_id'])){
-        $additional_id="";
-        foreach($_REQUEST['additional_id'] as $add_id){if($add_id!=""){$additional_id=$additional_id.$add_id.";";}}    
-    }   
-        print "additional_id =".$additional_id."\n";
-    if(isset($_REQUEST['additional_req'])){
-      $additional_req="";
-        foreach($_REQUEST['additional_req'] as $add_req){if($add_req!=""){$additional_req=$additional_req.$add_req.";";}}    
-    }   
+
+    $address_input = $_REQUEST['address_input'] ?? ""; 
+        print "address_input =".$address_input."\n";
+    $location_latlon = $_REQUEST['latlon'] ?? ""; 
+        print "latlon =".$location_latlon."\n";
+    $location_jarak = $_REQUEST['jarak'] ?? ""; 
+        print "location_jarak =".$location_jarak."\n";
+
+    /*      
+      if(isset($_REQUEST['additional_id'])){
+          $additional_id="";
+          foreach($_REQUEST['additional_id'] as $add_id){if($add_id!=""){$additional_id=$additional_id.$add_id.";";}}    
+      }   
+          print "additional_id =".$additional_id."\n";
+      if(isset($_REQUEST['additional_req'])){
+        $additional_req="";
+          foreach($_REQUEST['additional_req'] as $add_req){if($add_req!=""){$additional_req=$additional_req.$add_req.";";}}    
+      }   
         print "additional_req =".$additional_req."\n";
+    */
+
     $guest_name = $_REQUEST['guest_name'] ?? "";
         print "guest_name =".$guest_name."\n";
     $guest_email = $_REQUEST['guest_email'] ?? "";
@@ -179,10 +190,14 @@
             $guest_add_name = implode(";",$guest_add_name);
         }
         print "guest_add_name =".$guest_add_name."\n";
-    /* if(isset($_REQUEST['guest_add_note'])){
+
+    /*  
+      if(isset($_REQUEST['guest_add_note'])){
         $guest_add_note="";
         foreach($_REQUEST['guest_add_note'] as $add_note){if($add_note!=""){$guest_add_note=$guest_add_note.$add_note.";";}}    
-    } */
+      } 
+    */
+
     $guest_add_note = $_REQUEST['guest_add_note'] ?? "";
         if(is_array($guest_add_note)){
             $guest_add_note = implode(";",$guest_add_note);
