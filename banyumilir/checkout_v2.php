@@ -429,6 +429,11 @@
       Data.append("promo_id", "");
       Data.append("order_ticket", ""); 
 
+      Data.append("total_price","");
+      Data.append("pickup_price","");
+      Data.append("tax_price","");
+      
+
       for (const [key, value] of Data.entries()) {
         //console.log(`${key}: ${value}`);
       }

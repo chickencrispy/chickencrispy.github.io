@@ -157,6 +157,14 @@
     $promo_price = $_REQUEST['promo_price'] ?? "";
         print "promo_price =".$promo_price."\n";
 
+    $total_price = $_REQUEST['total_price'] ?? ""; 
+        print "total_price =".$total_price."\n";
+    $pickup_price = $_REQUEST['pickup_price'] ?? ""; 
+        print "pickup_price =".$pickup_price."\n";
+    $tax_price = $_REQUEST['tax_price'] ?? ""; 
+        print "tax_price =".$tax_price."\n";
+
+
     $address_input = $_REQUEST['address_input'] ?? ""; 
         print "address_input =".$address_input."\n";
     $location_latlon = $_REQUEST['latlon'] ?? ""; 
