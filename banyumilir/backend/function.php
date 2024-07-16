@@ -5,9 +5,12 @@
 $packageId = $_REQUEST['package_id'] ?? "1";
 print $packageId."\n";
 
+$captainID = $_REQUEST['captain_id'] ?? "1";
+print $captainID."\n";
 
-require "./backend/mysql_connector.php";
-//require "./mysql_connector.php";
+
+//require "./backend/mysql_connector.php";
+require "./mysql_connector.php";
 
 //*********PACKAGE INFO*****************
 function getPackageInfo($con, $packageId) {
@@ -131,6 +134,32 @@ $info_cp = getCaptainPackage($con, $packageId);
 foreach ($info_cp as $row) {
   //echo $row['captain_name'] . "\n";
 }
+
+
+
+
+
+//**********CAPTAIN BY ID*************
+function getCaptainInfo($con, $captainID) {
+
+    // Query pertama untuk mendapatkan captain info
+    $query_1 = "SELECT * FROM 02_captain WHERE captain_id = ?;";
+
+    $stmt_1 = mysqli_prepare($con, $query_1);
+    mysqli_stmt_bind_param($stmt_1, 'i', $captainID);
+    mysqli_stmt_execute($stmt_1);
+
+    $result_1 = mysqli_stmt_get_result($stmt_1);
+
+
+    $row_1 = mysqli_fetch_assoc($result_1);
+    mysqli_stmt_close($stmt_1);
+    return $row_1;
+   
+}
+
+$captainInfo = getCaptainInfo($con, $captainID);
+print_r($captainInfo);
 
 ?>
 </pre>

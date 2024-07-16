@@ -12,5 +12,9 @@
   <link rel="stylesheet" href="./assets/css/calendar.css">
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-
+<style>
+  .leaflet-routing-container {
+    display: none;
+  }
+</style>
 <body class="bg-light">
